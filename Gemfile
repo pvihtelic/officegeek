@@ -1,6 +1,11 @@
 source 'https://rubygems.org'
 gem 'rails', '3.2.8'
-gem 'sqlite3'
+group :development, :test do
+  gem 'sqlite3'
+end
+group :production do
+  gem 'pg'
+end
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
@@ -29,3 +34,4 @@ gem "hominid"
 gem "google_visualr", ">= 2.1.2"
 gem "jquery-datatables-rails", ">= 1.10.0"
 gem "devise_invitable"
+gem "heroku"
