@@ -1,8 +1,10 @@
-Officegeek::Application.routes.draw do
+RailsPrelaunchSignup::Application.routes.draw do
   authenticated :user do
     root :to => 'home#index'
   end
-  root :to => "home#index"
-  devise_for :users
+  devise_scope :user do
+    root :to => "devise/registrations#new"
+  end
+  devise_for :users, :controllers => { :registrations => "registrations" }
   resources :users
 end
