@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Officegeek" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "OfficeGeek" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Officegeek" %>">
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
@@ -12,7 +12,7 @@
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 
     <!-- LINK PAGE SCROLLER PRO JS FILE -->
-    <script type="text/javascript" src="./jquery.pagescroller.lite.js"></script>
+    <script type="text/javascript" src="/assets/jquery.pagescroller.lite.js"></script>
     <!-- / -->
 
     <script type="text/javascript">
@@ -20,7 +20,7 @@
     $(document).ready(function(){
       
       // initiate page scroller plugin
-      $('body').pageScroller({
+      $('#wrapper').pageScroller({
         navigation: '#nav'
       });
             
