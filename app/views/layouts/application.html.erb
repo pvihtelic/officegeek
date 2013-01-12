@@ -23,7 +23,11 @@
       $('#wrapper').pageScroller({
         navigation: '#nav'
       });
-            
+
+      $('#next0').click(function() {
+        $('#next1').click()
+      });
+
     });
       
     </script>
@@ -38,12 +42,12 @@
       </nav>
     </header>
     <div id="main" role="main">
-      <div class="container">
+      
         <%= render 'layouts/messages' %>
         <%= yield %>
         <footer>
         </footer>
-      </div> <!--! end of .container -->
+      
     </div> <!--! end of #main -->
   </body>
 </html>

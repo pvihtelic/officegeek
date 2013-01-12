@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="span12">
+  
   <div id="request-invite" class="modal" style="display: <%= @user.errors.any? ? 'block' : 'none';%>">
     <%= simple_form_for resource, :as => resource_name, :url => registration_path(resource_name) , :html => {:class => 'form-horizontal' } do |f| %>
       <div class="modal-header">
@@ -17,63 +17,74 @@
     <% end %>
   </div>
   <div id="wrapper">
-  <div class="section content intro">
+  <div class="section intro">
   <div class="section-title">
     <h1 class="intro logo">OfficeGeek</h1>
     <h3 class="intro">Instructor-led classes covering Microsoft Excel, Word and PowerPoint.</h3>
   </div>
   <div class="section-title">
     <a class="btn btn-primary btn-large" data-toggle="modal" href="#request-invite">Signup For More Information</a>
-  </div>  
+  </div>
+  <div class="section-title next">
+    <%= link_to 'Keep Reading', "#", :id => "next0" %>
+  </div>
 </div>
+  <div class="container">
   <div class="section">
-    <hr align="center">
     <h2>Microsoft Office Courses for Beginners</h2>
     <div class="span3">
-      <h4><%= image_tag("excel-icon.png") %> Excel</h4>
+      <h3><%= image_tag("excel-icon.png") %> Excel</h3>
       <p>Rely on spreadsheets to manage databases, build forms and perform complex computations.  Excel has completely overtaken the corporate world.  It is very complex, with many features and capabilities - knowing how to use it properly can dramatically save time and effort.</p>
     </div>
     <div class="span3 right">
-      <h4><%= image_tag("powerpoint-icon.png") %> PowerPoint</h4>
+      <h3><%= image_tag("powerpoint-icon.png") %> PowerPoint</h3>
       <p>Constructing a professional presentation is critical for effective communication.  We can show you how to easily create PowerPoint presentations with lab work that can be used again for future projects.</p>
     </div>
     <div class="span3 right">
-      <h4><%= image_tag("word-icon.png") %> Word</h4>
+      <h3><%= image_tag("word-icon.png") %> Word</h3>
       <p>It can be a frustrating tool, but it is the most widely used word processor.  Discover how easy Word can be to use with proper instruction.  We can teach you how to navigate Word and create documents with ease.</p>
     </div>
     <div class="span10">
-      <h4>Employee Training</h4>
+      <h3>On-site Employee Training</h3>
       <p>Dramatically increase productivity of employees using Microsoft Office.  We can customize our core curriculum to match an employer's goals and internal processes.  Classes offered on-site or offsite in downtown Chicago.</p>
     </div>
     <div class="span10">
-      <h4>Individual Classes</h4>
+      <h3>Evening Classes</h3>
       <p>Accelerate your career opportunities with training in the most widely used office software suite worldwide.  Learn the basics so you are better prepared for today's modern workforce and to improve your Microsoft Office proficiency.</p>
     </div>
   </div>
-  <div class="section">
-    <hr align="center">
+</div>
+  <div class="section intro">
+    <div class="container">
+    <div class="content">
     <h2>Instructor-Led Curriculum</h2>
     <div class="span10">
-      <h4>Pat Vihtelic, Founder</h4>
+      <h3>Pat Vihtelic, Founder</h3>
       <p>Bio/credentials</p>
     </div>
     <div class="span10">
-    <h4>Curriculum Foundation</h4>
+    <h3>Curriculum Foundation</h3>
     <p>learning on my own growing up, college level, work place, intensive technical school for web development</p>
+  </div>
     </div>
   </div>
+</div>
   <div class="section">
-    <hr align="center">
+    <div class="container">
+    <div class="content">  
     <h2>Additional Information</h2>
     <div class="span10">
-      <h4>Employee Training and Individual Classes</h4>
+      <h3>Employee Training and Individual Classes</h3>
       <p>OfficeGeek offers both employee training and evening classes for individuals looking to sharpen Excel, Word and PowerPoint skills.</p>
-      <h4>Tuition</h4>
+      <h3>Tuition</h3>
       <p>We offer both individual classes that are generally three hours long and more comprehensive packages with multiple classes for a more thorough course.  Classes start at $100 per student.</p>
-      <h4>Contact</h4>
-      <p>Pat Vihtelic</p>
-      <p>patrick.vihtelic@gmail.com</p>
-      <p>+1 574.229.1645</p>
+      <h3>Contact</h3>
+      <p>Pat Vihtelic </br>
+        patrick.vihtelic@gmail.com </br>
+        +1 574.229.1645 </br>
+      </p>
+    </div>
+    </div>
     </div>
     </div>
     </div>

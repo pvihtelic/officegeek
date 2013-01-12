@@ -3,7 +3,7 @@ body { padding-top: 60px; }
 @import "bootstrap-responsive";
 
 body {
-	padding-top: 60px;
+	padding-top: 30px;
 	font-family: 'Open Sans', sans-serif;
 }
 
@@ -23,13 +23,27 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: bold;
 	color: white;
 	font-size: 500%;
-	margin-top: 140px;
+	margin-top: 175px;
 }
 
-.section.content.intro {
+.content {
+	padding-left: 40px;
+	padding-right: 40px;
+}
+
+.section { 
+	min-height: 600px; 
+	padding: 40px;
+}
+
+div.section.intro {
   background: url('pw_maze_black.png');
-  padding: 20px;
   margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
+}
+
+.section-title {
+	text-align: center; 
+	margin-top: 30px;
 }
 
 .navbar .brand {
@@ -62,16 +76,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn {
 	font-family: 'Open Sans', sans-serif;
-}
-
-.section { 
-	min-height: 500px; 
-	padding: 40px;
-}
-
-.section-title {
-	text-align: center; 
-	margin-top: 30px;
 }
 
 .span3.right {
