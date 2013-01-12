@@ -23,7 +23,7 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: bold;
 	color: white;
 	font-size: 500%;
-	margin-top: 175px;
+	margin-top: 150px;
 }
 
 .content {
@@ -44,6 +44,10 @@ div.section.intro {
 .section-title {
 	text-align: center; 
 	margin-top: 30px;
+}
+
+.section-title.next {
+	margin-top: 90px;
 }
 
 .navbar .brand {
@@ -80,4 +84,8 @@ div.section.intro {
 
 .span3.right {
 	padding-left: 60px;
+}
+
+#next2 {
+	margin-top: 30px;
 }
