@@ -34,15 +34,15 @@
     <h2>We Teach <strong>Microsoft Office Courses </strong> for Beginners</h2>
     <div class="span3">
       <h3><%= image_tag("excel-icon.png") %> Excel</h3>
-      <p>Spreadsheets can be used to manage databases, build forms and perform complex computations.  Excel has completely overtaken the corporate world with its powerful toolkit.  Knowing how to use it properly can dramatically save time and effort.</p>
+      <p>Excel has completely overtaken the corporate world with its powerful toolkit.  Knowing how to use it properly can dramatically save time and effort.</p>
     </div>
     <div class="span3 right">
       <h3><%= image_tag("powerpoint-icon.png") %> PowerPoint</h3>
-      <p>Constructing a professional presentation is critical for effective communication.  We can show you how to easily create PowerPoint presentations with lab work that can be used again for future projects.</p>
+      <p>Constructing a professional presentation is critical for effective communication.  Learn to easily create PowerPoint presentations with lab work that can be used again for future projects.</p>
     </div>
     <div class="span3 right">
       <h3><%= image_tag("word-icon.png") %> Word</h3>
-      <p>It can be a frustrating tool, but it is the most widely used word processor.  Discover how easy Word can be to use with proper instruction.  We can teach you how to navigate Word and create documents with ease.</p>
+      <p>Discover how the most widely used word processer can be easy to use with proper instruction.  We can teach you how to navigate Word and create documents effortlessly.</p>
     </div>
     <div class="span10">
       <h3>Employee Training</h3>
@@ -69,14 +69,22 @@
     <h2>Instructor-Led Curriculum</h2>
     <div class="span10">
       <h3>Meet Your Instructor</h3>
-      <p>My name is <strong>Pat Vihtelic</strong> and I'm the founder of OfficeGeek.  I have seen firsthand how important Microsoft Office products can be to productivity.  Hours and resources can be wasted with the wrong approach.  I previously worked at William Blair and Company doing technology investment banking where I relied on Microsoft Office products more than my fair share.  Before that, I peer tutored for the Indiana Unviersity 200 level Excel business honors course, so I became familiar with all Excel had to offer before working with it professionally.  Knowing what Excel is capable of at an early stage in learning helped tremendously with problems I encountered later.</p>
-      <p>I can show you or your employees how to properly use Microsoft Office products with real professional context.  I have trained, tutored and been taught myself.  I try to bring a fresh approach to an often boring topic.  Please feel free to contact me at patrick.vihtelic@gmail.com with any questions.</p>
+      <p>Pat Vihtelic is the chief instructor and founder of OfficeGeek.  He previously worked at William Blair and Company in the technology investment banking group where he relied heavily on Microsoft Office products.  Pat is a graduate of Indiana University and peer tutored for the Kelley School of Business honors Excel course during college.  He is also a recent graduate of Chicago's Starter League, a twelve week program dedicated to teaching web development using Ruby on Rails.</p>
+      <p>Pat can show you or your employees how to properly use Microsoft Office products with real professional context.  He has trained, tutored and been taught himself.  Please feel free to contact him at patrick.vihtelic@gmail.com with any questions.</p>
     </div>
     <div class="span10">
     <h3>Curriculum Foundation</h3>
-    <p>Combination of 1. self taught learning 2. college level courses 3. professional training - concepts borrowed from investment banking 4. technical training - concepts learned at The Starter League.</p>
-  </div>
+    <p>OfficeGeek's curriculum takes a fresh approach to an often dull topic.  We believe students learn best by doing and use real world problems to facilitate learning with a mixture of lecture and in-class labs.</p>
+    <p>We have carefully designed OfficeGeek's curriculum to be as efficient as possible, focusing on the areas most critical to learning Excel, Word and PowerPoint.  Our project-based curriculum borrows the very best concepts from the following key areas:</p> 
+    <ul>
+      <li>Best practices used throughout the business and financial world</li>
+      <li>College and academic studies</li>
+      <li>Technical and professional training</li>
+      <li>Self-taught exploration</li>
+    </ul>
+    <%= link_to 'Keep Reading &#8595;'.html_safe, "#", :id => "next4" %>
     </div>
+  </div>
   </div>
 </div>
   <div class="section">
@@ -87,12 +95,31 @@
       <h3>Employee Training and Individual Classes</h3>
       <p>OfficeGeek offers both employee training and evening classes for individuals looking to sharpen Excel, Word and PowerPoint skills.</p>
       <h3>Tuition</h3>
-      <p>We offer both individual classes that are generally three hours long and more comprehensive packages with multiple classes for a more thorough course.  Classes start at $100 per student.</p>
-      <h3>Contact</h3>
+      <p>Depending on goals, students can opt for individual classes that are generally three hours long or more comprehensive packages consisting of multiple classes for a more thorough program.  Classes start at $100 per student.</p>
+      <h3>Contact OfficeGeek</h3>
       <p>Pat Vihtelic </br>
         patrick.vihtelic@gmail.com </br>
         +1 574.229.1645 </br>
       </p>
+    </div>
+    <div id="request-invite" class="modal" style="display: <%= @user.errors.any? ? 'block' : 'none';%>">
+    <%= simple_form_for resource, :as => resource_name, :url => registration_path(resource_name) , :html => {:class => 'form-horizontal' } do |f| %>
+      <div class="modal-header">
+        <a class="close" data-dismiss="modal">&#215;</a>
+        <h3>Request Additional Information</h3>
+      </div>
+      <div class="modal-body">
+        <%= f.error_notification %>
+        <%= f.input :email, :placeholder => 'user@example.com' %>
+      </div>
+      <div class="modal-footer">
+        <%= f.submit "Signup", :class => "btn btn-primary", :id => 'invitation_button' %>
+        <a class="btn" data-dismiss="modal" href="#">Close</a>
+      </div>
+    <% end %>
+    </div>
+    <div class="section-title end">
+      <a class="btn btn-primary btn-large" data-toggle="modal" href="#request-invite">Signup For More Information</a>
     </div>
     </div>
     </div>

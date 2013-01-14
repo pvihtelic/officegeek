@@ -11,10 +11,15 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: 'Droid Sans', sans-serif;
 }
 
+h2 {
+	margin-bottom: 0;
+	margin-top: 20px;
+}
+
 .intro {
 	color: white;
 	font-family: 'Open Sans', sans-serif;
-	text-shadow: 0 1px 3px rgba(144, 144, 144, .6), 0 0 30px rgba(144, 144, 144, .075);
+	text-shadow: 0 1px 3px rgba(0, 0, 0, .6), 0 0 30px rgba(0, 0, 0, .075);
 	margin-top: 30px;
 }
 
@@ -37,7 +42,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 div.section.intro {
-  background: url('pw_maze_black.png');
+  background: url('wild_oliva.png');
   margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
 }
 
@@ -48,6 +53,10 @@ div.section.intro {
 
 .section-title.next {
 	margin-top: 90px;
+}
+
+.section-title.end {
+	margin-top: 400px;
 }
 
 .navbar .brand {
@@ -82,10 +91,35 @@ div.section.intro {
 	font-family: 'Open Sans', sans-serif;
 }
 
+.span3 {
+	margin-top: 10px;
+}
+
 .span3.right {
 	padding-left: 60px;
 }
 
+#next0:hover {
+	color: white;
+}
+
 #next2 {
 	margin-top: 30px;
+}
+
+.span2 {
+	background: url('pw_maze_black.png');
+	height: 110px;
+	-webkit-border-radius: 3px 3px 3px 3px;
+	-moz-border-radius: 3px 3px 3px 3px;
+	border-radius: 3px 3px 3px 3px;
+}
+
+.span2.concept {
+	margin-left: 80px;
+}
+
+p.curriculum {
+	margin-left: 10px;
+	margin-top: 10px;
 }
