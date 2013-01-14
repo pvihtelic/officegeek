@@ -70,6 +70,13 @@ div.section.intro {
 	-webkit-transition: all .2s linear;
 	-moz-transition: all .2s linear;
 	transition: all .5s linear;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.form-horizontal .control-group {
+	margin-top: 20px;
+	margin-bottom: 10px;
 }
 
 .navbar-inner {
@@ -80,6 +87,11 @@ div.section.intro {
 .navbar .brand:hover {
 	text-shadow: 0 1px 0 rgba(255, 255, 255, .1), 0 0 30px rgba (255, 255, 255, .125);
 	color: #303030;
+}
+
+.navbar .nav {
+	padding-top: 8px;
+	margin-left: 20px;
 }
 
 .navbar .nav > .active > a, .navbar .nav > .active > a:hover {
