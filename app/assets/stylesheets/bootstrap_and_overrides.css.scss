@@ -55,16 +55,18 @@ div.section.intro {
 	margin-top: 90px;
 }
 
-.section-title.end {
-	margin-top: 400px;
+.end {
+	text-align: center;
+	display: block;
+	margin-top: 40px;
 }
 
 .navbar .brand {
 	font-weight: bold;
-	font-size: 210%;
-	color: grey;
+	font-size: 240%;
+	color: black;
 	font-family: 'Droid Sans', sans-serif;
-	text-shadow: 0 1px 1px rgba(248, 248, 248, 1);
+	text-shadow: 0 1px 0 rgba(255, 255, 255, .1), 0 0 30px rgba (255, 255, 255, .125);
 	-webkit-transition: all .2s linear;
 	-moz-transition: all .2s linear;
 	transition: all .5s linear;
@@ -76,8 +78,8 @@ div.section.intro {
 }
 
 .navbar .brand:hover {
-	color: black;
-	text-shadow: 0 1px 1px rgba(248, 248, 248, .9);
+	text-shadow: 0 1px 0 rgba(255, 255, 255, .1), 0 0 30px rgba (255, 255, 255, .125);
+	color: #303030;
 }
 
 .navbar .nav > .active > a, .navbar .nav > .active > a:hover {
