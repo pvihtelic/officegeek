@@ -1,129 +1,281 @@
 <div class="row">
   
-  <div id="request-invite" class="modal" style="display: <%= @user.errors.any? ? 'block' : 'none';%>">
-    <%= simple_form_for resource, :as => resource_name, :url => registration_path(resource_name) , :html => {:class => 'form-horizontal' } do |f| %>
-      <div class="modal-header">
-        <a class="close" data-dismiss="modal">&#215;</a>
-        <h3>Enter Your Email Below</h3>
-      </div>
-      <div class="modal-body">
-        <%= f.error_notification %>
-        <p class="modal-message">Awesome! You have taken your first step toward becoming an OfficeGeek!  Enter your email below for additional information.</p>
-        <%= f.input :email, :placeholder => 'user@example.com' %>
-      </div>
-      <div class="modal-footer">
-        <%= f.submit "Signup", :class => "btn btn-primary", :id => 'invitation_button' %>
-        <a class="btn" data-dismiss="modal" href="#">Close</a>
-      </div>
-    <% end %>
-  </div>
+  <%= render 'devise/registrations/registrationmodal' %>
   <div id="wrapper">
   <div class="section intro">
   <div class="section-title">
-    <h1 class="intro logo">OfficeGeek</h1>
-    <h3 class="intro">Instructor-led classes for Microsoft Excel, Word and PowerPoint.</h3>
+    <h1 class="intro logo">OfficeScholar</h1>
+    <h3 class="intro">Learn Microsoft Excel.  Start for free.</h3>
   </div>
   <div class="section-title">
-    <a class="btn btn-primary btn-large" data-toggle="modal" href="#request-invite">Signup For More Information</a>
+    <a class="btn btn-primary btn-large" data-toggle="modal" href="#request-invite">Sign up for updates</a>
   </div>
   <div class="section-title next">
-    <%= link_to 'Keep Reading &#8595;'.html_safe, "#", :id => "next0" %>
+    <%= link_to 'Get started with our screencast tutorials for free <i class="icon-circle-arrow-down hero-next"></i>'.html_safe, "#", :id => "next1", :class=>"hero-next" %>
   </div>
 </div>
-  <div class="container">
   <div class="section">
-    <h2>We Teach <strong>Microsoft Office Courses </strong> for Beginners</h2>
-    <div class="span3">
-      <h3><%= image_tag("excel-icon.png") %> Excel</h3>
-      <p>Excel has completely overtaken the corporate world with its powerful toolkit.  Knowing how to use it properly can dramatically save time and effort.</p>
+  <div class="container">
+  <div class="content">
+    <h2 class="dark">Our Excel Tutorials</h2>
+    <div class="row">
+      <div class="span11">
+        <h3>Introduction to Excel <small><%= link_to "($9.99 package price)", "/" %></small></h3>
+        <div class="span2 course-summary">
+          <div class="course-container">
+            <h5>Getting Started <small>(FREE!)</small></h5>
+            <ul class="course-intro">
+              <li>Accessing Excel</li>
+              <li>Navigation</li>
+              <li>Ribbon Interface</li>
+              <li><%= link_to "More...", "/" %></li>
+            </ul>
+          </div>
+        </div> 
+        <div class="span2 course-summary">
+          <div class="course-container">
+            <h5>Worksheet Basics <small>(FREE!)</small></h5>
+            <ul class="course-intro">
+              <li>Rows and columns</li>
+              <li>Selecting data</li>
+              <li>Manipulating data</li>
+              <li><%= link_to "More...", "/" %></li>
+            </ul>
+          </div>
+        </div> 
+        <div class="span2 course-summary">
+          <div class="course-container">
+            <h5>Intro to Formulas <small>(FREE!)</small></h5>
+            <ul class="course-intro">
+              <li>Overview and uses</li>
+              <li>Manual calculations</li>
+              <li>Basic formulas</li>
+              <li><%= link_to "More...", "/" %></li>
+            </ul>
+          </div>
+        </div> 
+        <div class="span2 course-summary">
+          <div class="course-container">
+            <h5>Formatting I <small>(FREE!)</small></h5>
+            <ul class="course-intro">
+              <li>Formatting text</li>
+              <li>Formatting cells</li>
+              <li>Alignment</li>
+              <li><%= link_to "More...", "/" %></li>
+            </ul>
+          </div>
+        </div>
+        <div class="span2 course-summary">
+          <div class="course-container">
+            <h5>Intro to Charts <small>($2.99)</small></h5>
+            <ul class="course-intro">
+              <li>Chart types</li>
+              <li>Column charts</li>
+              <li>Pie charts</li>
+              <li><%= link_to "More...", "/" %></li>
+            </ul>
+          </div>
+        </div> 
+        <div class="span2 course-summary">
+          <div class="course-container">
+            <h5>Data Analysis I <small>($2.99)</small></h5>
+            <ul class="course-intro">
+              <li>Sorting</li>
+              <li>Filtering</li>
+              <li>Basic analysis</li>
+              <li><%= link_to "More...", "/" %></li>
+            </ul>
+          </div>
+        </div> 
+        <div class="span2 course-summary">
+          <div class="course-container">
+            <h5>Formulas II <small>($2.99)</small></h5>
+            <ul class="course-intro">
+              <li>Nested IF</li>
+              <li>Vlookup</li>
+              <li>SumIF/CountIF</li>
+              <li><%= link_to "More...", "/" %></li>
+            </ul>
+          </div>
+        </div> 
+        <div class="span2 course-summary">
+          <div class="course-container">
+            <h5>Printing <small>($2.99)</small></h5>
+            <ul class="course-intro">
+              <li>Print preview</li>
+              <li>Print preparation</li>
+              <li>Headers/footers</li>
+              <li><%= link_to "More...", "/" %></li>
+            </ul>
+          </div>
+        </div>  
+      </div>
+    </div>  
+
+    <div class="row">
+      <div class="span11">
+        <h3>Intermediate Tutorials <small><%= link_to "($9.99 package price)", "/" %></small></h3>
+        <div class="span2 course-summary">
+          <div class="course-container">
+            <h5>Pivot Tables <small>($2.99)</small></h5>
+            <ul class="course-intro">
+              <li>Accessing Excel</li>
+              <li>Navigation</li>
+              <li>Ribbon Interface</li>
+              <li><%= link_to "More...", "/" %></li>
+            </ul>
+          </div>
+        </div> 
+        <div class="span2 course-summary">
+          <div class="course-container">
+            <h5>Formulas III <small>($2.99)</small></h5>
+            <ul class="course-intro">
+              <li>Accessing Excel</li>
+              <li>Navigation</li>
+              <li>Ribbon Interface</li>
+              <li><%= link_to "More...", "/" %></li>
+            </ul>
+          </div>
+        </div> 
+        <div class="span2 course-summary">
+          <div class="course-container">
+            <h5>Data Analysis II <small>($2.99)</small></h5>
+            <ul class="course-intro">
+              <li>Accessing Excel</li>
+              <li>Navigation</li>
+              <li>Ribbon Interface</li>
+              <li><%= link_to "More...", "/" %></li>
+            </ul>
+          </div>
+        </div> 
+        <div class="span2 course-summary">
+          <div class="course-container">
+            <h5>Formatting II <small>($2.99)</small></h5>
+            <ul class="course-intro">
+              <li>Accessing Excel</li>
+              <li>Navigation</li>
+              <li>Ribbon Interface</li>
+              <li><%= link_to "More...", "/" %></li>
+            </ul>
+          </div>
+        </div>  
+      </div>
     </div>
-    <div class="span3 right">
-      <h3><%= image_tag("powerpoint-icon.png") %> PowerPoint</h3>
-      <p>Constructing a professional presentation is critical for effective communication.  Learn to easily create PowerPoint presentations with lab work that can be used again for future projects.</p>
+
+    <div class="row">
+    <div class="span11">
+      <h3>Instructor-Led Projects <small><%= link_to "($2.99 each)", "/" %></small></h3>
+      <div class="span2 course-summary">
+        <div class="course-container">
+          <h5>Build a Budget <small>($2.99)</small></h5>
+          <ul class="course-intro">
+              <li>Accessing Excel</li>
+              <li>Navigation</li>
+              <li>Ribbon Interface</li>
+              <li><%= link_to "More...", "/" %></li>
+          </ul>
+        </div>
+      </div> 
+      <div class="span2 course-summary">
+        <div class="course-container">
+          <h5>Valuation Models <small>($2.99)</small></h5>
+          <ul class="course-intro">
+              <li>Financial statements</li>
+              <li>DCF analysis</li>
+              <li>LBO analysis</li>
+              <li><%= link_to "More...", "/" %></li>
+          </ul>
+        </div>
+      </div> 
+      <div class="span2 course-summary">
+        <div class="course-container">
+          <h5>Macros <small>($2.99)</small></h5>
+          <ul class="course-intro">
+              <li>tbd</li>
+              <li>tbd</li>
+              <li>tbd</li>
+              <li><%= link_to "More...", "/" %></li>
+          </ul>
+        </div>
+      </div> 
+      <div class="span2 course-summary">
+        <div class="course-container">
+          <h5>Build a Database <small>($2.99)</small></h5>
+          <ul class="course-intro">
+              <li>Database structure</li>
+              <li>Analytics</li>
+              <li>Pivot tables</li>
+              <li><%= link_to "More...", "/" %></li>
+          </ul>
+        </div>
+      </div>  
     </div>
-    <div class="span3 right">
-      <h3><%= image_tag("word-icon.png") %> Word</h3>
-      <p>Discover how the most widely used word processer can be easy to use with proper instruction.  We can teach you how to navigate Word and create documents effortlessly.</p>
     </div>
-    <div class="span10">
-      <h3>Employee Training</h3>
-      <ul>
-        <li>Increase the productivity of employees that are using Microsoft Office.</li>
-        <li>If desired, we customize our core curriculum to match an employer's goals and internal processes.</li>
-        <li>Classes offered on-site or at our location in downtown Chicago.</li>
-      </ul>
-    </div>
-    <div class="span10">
-      <h3>Evening Classes</h3>
-      <ul>
-        <li>Broaden your career opportunities with training in the most widely used office software suite worldwide.</li>
-        <li>Learn the basics so you are better prepared for today's modern workforce.</li>
-        <li>Classes offered in downtown Chicago during Monday through Thursday and selected Saturday mornings.</li>
-      </ul>
-      <%= link_to 'Keep Reading &#8595;'.html_safe, "#", :id => "next2" %>
-    </div>
+
+
+    
+
+    <div class="span11">
+      <%= link_to 'See how it works <i class="icon-circle-arrow-down hero-next"></i>'.html_safe, "#", :id => "next3", :class=>"hero-next" %>
+    </div>  
+      
   </div>
-</div>
+  </div>
+  </div>
+  
   <div class="section intro">
     <div class="container">
     <div class="content">
-    <h2>Instructor-Led Curriculum</h2>
-    <div class="span10">
-      <h3>Meet Your Instructor</h3>
-      <p>Pat Vihtelic is the chief instructor and founder of OfficeGeek.  He previously worked at William Blair and Company in the technology investment banking group where he relied heavily on Microsoft Office products.  Pat is a graduate of Indiana University and peer tutored for the Kelley School of Business honors Excel course during college.  He is also a graduate of Chicago's Starter League, a twelve week program dedicated to teaching web development using Ruby on Rails.</p>
-      <p>Pat can show you or your employees how to properly use Microsoft Office products with real professional context.  He has trained, tutored and been taught himself.  Please feel free to contact him at <%= mail_to "pat@officegeekchicago.com" %> with any questions.</p>
-    </div>
-    <div class="span10">
-    <h3>Curriculum Foundation</h3>
-    <p>OfficeGeek's curriculum takes a fresh approach to an often dull topic.  We believe students learn best by doing and use real world problems with a mixture of lecture and in-class labs to facilitate learning.</p>
-    <p>We have carefully designed OfficeGeek's curriculum to be as efficient as possible, focusing on the areas most critical to learning Excel, Word and PowerPoint.  Our project-based curriculum borrows the very best concepts from the following key areas:</p> 
-    <ul>
-      <li>Best practices used throughout the business and financial world</li>
-      <li>College and academic studies</li>
-      <li>Technical and professional training</li>
-      <li>Self-taught exploration</li>
-    </ul>
-    <%= link_to 'Keep Reading &#8595;'.html_safe, "#", :id => "next4" %>
+      <h2 class="white">How it Works</h2>
+      <div class="row">
+        <div class="span3 how-it-works">
+          <div class="how-it-works-icons-container">
+            <i class="icon-facetime-video icon-4x"></i>
+          </div>
+          <h3 class="intro multiple-lines">Choose from our collection of Microsoft Excel screencast tutorials.</h3>
+        </div>  
+        <div class="span3 how-it-works">
+          <div class="how-it-works-icons-container">
+            <i class="icon-envelope icon-4x"></i>
+          </div>
+          <h3 class="intro multiple-lines">After paying by credit card or with PayPal, we email you a confirmation and a secure link.</h3>
+        </div>
+        <div class="span3 how-it-works">
+          <div class="how-it-works-icons-container">
+            <i class="icon-cloud-download icon-4x"></i>   
+          </div>
+          <h3 class="intro multiple-lines">Download the tutorial and supporting excel files to any device.</h3>
+        </div>
+      </div>  
+      <div class="next-container">
+      <%= link_to 'Learn more about OfficeScholar <i class="icon-circle-arrow-down hero-next"></i>'.html_safe, "#", :id => "next5", :class=>"hero-next" %>
+      </div>
     </div>
   </div>
-  </div>
+
 </div>
   <div class="section">
     <div class="container">
     <div class="content">  
-    <h2>About</h2>
-    <div class="span10">
-      <h3>Develop Skills that Translate Directly into Productivity</h3>
-      <p>OfficeGeek teaches Microsoft Excel, PowerPoint and Word to improve employee productivity, open career opportunities and make learning essential software as easy as possible.  We lead employee training for groups and offer evening classes in downtown Chicago.  Our curriculum combines principles used by professionals and academics with a project-based approach that produces reusable reference material.  Do not let Microsoft Office slow you down - learn it with OfficeGeek.</p>
-      <h3>Tuition</h3>
-      <p>Students can opt for individual classes that are generally three hours long or more comprehensive packages consisting of multiple classes.  Classes start at $100 per student.</p>
-      <h3>Contact OfficeGeek</h3>
-      <p>Pat Vihtelic, Chief Instructor and Founder </br>
-        <%= mail_to "pat@officegeekchicago.com" %> </br>
-        +1 312.379.9677 </br>
-        Chicago, IL </br>
-      </p>
-    </div>
-    <div class="span10">
-      <div id="request-invite" class="modal" style="display: <%= @user.errors.any? ? 'block' : 'none';%>">
-      <%= simple_form_for resource, :as => resource_name, :url => registration_path(resource_name) , :html => {:class => 'form-horizontal' } do |f| %>
-        <div class="modal-header">
-          <a class="close" data-dismiss="modal">&#215;</a>
-          <h3>Enter Your Email Below</h3>
-        </div>
-        <div class="modal-body">
-          <%= f.error_notification %>
-          <p class="modal-message">Awesome! You have taken your first step toward becoming an OfficeGeek!  Enter your email below for additional information.</p>
-          <%= f.input :email, :placeholder => 'user@example.com' %>
-        </div>
-        <div class="modal-footer">
-          <%= f.submit "Signup", :class => "btn btn-primary", :id => 'invitation_button' %>
-          <a class="btn" data-dismiss="modal" href="#">Close</a>
-        </div>
-      <% end %>
+    <h2 class="dark">About Us</h2>
+    <div class="row">
+      <div class="span11">
+        <h3>We Teach You Excel</h3>
+        <p>OfficeScholar specializes in screencast tutorials for beginner and intermediate Excel users.</p>
+        <p>Our curriculum takes a fresh approach to an often dull topic, combining principles used by business professionals and academics.  We have carefully designed our lessons and projects to be as efficient as possible, focusing on the areas most critical to being productive with Excel.</p>
+        <h3>Meet your Instructor</h3>
+        <p>Pat Vihtelic is the chief instructor and founder of OfficeScholar.  He most recently worked as a technology investment banker for over four years, where he relied heavily on Microsoft Office products.  Pat is a graduate of Indiana University and peer tutored for the Kelley School of Business honors Excel course during college.  He is also a graduate of The Starter League, a Chicago-based program dedicated to teaching web development using Ruby on Rails.</p>
+        <h3>Contact for on-site employee training</h3>
+        <p>Pat Vihtelic, Chief Instructor and Founder </br>
+          <%= mail_to "pat@officescholar.com" %> </br>
+          +1 312.379.9677 </br>
+          Chicago, IL </br>
+        </p>
       </div>
+    </div>  
+    <div class="span11">
         <div class="end">
-          <a class="btn btn-primary btn-large" data-toggle="modal" href="#request-invite">Signup For More Information</a>
+          <a class="btn btn-primary btn-large" data-toggle="modal" href="#request-invite">Sign up for updates </a>
         </div>
       </div>  
     </div>

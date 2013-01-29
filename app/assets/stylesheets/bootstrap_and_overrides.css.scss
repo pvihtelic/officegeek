@@ -2,6 +2,10 @@
 body { padding-top: 60px; }
 @import "bootstrap-responsive";
 
+a {
+	color: #3399FF;
+}
+
 body {
 	padding-top: 30px;
 	font-family: 'Open Sans', sans-serif;
@@ -23,6 +27,18 @@ h2 {
 	margin-top: 30px;
 }
 
+h3.intro {
+	font-family: 'Droid Sans', sans-serif;
+	font-weight: normal;	
+}
+
+h3.intro.multiple-lines{
+	font-family: 'Droid Sans', sans-serif;
+	line-height: 30px;
+	font-weight: normal;
+	font-size: 160%;	
+}
+
 .intro.logo {
 	font-family: 'Droid Sans', sans-serif;
 	font-weight: bold;
@@ -32,12 +48,13 @@ h2 {
 }
 
 .content {
-	padding-left: 40px;
-	padding-right: 40px;
+	padding-left: 20px;
+	padding-right: 20px;
 }
 
 .section { 
-	min-height: 600px; 
+	min-height: 600px;
+	background: url('subtle_freckles.png'); 
 	padding: 40px;
 }
 
@@ -91,13 +108,28 @@ div.section.intro {
 
 .navbar .nav {
 	padding-top: 8px;
-	margin-left: 20px;
+	margin-left: 5px;
+}
+
+.navbar .nav > li > a {
+	color: black;
+	font-weight: normal;
+}
+
+.navbar .nav > li > a:hover {
+	color: grey;
+	
 }
 
 .navbar .nav > .active > a, .navbar .nav > .active > a:hover {
 	background-color: white;
 	-webkit-box-shadow: none;
 	box-shadow: none;
+	font-weight: bold;
+}
+
+.navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus {
+	color: black;
 	font-weight: bold;
 }
 
@@ -113,24 +145,12 @@ div.section.intro {
 	padding-left: 60px;
 }
 
-#next0:hover {
+#next1:hover {
 	color: white;
 }
 
-#next4:hover {
+#next5:hover {
 	color: white;
-}
-
-#next2 {
-	margin-top: 30px;
-}
-
-.span2 {
-	background: url('pw_maze_black.png');
-	height: 110px;
-	-webkit-border-radius: 3px 3px 3px 3px;
-	-moz-border-radius: 3px 3px 3px 3px;
-	border-radius: 3px 3px 3px 3px;
 }
 
 .span2.concept {
@@ -140,4 +160,151 @@ div.section.intro {
 p.curriculum {
 	margin-left: 10px;
 	margin-top: 10px;
+}
+
+.modal-form-container {
+	width: 100px;
+}
+
+.form-horizontal .controls {
+	margin-left: 0;
+}
+
+.modal-message {
+	margin-top: 17px;
+}
+
+.modal-body {
+	padding: 0 15px 15px 15px;
+}
+
+form {
+	margin: 0;
+}
+
+.span2.signup {
+	width: 200px;
+}
+
+.span2.signup.right {
+	margin-left: 40px;
+}
+
+.span2.course-summary {
+	margin-bottom: 20px;
+	background: white;
+	width: 190px;
+	height: 140px;
+	border-radius:4px;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border: 2px solid #ddd;
+	border-bottom-color: #eee;
+	border-right-color: #eee;
+}
+
+.span2.course-summary:hover {
+	border: 2px solid #eee;
+	border-bottom-color: #ddd;
+	border-right-color: #ddd;
+	background-color: #eee;
+}
+
+.course-container {
+	padding: 5px;
+}
+
+.hero-next {
+	font-size: 150%;
+}
+
+.hero-next:hover {
+	text-decoration: none;
+}
+
+h2.dark {
+	border-bottom: 1px solid black;
+	margin-top: 40px;
+}
+
+h2.white {
+	border-bottom: 1px solid white;
+	margin-top: 40px;
+}
+
+.span3.how-it-works {
+	width: 260px;
+	height: 300px;
+	margin-right: 20px;
+	text-align: center;
+}
+
+.how-it-works-icons-container {
+	margin-top: 80px;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+	height: 100px;
+	border: 5px solid white;
+	border-radius: 50%;
+	width: 45%;
+	color: white;
+}
+
+.how-it-works-icons-container:hover {
+	color: grey;
+	border: 5px solid grey;
+}
+
+.icon-facetime-video.icon-4x {
+	margin-top: 30px;
+	margin-right: 10px;
+	background-image: none;
+	width: 50px;
+	height: 40px;
+	line-height: 40px;
+}
+
+.icon-envelope.icon-4x {
+	margin-top: 30px;
+	margin-right: 10px;
+	background-image: none;
+	width: 50px;
+	height: 40px;
+	line-height: 40px;
+}
+
+.icon-cloud-download.icon-4x {
+	margin-top: 30px;
+	margin-right: 10px;
+	background-image: none;
+	width: 50px;
+	height: 40px;
+	line-height: 40px;
+}
+
+.next-container {
+	margin-top: 150px;
+}
+
+ul.course-intro {
+	margin: 0 0 0 20px;
+	text-align: left;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	background-image: none;
+}
+
+.footer-container {
+	border-top: 5px solid grey;
+	height: 80px;
+}
+
+li.footer-list {
+	vertical-align: middle;
+	line-height: 80px;
+	display: inline;
+	list-type: none;
+	padding-left: 15px;
 }

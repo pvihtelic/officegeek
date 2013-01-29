@@ -2,13 +2,14 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "OfficeGeek" %></title>
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Officegeek" %>">
+    <title><%= content_for?(:title) ? yield(:title) : "OfficeScholar" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "OfficeScholar" %>">
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../font-awesome.css">
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 
     <!-- LINK PAGE SCROLLER PRO JS FILE -->
@@ -24,16 +25,16 @@
         navigation: '#nav'
       });
 
-      $('#next0').click(function() {
-        $('#next1').click()
+      $('#next1').click(function() {
+        $('#next2').click()
       });
 
-      $('#next2').click(function() {
-        $('#next3').click()
+      $('#next3').click(function() {
+        $('#next4').click()
       });
 
-      $('#next4').click(function() {
-        $('#next5').click()
+      $('#next5').click(function() {
+        $('#next6').click()
       });
 
     });
@@ -71,6 +72,12 @@
         <%= render 'layouts/messages' %>
         <%= yield %>
         <footer>
+          <div class="footer-container">
+            <ul>
+              <li class="footer-list">&#169; OfficeScholar, 2013.  Some rights reserved.</li>
+              <li class="footer-list"><%= link_to "FAQ", "/" %></li>
+            </ul>
+          </div>
         </footer>
       
     </div> <!--! end of #main -->
