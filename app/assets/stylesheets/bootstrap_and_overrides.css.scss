@@ -191,20 +191,16 @@ form {
 }
 
 .span2.course-summary {
+	margin-left: 10px;
 	margin-bottom: 20px;
-	background: white;
-	width: 190px;
-	height: 140px;
-	border-radius:4px;
-	-moz-border-radius:4px;
-	-webkit-border-radius:4px;
-	border: 2px solid #ddd;
-	border-bottom-color: #eee;
-	border-right-color: #eee;
+	width: 195px;
+	height: 150px;
 }
 
 .span2.course-summary:hover {
-	border: 2px solid #eee;
+	border-radius:10px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
 	border-bottom-color: #ddd;
 	border-right-color: #ddd;
 	background-color: #eee;
@@ -297,7 +293,7 @@ ul.course-intro {
 }
 
 .footer-container {
-	border-top: 5px solid grey;
+	border-top: 2px solid grey;
 	height: 80px;
 }
 
@@ -307,4 +303,22 @@ li.footer-list {
 	display: inline;
 	list-type: none;
 	padding-left: 15px;
+}
+
+.course-summary-list {
+	list-style-type: none;
+	display: inline;
+}
+
+.course-summary-tutorial-title {
+	font-weight: bold;
+	font-family: 'Droid Sans', sans-serif;
+}
+
+.course-summary-topics {
+	list-style-type: square;
+}
+
+.tutorial-summary-title {
+	margin-bottom: 2px;
 }
