@@ -3,7 +3,27 @@ body { padding-top: 60px; }
 @import "bootstrap-responsive";
 
 a {
-	color: #3399FF;
+	color: #4876FF;
+	font-weight: normal;
+}
+
+a.link-tutorial-summary-title {
+	color: #333333;
+	font-weight: normal;
+}
+
+a.price-link-tutorial-summary-title {
+	color: #777777;
+	font-weight: normal;
+}
+
+a:hover {
+	color: #4876FF;
+	text-decoration: none;
+	-webkit-transition: all 0.2s ease-in-out;
+	-moz-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
 }
 
 body {
@@ -13,6 +33,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Droid Sans', sans-serif;
+	margin-bottom: 0px;
 }
 
 h2 {
@@ -191,19 +212,53 @@ form {
 }
 
 .span2.course-summary {
-	margin-left: 10px;
-	margin-bottom: 20px;
-	width: 195px;
+	margin-left: 9px;
+	margin-bottom: 9px;
+	background: white;
+	width: 204px;
 	height: 150px;
+	border-radius:10px;
+	-moz-border-radius:10px;
+}
+
+.span4.show-content {
+	padding-top: 50px;
+	padding-right: 5px;
+	padding-bottom: 10px;
+	padding-left: 5px;
+	vertical-align: middle;
+	margin-left: 0;
+	margin-right: 30px;
+	margin-bottom: 20px;
+	width: 250px;
+	height: 250px;
+	background: rgba(0, 0, 0, 0.13);
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	box-shadow: 0px 1px 0px white, inset 0px 0px 0px 1px rgba(0, 0, 0, 0.19), 0px 0px 5px 0px rgba(255, 255, 255, 0.34), inset 0px 2px 10px 0px rgba(0, 0, 0, 0.32);
+	-moz-box-shadow: 0px 1px 0px white, inset 0px 0px 0px 1px rgba(0, 0, 0, 0.19), 0px 0px 5px 0px rgba(255, 255, 255, 0.34), inset 0px 2px 10px 0px rgba(0, 0, 0, 0.32);
+	-webkit-box-shadow: 0px 1px 0px white, inset 0px 0px 0px 1px rgba(0, 0, 0, 0.19), 0px 0px 5px 0px rgba(255, 255, 255, 0.34), inset 0px 2px 10px 0px rgba(0, 0, 0, 0.32);
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+	color: rgba(0, 0, 0, 0.62);
+	text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.56);
+}
+
+.span7 {
+	
 }
 
 .span2.course-summary:hover {
 	border-radius:10px;
 	-moz-border-radius:10px;
 	-webkit-border-radius:10px;
-	border-bottom-color: #ddd;
-	border-right-color: #ddd;
 	background-color: #eee;
+}
+
+ul {
+	margin: 0 0 0px 5px;
 }
 
 .course-container {
@@ -221,6 +276,19 @@ form {
 h2.dark {
 	border-bottom: 1px solid black;
 	margin-top: 40px;
+}
+
+h2.dark.show {
+	margin-bottom: 40px;
+}
+
+a.anchor-navigation {
+	color: #333333;
+	font-weight: bold;
+}
+
+a.anchor-navigation.white {
+	color: white;
 }
 
 h2.white {
@@ -321,4 +389,20 @@ li.footer-list {
 
 .tutorial-summary-title {
 	margin-bottom: 2px;
+}
+
+.span11.link-to-next {
+	margin-top: 20px;
+}
+
+ul.topic-list {
+	margin-left: 20px;
+}
+
+.tutorial-show-text {
+	font-weight: normal;
+}
+
+.tutorial-show-text.bottom {
+	margin-bottom: 70px;
 }

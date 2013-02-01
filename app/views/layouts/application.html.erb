@@ -16,6 +16,8 @@
     <script type="text/javascript" src="/assets/jquery.pagescroller.lite.js"></script>
     <!-- / -->
 
+    <% if @home_banner %>
+
     <script type="text/javascript">
     
     $(document).ready(function(){
@@ -25,21 +27,29 @@
         navigation: '#nav'
       });
 
-      $('#next1').click(function() {
+      $('#next1').click(function(e) 
+      {
         $('#next2').click()
+          e.preventDefault();
       });
 
-      $('#next3').click(function() {
+      $('#next3').click(function(e) 
+      {
         $('#next4').click()
+          e.preventDefault();
       });
 
-      $('#next5').click(function() {
+      $('#next5').click(function(e) 
+      {
         $('#next6').click()
+          e.preventDefault();
       });
 
     });
       
     </script>
+
+    <% end %>
 
     <script type="text/javascript">
 

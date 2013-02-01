@@ -1,18 +1,39 @@
 <%= link_to "OfficeScholar", root_path, :class => 'brand' %>
 
-<div id="nav" class="pageScrollerNav standardNav right dark">
-<ul class="nav">
-    <li>
-    <%= link_to '', "", :id => "next0" %>
-    </li>
-    <li>
-    <%= link_to 'Our Excel Tutorials', "#", :id => "next2" %>
-    </li>
-    <li>
-    <%= link_to 'How it Works', "#", :id => "next4" %>
-    </li>
-    <li>
-    <%= link_to 'About', "#", :id => "next6" %>
-    </li>
-</ul>
-</div>
+<% if @home_banner %>
+
+    <div id="nav" class="pageScrollerNav standardNav right dark">
+    <ul class="nav">
+        <li>
+        <%= link_to '', "", :id => "next0" %>
+        </li>
+        <li>
+        <%= link_to 'Our Excel Tutorials', "#", :id => "next2" %>
+        </li>
+        <li>
+        <%= link_to 'How it Works', "#", :id => "next4" %>
+        </li>
+        <li>
+        <%= link_to 'About', "#", :id => "next6" %>
+        </li>
+    </ul>
+    </div>
+
+<% else %>    
+
+    <ul class="nav">
+        <li>
+        <%= link_to '' %>
+        </li>
+        <li>
+        <%= link_to 'Our Excel Tutorials', root_path(:controller => "home", :anchor => "our-excel-tutorials") %>
+        </li>
+        <li>
+        <%= link_to 'How it Works', root_path(:controller => "home", :anchor => "how-it-works") %>
+        </li>
+        <li>
+        <%= link_to 'About', root_path(:controller => "home", :anchor => "about") %>
+        </li>
+    </ul>   
+
+<% end %>    

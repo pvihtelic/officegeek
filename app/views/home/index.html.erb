@@ -17,21 +17,21 @@
   <div class="section">
   <div class="container">
   <div class="content">
-    <h2 class="dark">Our Excel Tutorials</h2>
+    <h2 class="dark"><a name="our-excel-tutorials" class="anchor-navigation">Our Excel Tutorials</a></h2>
+
     <div class="row">
       <div class="span11">
-        <h3>Introduction to Excel <small><%= link_to "($9.99 package price)", "/" %></small></h3>
-        
+        <h3><%= link_to "Introduction to Excel", package_url(1), :class => "link-tutorial-summary-title" %> <small><%= link_to "#{@packages[0].tutorials.count} lessons | 3 hrs. | #{number_to_currency(@packages[0].price)}", package_url(1) %></small></h3>
         <ul>
         <% @intro_tutorials.each do |intro_tutorial| %>
         <li class="course-summary-list">
 	        <div class="span2 course-summary">
 	          <div class="course-container">
-	            <h4 class="tutorial-summary-title"><%= intro_tutorial.title %></br><small>
+	            <h4 class="tutorial-summary-title"><%= link_to "#{intro_tutorial.title}", tutorial_url(intro_tutorial.id), :class => "link-tutorial-summary-title" %></br><small>
 	            <% if intro_tutorial.price>0 %>
-	            	<%= intro_tutorial.price %>
+	            	<%= link_to "#{number_to_currency(intro_tutorial.price)}", tutorial_url(intro_tutorial.id), :class => "price-link-tutorial-summary-title" %>
 	            <% else %>
-	            	<%= "(FREE!)" %>
+	            	<%= link_to "(FREE!)", tutorial_url(intro_tutorial.id), :class => "price-link-tutorial-summary-title" %>
 	            <% end %>
 	            </small></h4>
 	            <ul class="course-intro">
@@ -50,7 +50,7 @@
 	              	<%= intro_tutorial.topics[2].title %>
 	              	<% end %>
 	              </li>
-	              <li class="course-summary-topics"><%= link_to "More...", "/" %></li>
+	              <li class="course-summary-topics"><%= link_to "More...", tutorial_url(intro_tutorial.id) %></li>
 	            </ul>
 	          </div>
 	        </div>
@@ -63,111 +63,52 @@
 	        
         
 
-    <div class="row">
+  <div class="row">
       <div class="span11">
-        <h3>Intermediate Tutorials <small><%= link_to "($9.99 package price)", "/" %></small></h3>
-        <div class="span2 course-summary">
-          <div class="course-container">
-            <h5>Pivot Tables <small>($2.99)</small></h5>
-            <ul class="course-intro">
-              <li>Accessing Excel</li>
-              <li>Navigation</li>
-              <li>Ribbon Interface</li>
-              <li><%= link_to "More...", "/" %></li>
-            </ul>
+        <h3><%= link_to "Intermediate Excel", package_url(1), :class => "link-tutorial-summary-title" %> <small><%= link_to "#{@packages[0].tutorials.count} lessons | 3 hrs. | #{number_to_currency(@packages[0].price)}", package_url(1) %></small></h3>
+        <ul>
+        <% @intermediate_tutorials.each do |intermediate_tutorial| %>
+        <li class="course-summary-list">
+          <div class="span2 course-summary">
+            <div class="course-container">
+              <h4 class="tutorial-summary-title"><%= link_to "#{intermediate_tutorial.title}", tutorial_url(intermediate_tutorial.id), :class => "link-tutorial-summary-title" %></br><small>
+              <% if intermediate_tutorial.price>0 %>
+                <%= link_to "#{number_to_currency(intermediate_tutorial.price)}", tutorial_url(intermediate_tutorial.id), :class => "price-link-tutorial-summary-title" %>
+              <% else %>
+                <%= link_to "(FREE!)", tutorial_url(intermediate_tutorial.id), :class => "price-link-tutorial-summary-title" %>
+              <% end %>
+              </small></h4>
+              <ul class="course-intro">
+                <li class="course-summary-topics">
+                  <% if !intermediate_tutorial.topics.first.nil? %>
+                  <%= intermediate_tutorial.topics.first.title %>
+                  <% end %>
+                </li>
+                <li class="course-summary-topics">
+                  <% if !intermediate_tutorial.topics[1].nil? %>
+                  <%= intermediate_tutorial.topics[1].title %>
+                  <% end %>
+                </li>
+                <li class="course-summary-topics">
+                  <% if !intermediate_tutorial.topics[2].nil? %>
+                  <%= intermediate_tutorial.topics[2].title %>
+                  <% end %>
+                </li>
+                <li class="course-summary-topics"><%= link_to "More...", tutorial_url(intermediate_tutorial.id) %></li>
+              </ul>
+            </div>
           </div>
-        </div> 
-        <div class="span2 course-summary">
-          <div class="course-container">
-            <h5>Formulas III <small>($2.99)</small></h5>
-            <ul class="course-intro">
-              <li>Accessing Excel</li>
-              <li>Navigation</li>
-              <li>Ribbon Interface</li>
-              <li><%= link_to "More...", "/" %></li>
-            </ul>
-          </div>
-        </div> 
-        <div class="span2 course-summary">
-          <div class="course-container">
-            <h5>Data Analysis II <small>($2.99)</small></h5>
-            <ul class="course-intro">
-              <li>Accessing Excel</li>
-              <li>Navigation</li>
-              <li>Ribbon Interface</li>
-              <li><%= link_to "More...", "/" %></li>
-            </ul>
-          </div>
-        </div> 
-        <div class="span2 course-summary">
-          <div class="course-container">
-            <h5>Formatting II <small>($2.99)</small></h5>
-            <ul class="course-intro">
-              <li>Accessing Excel</li>
-              <li>Navigation</li>
-              <li>Ribbon Interface</li>
-              <li><%= link_to "More...", "/" %></li>
-            </ul>
-          </div>
-        </div>  
-      </div>
-    </div>
-
-    <div class="row">
-    <div class="span11">
-      <h3>Instructor-Led Projects <small><%= link_to "($2.99 each)", "/" %></small></h3>
-      <div class="span2 course-summary">
-        <div class="course-container">
-          <h5>Build a Budget <small>($2.99)</small></h5>
-          <ul class="course-intro">
-              <li>Accessing Excel</li>
-              <li>Navigation</li>
-              <li>Ribbon Interface</li>
-              <li><%= link_to "More...", "/" %></li>
-          </ul>
-        </div>
-      </div> 
-      <div class="span2 course-summary">
-        <div class="course-container">
-          <h5>Valuation Models <small>($2.99)</small></h5>
-          <ul class="course-intro">
-              <li>Financial statements</li>
-              <li>DCF analysis</li>
-              <li>LBO analysis</li>
-              <li><%= link_to "More...", "/" %></li>
-          </ul>
-        </div>
-      </div> 
-      <div class="span2 course-summary">
-        <div class="course-container">
-          <h5>Macros <small>($2.99)</small></h5>
-          <ul class="course-intro">
-              <li>tbd</li>
-              <li>tbd</li>
-              <li>tbd</li>
-              <li><%= link_to "More...", "/" %></li>
-          </ul>
-        </div>
-      </div> 
-      <div class="span2 course-summary">
-        <div class="course-container">
-          <h5>Build a Database <small>($2.99)</small></h5>
-          <ul class="course-intro">
-              <li>Database structure</li>
-              <li>Analytics</li>
-              <li>Pivot tables</li>
-              <li><%= link_to "More...", "/" %></li>
-          </ul>
-        </div>
-      </div>  
-    </div>
-    </div>
+          <% end %> 
+      </li>
+    </ul>
+  </div>
+  </div>
 
 
     
 
-    <div class="span11">
-      <%= link_to 'See how it works <i class="icon-circle-arrow-down hero-next"></i>'.html_safe, "#", :id => "next3", :class=>"hero-next" %>
+    <div class="span11 link-to-next">
+      <%= link_to 'See how it works <i class="icon-circle-arrow-down hero-next"></i>'.html_safe, "#", :id => "next3", :class=>"hero-next link-how-it-works" %>
     </div>  
       
   </div>
@@ -177,7 +118,7 @@
   <div class="section intro">
     <div class="container">
     <div class="content">
-      <h2 class="white">How it Works</h2>
+      <h2 class="white"><a name="how-it-works" class="anchor-navigation white">How it Works</a></h2>
       <div class="row">
         <div class="span3 how-it-works">
           <div class="how-it-works-icons-container">
@@ -208,15 +149,15 @@
   <div class="section">
     <div class="container">
     <div class="content">  
-    <h2 class="dark">About Us</h2>
+    <h2 class="dark"><a name="about" class="anchor-navigation">About Us</a></h2>
     <div class="row">
       <div class="span11">
-        <h3>We Teach You Excel</h3>
+        <h3>We Teach You Microsoft Excel</h3>
         <p>OfficeScholar specializes in screencast tutorials for beginner and intermediate Excel users.</p>
         <p>Our curriculum takes a fresh approach to an often dull topic, combining principles used by business professionals and academics.  We have carefully designed our lessons and projects to be as efficient as possible, focusing on the areas most critical to being productive with Excel.</p>
-        <h3>Meet your Instructor</h3>
+        <h3>Meet Your Instructor</h3>
         <p>Pat Vihtelic is the chief instructor and founder of OfficeScholar.  He most recently worked as a technology investment banker for over four years, where he relied heavily on Microsoft Office products.  Pat is a graduate of Indiana University and peer tutored for the Kelley School of Business honors Excel course during college.  He is also a graduate of The Starter League, a Chicago-based program dedicated to teaching web development using Ruby on Rails.</p>
-        <h3>Contact for on-site employee training</h3>
+        <h3>Contact for On-Site Employee Training</h3>
         <p>Pat Vihtelic, Chief Instructor and Founder </br>
           <%= mail_to "pat@officescholar.com" %> </br>
           +1 312.379.9677 </br>

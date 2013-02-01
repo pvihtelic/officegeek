@@ -5,6 +5,8 @@ Officegeek::Application.routes.draw do
 
   resources :packages
 
+  get "/index" => "homes#index", :as=>"index"
+
   authenticated :user do
     root :to => 'home#index'
   end
