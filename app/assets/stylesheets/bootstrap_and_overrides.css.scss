@@ -221,17 +221,23 @@ form {
 	-moz-border-radius:10px;
 }
 
-.span4.show-content {
-	padding-top: 50px;
-	padding-right: 5px;
-	padding-bottom: 10px;
-	padding-left: 5px;
-	vertical-align: middle;
+.span2.course-summary.show-bottom {
+	background: #eee;
+}
+
+.span2.course-summary.show-bottom:hover {
+	background: #ddd;
+}
+
+.span5.show-content, .span4.show-content {
 	margin-left: 0;
-	margin-right: 30px;
-	margin-bottom: 20px;
-	width: 250px;
-	height: 250px;
+	padding-top: 15px;
+	padding-right: 6px;
+	padding-bottom: 15px;
+	padding-left: 15px;
+	margin-right: 10px;
+	width: 490px;
+	height: 385px;
 	background: rgba(0, 0, 0, 0.13);
 	border-radius: 5px;
 	-webkit-border-radius: 5px;
@@ -246,8 +252,9 @@ form {
 	text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.56);
 }
 
-.span7 {
-	
+.span4.show-content {
+	width: 250px;
+	height: 225px;
 }
 
 .span2.course-summary:hover {
@@ -280,6 +287,18 @@ h2.dark {
 
 h2.dark.show {
 	margin-bottom: 40px;
+}
+
+
+
+.dark.show.package {
+	margin-top: 50px;
+	margin-bottom: 20px;
+}
+
+h4.suggested-show {
+	margin-top: 20px;
+	margin-bottom: 15px;
 }
 
 a.anchor-navigation {
@@ -329,7 +348,7 @@ h2.white {
 	line-height: 40px;
 }
 
-.icon-envelope.icon-4x {
+.icon-credit-card.icon-4x {
 	margin-top: 30px;
 	margin-right: 10px;
 	background-image: none;
@@ -361,7 +380,8 @@ ul.course-intro {
 }
 
 .footer-container {
-	border-top: 2px solid grey;
+	color: white;
+	background: url('hexabump.png'); 
 	height: 80px;
 }
 
@@ -391,8 +411,19 @@ li.footer-list {
 	margin-bottom: 2px;
 }
 
+.span11 {
+	margin-left: 30px;
+}
+
 .span11.link-to-next {
+	margin-left: 20px;	
 	margin-top: 20px;
+}
+
+.span3.other-items {
+	margin-bottom: 40px;
+	margin-left: 0;
+	width: 285px;
 }
 
 ul.topic-list {
@@ -401,8 +432,27 @@ ul.topic-list {
 
 .tutorial-show-text {
 	font-weight: normal;
+	margin-top: 0;
 }
 
 .tutorial-show-text.bottom {
-	margin-bottom: 70px;
+	margin-bottom: 10px;
+}
+
+.span3.package-show-button {
+	width: 250px;
+	height: 150px;
+	vertical-align: middle;
+	text-align: center;
+	line-height: 150px;
+}
+
+.span3.show-span3 {
+	width: 290px;
+	margin-top: 0;
+}
+
+.span11.bottom-show-span {
+	margin-top: 40px;
+	border-top: 1px solid black;	
 }

@@ -1,0 +1,59 @@
+<div class="row">
+  	<div class="container">
+      	<div class="span11">
+      		<h2 class="dark show package"><%= @package.title %> (<%= @package.tutorials.count %> Episodes)</h2>
+      		<div class="span3 package-show-button">
+		      	<a class="btn btn-primary btn-large">Buy Package Now</a>
+		    </div>
+		    <div class="span7">
+		    	<h3>Package Description</h3>
+		    	<p><%= @package.description %></p>
+		    	<p> <%= @package.tutorials.count %> Episodes | <%= @package.length %> minutes | <%= number_to_currency(@package.price) %> </p>
+		    </div>  	
+	  	</div>
+	</div>
+</div>
+
+<ul>
+<% @tutorials.each do |tutorial| %>
+	<li class="course-summary-list">
+
+		<div class="row">
+		  <div class="container">
+		      <div class="span11">
+		      	<%= link_to(tutorial_url(tutorial.id), :class => "link-tutorial-summary-title") do %>
+		        <h2 class="dark show">Episode 
+		          <% if tutorial.package.id == 2 %> 
+		              <%= tutorial.id - tutorial.package.tutorials.count %>:
+		            <% else %> 
+		              <%= tutorial.id %>:
+		            <% end %> <%= tutorial.title %></h2>
+		        <% end %>
+		        <div class="span4 show-content">
+		          <h3 class="dark show"><%= tutorial.title %> </h3>
+		          <h4 class="tutorial-show-text"><%= tutorial.length %> minute screencast</h4>
+		          <h4 class="tutorial-show-text bottom">Difficulty: <% if tutorial.package.title == "Introduction to Excel" %>
+		              <%= "Beginner" %>
+		              <% else %>
+		              <%= "Intermediate" %>
+		              <% end %></h4>
+		          <a class="btn btn-primary btn-large">Buy Episode Now</a>
+		        </div> 
+		        <div class="span7">
+		          <h3>Lesson Description</h3>
+		          <p><%= tutorial.description %></p>
+		          <p>Purchase includes screencast and accompanying example Excel files.</p>
+		          <h3>Topics Covered</h3>
+		          <ul class="topic-list">
+		            <% tutorial.topics.each do |topic| %>
+		            <li class="course-summary-topics"><%= topic.title %></li>
+		            <% end %>
+		          </ul>
+		        </div>
+		      </div>
+		  </div>
+		</div>
+
+	</li>
+</ul>
+<% end %>

@@ -1,0 +1,141 @@
+<div class="row">
+  <div class="container">
+    
+      <div class="span11">
+        <h2 class="dark show">Episode 
+          <% if @tutorial.package.id == 2 %> 
+              <%= @tutorial.id - @tutorial.package.tutorials.count %>
+            <% else %> 
+              <%= @tutorial.id %>
+            <% end %> from <%= @tutorial.package.title %></h2>
+        <div class="span5 show-content">
+          <div id="myElement">Loading the player...</div>
+            <script type="text/javascript">
+                $(document).ready(function(){
+                  jwplayer("myElement").setup({
+                      flashplayer: '/jwplayer/player.swf',
+                      height: 270,
+                      width: 480,
+                      'invideous.pid': '96274',
+                      'invideous.video_id': '10053143',
+                      plugins: 'http://plugin.invideous.com/v5/invideous.swf',
+                      file: '/videos/intro_to_excel_getting_started.m4v',
+                      volume: 50,
+                      controlbar: "bottom",
+                  });              
+                });
+            </script>
+          <h3 class="dark show"><%= @tutorial.title %> </h3>
+          <h4 class="tutorial-show-text"><%= @tutorial.length %> minute screencast</h4>
+          <h4 class="tutorial-show-text bottom">Difficulty: <% if @tutorial.package.title == "Introduction to Excel" %>
+              <%= "Beginner" %>
+              <% else %>
+              <%= "Intermediate" %>
+              <% end %></h4>
+          <h4> <%= link_to "Click here to download the Excel support file.", "/excel_files/introduction_to_excel/intro_to_excel_1_getting_started.xlsx", :target => "_blank" %> </h4>
+        </div> 
+        <div class="span3 show-span3">
+          <h3>Lesson Description</h3>
+          <p><%= @tutorial.description %></p>
+          <p>Purchase includes screencast and accompanying example Excel files.</p>
+          <h3>Topics Covered</h3>
+          <ul class="topic-list">
+            <% @tutorial.topics.each do |topic| %>
+            <li class="course-summary-topics"><%= topic.title %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      </div>
+      <div class="row">
+        <div class="container">
+        <div class="span11 bottom-show-span">  
+        <div class="span3 other-items">
+          <h4 class="suggested-show">Next Episode</h4>
+          <div class="span2 course-summary show-bottom">
+            <div class="course-container">
+                <% if !@next_tutorial.nil? %>
+                  <h4 class="tutorial-summary-title"><%= link_to "#{@next_tutorial.title}", tutorial_url(@next_tutorial.id), :class => "link-tutorial-summary-title" %></br><small>
+                  <% if @next_tutorial.price>0 %>
+                    <%= link_to "#{number_to_currency(@next_tutorial.price)}", tutorial_url(@next_tutorial.id), :class => "price-link-tutorial-summary-title" %>
+                  <% else %>
+                    <%= link_to "(FREE!)", tutorial_url(@next_tutorial.id), :class => "price-link-tutorial-summary-title" %>
+                  <% end %>
+                  </small></h4>
+                  <ul class="course-intro">
+                    <li class="course-summary-topics">
+                      <% if !@next_tutorial.topics.first.nil? %>
+                      <%= @next_tutorial.topics.first.title %>
+                      <% end %>
+                    </li>
+                    <li class="course-summary-topics">
+                      <% if !@next_tutorial.topics[1].nil? %>
+                      <%= @next_tutorial.topics[1].title %>
+                      <% end %>
+                    </li>
+                    <li class="course-summary-topics">
+                      <% if !@next_tutorial.topics[2].nil? %>
+                      <%= @next_tutorial.topics[2].title %>
+                      <% end %>
+                    </li>
+                    <li class="course-summary-topics"><%= link_to "More...", tutorial_url(@next_tutorial.id) %></li>
+                  </ul>
+
+                <% end %>  
+              </div>
+          </div>
+          </div>
+          <div class="span3 other-items">
+          <h4 class="suggested-show">Buy the Package</h4>
+          <div class="span2 course-summary show-bottom">
+            <div class="course-container">
+                <h4 class="tutorial-summary-title"><%= link_to "#{@tutorial.package.title}", package_url(@tutorial.package.id), :class => "link-tutorial-summary-title" %></br><small>
+                <% if @tutorial.package.price>0 %>
+                  <%= link_to "#{number_to_currency(@tutorial.package.price)}", package_url(@next_tutorial.id), :class => "price-link-tutorial-summary-title" %>
+                <% else %>
+                  <%= link_to "(FREE!)", package_url(@tutorial.package.id), :class => "price-link-tutorial-summary-title" %>
+                <% end %>
+                </small></h4>
+                <ul class="course-intro">
+                  <li class="course-summary-topics">
+                    <% if !@tutorial.package.tutorials[0].nil? %>
+                    <%= @tutorial.package.tutorials[0].title %>
+                    <% end %>
+                  </li>
+                  <li class="course-summary-topics">
+                    <% if !@tutorial.package.tutorials[1].nil? %>
+                    <%= @tutorial.package.tutorials[1].title %>
+                    <% end %>
+                  </li>
+                  <li class="course-summary-topics">
+                    <% if !@tutorial.package.tutorials[2].nil? %>
+                    <%= @tutorial.package.tutorials[2].title %>
+                      <% end %>
+                  </li>
+                  <li class="course-summary-topics"><%= link_to "More...", package_url(@tutorial.package.id) %></li>
+                </ul>
+              </div>
+          </div>
+        </div>
+        
+        <div class="span3 other-items">
+          <h4 class="suggested-show">What Our Customers Are Saying</h4>
+          
+          <div class="course-container">
+            <blockquote>
+              <p>Was able to get going with Excel faster than I thought.</p>
+              <footer>— Doug, Kansas</footer>
+            </blockquote>
+            <blockquote>
+              <p>So easy!</p>
+              <footer>— Michelle, Florida</footer>
+            </blockquote>
+          </div>  
+          
+        </div>
+        </div>
+        </div>
+    </div>
+    </div>
+  
+</div>

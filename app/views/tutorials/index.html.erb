@@ -1,0 +1,31 @@
+<h1>Listing tutorials</h1>
+
+<table>
+  <tr>
+    <th>Topic</th>
+    <th>Price</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Length</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @tutorials.each do |tutorial| %>
+  <tr>
+    <td><%= tutorial.package_id %></td>
+    <td><%= tutorial.price %></td>
+    <td><%= tutorial.title %></td>
+    <td><%= tutorial.description %></td>
+    <td><%= tutorial.length %></td>
+    <td><%= link_to 'Show', tutorial %></td>
+    <td><%= link_to 'Edit', edit_tutorial_path(tutorial) %></td>
+    <td><%= link_to 'Destroy', tutorial, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Tutorial', new_tutorial_path %>
