@@ -32,13 +32,14 @@
               <% end %> - <%= @tutorial.package.title %></h3>
           </div>
           <div class="download-span-pull-right">      
-            <h4 class="download-show"> <%= link_to "Click Here for the Excel Support File.", "/excel_files/introduction_to_excel/intro_to_excel_1_getting_started.xlsx", :target => "_blank" %> </h4>
+            
           </div>  
         </div>        
         <div class="show-span">
           <div class="description-show-span-pull-left">
             <h3>Description</h3>
             <p><%= @tutorial.description %></p>
+            <p class="download-show"> <%= link_to "Click Here for the Excel Support File.", "/excel_files/introduction_to_excel/intro_to_excel_1_getting_started.xlsx", :target => "_blank" %> </p>
           </div>  
           <div class="topics-span-pull-right">      
             <h3>Topics Covered</h3>
