@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130129194153) do
+ActiveRecord::Schema.define(:version => 20130227164738) do
 
   create_table "packages", :force => true do |t|
     t.decimal  "price"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20130129194153) do
     t.integer  "length"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "video_path"
   end
 
   create_table "users", :force => true do |t|

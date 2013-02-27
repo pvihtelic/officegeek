@@ -1,57 +1,63 @@
 <div class="row">
   <div class="container">
     
-      <div class="span11">
-        <h2 class="dark show">Episode 
-          <% if @tutorial.package.id == 2 %> 
-              <%= @tutorial.id - @tutorial.package.tutorials.count %>
-            <% else %> 
-              <%= @tutorial.id %>
-            <% end %> from <%= @tutorial.package.title %></h2>
-        <div class="span5 show-content">
+      <div class="show-span first-show">
+        <h3 class="dark show top-show"><%= @tutorial.title %> <small>| <%= @tutorial.length %> minute screencast | <% if @tutorial.package.title == "Introduction to Excel" %>
+                <%= "Beginner" %>
+                <% else %>
+                <%= "Intermediate" %>
+                <% end %> </small></h3>
           <div id="myElement">Loading the player...</div>
             <script type="text/javascript">
                 $(document).ready(function(){
                   jwplayer("myElement").setup({
-                      flashplayer: '/jwplayer/player.swf',
-                      height: 270,
-                      width: 480,
+                      players: [{type: "flash", src:'/jwplayer/player.swf'}],
+                      height: 525,
+                      width: 900,
                       'invideous.pid': '96274',
                       'invideous.video_id': '10053143',
                       plugins: 'http://plugin.invideous.com/v5/invideous.swf',
-                      file: '/videos/intro_to_excel_getting_started.m4v',
-                      volume: 50,
+                      file: '<%= @tutorial.video_path %>',
+                      volume: 75,
                       controlbar: "bottom",
                   });              
                 });
             </script>
-          <h3 class="dark show"><%= @tutorial.title %> </h3>
-          <h4 class="tutorial-show-text"><%= @tutorial.length %> minute screencast</h4>
-          <h4 class="tutorial-show-text bottom">Difficulty: <% if @tutorial.package.title == "Introduction to Excel" %>
-              <%= "Beginner" %>
-              <% else %>
-              <%= "Intermediate" %>
-              <% end %></h4>
-          <h4> <%= link_to "Click here to download the Excel support file.", "/excel_files/introduction_to_excel/intro_to_excel_1_getting_started.xlsx", :target => "_blank" %> </h4>
-        </div> 
-        <div class="span3 show-span3">
-          <h3>Lesson Description</h3>
-          <p><%= @tutorial.description %></p>
-          <p>Purchase includes screencast and accompanying example Excel files.</p>
-          <h3>Topics Covered</h3>
-          <ul class="topic-list">
-            <% @tutorial.topics.each do |topic| %>
-            <li class="course-summary-topics"><%= topic.title %></li>
-            <% end %>
-          </ul>
+          <div class="tutorial-show-span-pull-left">
+            <h3 class="dark show below-video">Episode
+              <% if @tutorial.package.id == 2 %> 
+                  #<%= @tutorial.id - @tutorial.package.tutorials.count %>
+                <% else %> 
+                  #<%= @tutorial.id %>
+              <% end %> - <%= @tutorial.package.title %></h3>
+          </div>
+          <div class="download-span-pull-right">      
+            <h4 class="download-show"> <%= link_to "Click Here for the Excel Support File.", "/excel_files/introduction_to_excel/intro_to_excel_1_getting_started.xlsx", :target => "_blank" %> </h4>
+          </div>  
+        </div>        
+        <div class="show-span">
+          <div class="description-show-span-pull-left">
+            <h3>Description</h3>
+            <p><%= @tutorial.description %></p>
+          </div>  
+          <div class="topics-span-pull-right">      
+            <h3>Topics Covered</h3>
+            <ul class="topic-list">
+              <% @tutorial.topics.each do |topic| %>
+              <li class="course-summary-topics"><%= topic.title %></li>
+              <% end %>
+            </ul>
+          </div>  
         </div>
       </div>
       </div>
       <div class="row">
         <div class="container">
-        <div class="span11 bottom-show-span">  
+        <div class="bottom-show-span">  
         <div class="span3 other-items">
-          <h4 class="suggested-show">Next Episode</h4>
+          <%= link_to(tutorial_url(@next_tutorial.id), :class=>"link-tutorial-summary-title") do %>
+            <h4 class="suggested-show">Next Episode</h4>
+          <% end %>  
           <div class="span2 course-summary show-bottom">
             <div class="course-container">
                 <% if !@next_tutorial.nil? %>
@@ -86,7 +92,9 @@
           </div>
           </div>
           <div class="span3 other-items">
-          <h4 class="suggested-show">Buy the Package</h4>
+          <%= link_to(package_url(@tutorial.package.id), :class=>"link-tutorial-summary-title") do %>
+            <h4 class="suggested-show">Check Out The Series</h4>
+          <% end %>  
           <div class="span2 course-summary show-bottom">
             <div class="course-container">
                 <h4 class="tutorial-summary-title"><%= link_to "#{@tutorial.package.title}", package_url(@tutorial.package.id), :class => "link-tutorial-summary-title" %></br><small>

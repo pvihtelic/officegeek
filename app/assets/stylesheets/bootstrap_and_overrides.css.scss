@@ -1,15 +1,16 @@
 @import "bootstrap";
 body { padding-top: 60px; }
-@import "bootstrap-responsive";
+
 
 a {
-	color: #4876FF;
+	color: rgb(51, 51, 51);
 	font-weight: normal;
 }
 
 a.link-tutorial-summary-title {
 	color: #333333;
 	font-weight: normal;
+	vertical-align: middle;
 }
 
 a.price-link-tutorial-summary-title {
@@ -138,20 +139,24 @@ div.section.intro {
 }
 
 .navbar .nav > li > a:hover {
-	color: grey;
+	color: #4876FF;
 	
 }
 
 .navbar .nav > .active > a, .navbar .nav > .active > a:hover {
-	background-color: white;
 	-webkit-box-shadow: none;
 	box-shadow: none;
 	font-weight: bold;
+	outline: 0;
 }
 
 .navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus {
 	color: black;
 	font-weight: bold;
+	outline: 0;
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	background-color: transparent;
 }
 
 .btn {
@@ -274,22 +279,48 @@ ul {
 
 .hero-next {
 	font-size: 150%;
+	color: #4876FF;
 }
 
 .hero-next:hover {
 	text-decoration: none;
+	color: white;
 }
 
-h2.dark {
+.icon-circle-arrow-down {
+	font-size: 150%;
+}
+
+.icon-circle-arrow-down:hover {
+	color: white;
+}
+
+h3.dark {
 	border-bottom: 1px solid black;
 	margin-top: 40px;
 }
 
-h2.dark.show {
-	margin-bottom: 40px;
+h3.dark.package-show {
+	border-bottom: 1px solid black;
+	margin-top: 40px;
+
 }
 
+h3.dark.show {
+	margin-bottom: 10px;
+}
 
+h3.dark.show.below-video {
+	margin-bottom: 0;
+	text-align: bottom;
+	margin-top: 8px;	
+	border: none;
+	line-height: 40px;
+}
+
+h3.dark.show-package {
+	margin-bottom: 30px;
+}
 
 .dark.show.package {
 	margin-top: 50px;
@@ -310,7 +341,7 @@ a.anchor-navigation.white {
 	color: white;
 }
 
-h2.white {
+h3.white {
 	border-bottom: 1px solid white;
 	margin-top: 40px;
 }
@@ -385,9 +416,27 @@ ul.course-intro {
 	height: 80px;
 }
 
+ul.footer-list {
+	padding-top: 20px;
+	padding-bottom: 5px;
+}
+
 li.footer-list {
-	vertical-align: middle;
-	line-height: 80px;
+	display: inline;
+	list-type: none;
+	padding-left: 15px;
+}
+
+.footer-list a {
+	color: #4876FF;
+	padding-left: 0;	
+}
+
+.footer-list a:hover {
+	color: white;
+}
+
+li.footer-list-below {
 	display: inline;
 	list-type: none;
 	padding-left: 15px;
@@ -412,7 +461,7 @@ li.footer-list {
 }
 
 .span11 {
-	margin-left: 30px;
+	margin-left: 22px;
 }
 
 .span11.link-to-next {
@@ -439,6 +488,10 @@ ul.topic-list {
 	margin-bottom: 10px;
 }
 
+.tutorial-show-text.bottom-package {
+	margin-bottom: 55px;
+}
+
 .span3.package-show-button {
 	width: 250px;
 	height: 150px;
@@ -452,7 +505,64 @@ ul.topic-list {
 	margin-top: 0;
 }
 
-.span11.bottom-show-span {
+.bottom-show-span {
+	width: 900px;
 	margin-top: 40px;
 	border-top: 1px solid black;	
+}
+
+.show-package-list {
+	margin-bottom: 50px;
+}
+
+.show-span {
+	width: 900px;
+}
+
+.show-span.first-show {
+	border-bottom: 1px solid black;
+}
+
+.download-show {
+	text-align: right;
+	line-height: 40px;
+	text-align: bottom;
+}
+
+.download-span-pull-right {
+	float: right;
+	width: 300px;
+	line-height: 20px;
+}
+
+.tutorial-show-span-pull-left {
+	float: left;
+	width: 550px;	
+	margin-left: 0;
+	line-height: 20px;
+	text-align: bottom;
+}
+
+.topics-span-pull-right {
+	float: right;
+	width: 400px;
+}
+
+.description-show-span-pull-left {
+	float: left;
+	width: 400px;	
+	margin-left: 0;
+}
+
+#myElement {
+	outline: 0;
+}
+
+.top-show {
+	margin-top: 35px;
+	border-bottom: 1px solid black;
+}
+
+h3.dark.show-package-left {
+	border: none;
 }

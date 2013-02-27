@@ -11,17 +11,19 @@
     <a class="btn btn-primary btn-large" data-toggle="modal" href="#request-invite">Sign up for updates</a>
   </div>
   <div class="section-title next">
-    <%= link_to 'Get started with our screencast tutorials for free <i class="icon-circle-arrow-down hero-next"></i>'.html_safe, "#", :id => "next1", :class=>"hero-next" %>
+    <%= link_to 'Get started with our screencast tutorials for free <i class="icon-circle-arrow-down"></i>'.html_safe, "#", :id => "next1", :class=>"hero-next" %>
   </div>
 </div>
   <div class="section">
   <div class="container">
   <div class="content">
-    <h2 class="dark"><a name="our-excel-tutorials" class="anchor-navigation">Our Excel Tutorials</a></h2>
+    <h3 class="dark"><a name="our-excel-tutorials" class="anchor-navigation">Our Excel Tutorials</a></h3>
 
     <div class="row">
       <div class="span11">
-        <h3><%= link_to "Introduction to Excel", package_url(1), :class => "link-tutorial-summary-title" %> <small><%= link_to "#{@packages[0].tutorials.count} lessons | 3 hrs. | #{number_to_currency(@packages[0].price)}", package_url(1) %></small></h3>
+        <%= link_to(package_url(1), :class => "link-tutorial-summary-title") do %>
+        <h3>Introduction to Excel <small><%= @packages[0].tutorials.count %> lessons | 3 hrs. | <%= number_to_currency(@packages[0].price) %></small></h3>
+        <% end %>
         <ul>
         <% @intro_tutorials.each do |intro_tutorial| %>
         <li class="course-summary-list">
@@ -65,7 +67,9 @@
 
   <div class="row">
       <div class="span11">
-        <h3><%= link_to "Intermediate Excel", package_url(2), :class => "link-tutorial-summary-title" %> <small><%= link_to "#{@packages[1].tutorials.count} lessons | 3 hrs. | #{number_to_currency(@packages[1].price)}", package_url(2) %></small></h3>
+        <%= link_to(package_url(2)) do %>
+          <h3>Intermediate Excel <small><%= @packages[1].tutorials.count %> lessons | 3 hrs. | <%= number_to_currency(@packages[1].price) %></small></h3>
+        <% end %>  
         <ul>
         <% @intermediate_tutorials.each do |intermediate_tutorial| %>
         <li class="course-summary-list">
@@ -108,7 +112,7 @@
     
 
     <div class="span11 link-to-next">
-      <%= link_to 'See how it works <i class="icon-circle-arrow-down hero-next"></i>'.html_safe, "#", :id => "next3", :class=>"hero-next link-how-it-works" %>
+      <%= link_to 'See how it works <i class="icon-circle-arrow-down"></i>'.html_safe, "#", :id => "next3", :class=>"hero-next link-how-it-works" %>
     </div>  
       
   </div>
@@ -118,7 +122,7 @@
   <div class="section intro">
     <div class="container">
     <div class="content">
-      <h2 class="white"><a name="how-it-works" class="anchor-navigation white">How it Works</a></h2>
+      <h3 class="white"><a name="how-it-works" class="anchor-navigation white">How it Works</a></h3>
       <div class="row">
         <div class="span3 how-it-works">
           <div class="how-it-works-icons-container">
@@ -140,7 +144,7 @@
         </div>
       </div>  
       <div class="next-container">
-      <%= link_to 'Learn more about OfficeScholar <i class="icon-circle-arrow-down hero-next"></i>'.html_safe, "#", :id => "next5", :class=>"hero-next" %>
+      <%= link_to 'Learn more about OfficeScholar <i class="icon-circle-arrow-down"></i>'.html_safe, "#", :id => "next5", :class=>"hero-next" %>
       </div>
     </div>
   </div>
@@ -149,7 +153,7 @@
   <div class="section">
     <div class="container">
     <div class="content">  
-    <h2 class="dark"><a name="about" class="anchor-navigation">About</a></h2>
+    <h3 class="dark"><a name="about" class="anchor-navigation">About</a></h3>
     <div class="row">
       <div class="span11">
         <h3>We Teach You Microsoft Excel</h3>

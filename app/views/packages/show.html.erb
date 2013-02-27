@@ -14,46 +14,47 @@
 	</div>
 </div>
 
-<ul>
-<% @tutorials.each do |tutorial| %>
-	<li class="course-summary-list">
+<div class="show-package-list">
+	<ul>
+	<% @tutorials.each do |tutorial| %>
+		<li class="course-summary-list">
 
-		<div class="row">
-		  <div class="container">
-		      <div class="span11">
-		      	<%= link_to(tutorial_url(tutorial.id), :class => "link-tutorial-summary-title") do %>
-		        <h2 class="dark show">Episode 
-		          <% if tutorial.package.id == 2 %> 
-		              <%= tutorial.id - tutorial.package.tutorials.count %>:
-		            <% else %> 
-		              <%= tutorial.id %>:
-		            <% end %> <%= tutorial.title %></h2>
-		        <% end %>
-		        <div class="span4 show-content">
-		          <h3 class="dark show"><%= tutorial.title %> </h3>
-		          <h4 class="tutorial-show-text"><%= tutorial.length %> minute screencast</h4>
-		          <h4 class="tutorial-show-text bottom">Difficulty: <% if tutorial.package.title == "Introduction to Excel" %>
-		              <%= "Beginner" %>
-		              <% else %>
-		              <%= "Intermediate" %>
-		              <% end %></h4>
-		          <a class="btn btn-primary btn-large">Buy Episode Now</a>
-		        </div> 
-		        <div class="span7">
-		          <h3>Lesson Description</h3>
-		          <p><%= tutorial.description %></p>
-		          <p>Purchase includes screencast and accompanying example Excel files.</p>
-		          <h3>Topics Covered</h3>
-		          <ul class="topic-list">
-		            <% tutorial.topics.each do |topic| %>
-		            <li class="course-summary-topics"><%= topic.title %></li>
-		            <% end %>
-		          </ul>
-		        </div>
-		      </div>
-		  </div>
-		</div>
+			<div class="row">
+			  <div class="container">
+			      <div class="span11">
+			      	<%= link_to(tutorial_url(tutorial.id), :class => "link-tutorial-summary-title") do %>
+			        <h3 class="dark show package-show">Episode 
+			          <% if tutorial.package.id == 2 %> 
+			              <%= tutorial.id - tutorial.package.tutorials.count %>:
+			            <% else %> 
+			              <%= tutorial.id %>:
+			            <% end %> <%= tutorial.title %></h3>
+			        <% end %>
+			        <div class="span4 show-content">
+			          <h3 class="dark show-package-left"><%= tutorial.title %> </h3>
+			          <h4 class="tutorial-show-text"><%= tutorial.length %> minute screencast</h4>
+			          <h4 class="tutorial-show-text bottom-package">Difficulty: <% if tutorial.package.title == "Introduction to Excel" %>
+			              <%= "Beginner" %>
+			              <% else %>
+			              <%= "Intermediate" %>
+			              <% end %></h4>
+			          <%= link_to "Watch Now", tutorial_url(tutorial.id), :class => "btn btn-primary btn-large" %>
+			        </div> 
+			        <div class="span7">
+			          <h3>Lesson Description</h3>
+			          <p><%= tutorial.description %></p>
+			          <h3>Topics Covered</h3>
+			          <ul class="topic-list">
+			            <% tutorial.topics.each do |topic| %>
+			            <li class="course-summary-topics"><%= topic.title %></li>
+			            <% end %>
+			          </ul>
+			        </div>
+			      </div>
+			  </div>
+			</div>
 
-	</li>
-</ul>
-<% end %>
+		</li>
+	</ul>
+	<% end %>
+</div>	

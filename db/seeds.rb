@@ -28,22 +28,22 @@ packages = [
 ]
 
 tutorials = [
-	{:package_id => 1, :price => 0, :title => "Getting Started", :description => "First steps to getting started with Microsoft Excel.", :length => 30},
-	{:package_id => 1, :price => 0, :title => "Worksheet Basics", :description => "See how to manipulate data, modify the structure of a worksheet and perform basic tasks to learn the ins and outs of an Excel worksheet, the foundation of the tool.", :length => 30},
-	{:package_id => 1, :price => 0, :title => "Intro to Formulas", :description => "First glimpse into using Excel as a powerful calculator and analysis tool. We begin with manually operations and end with built-in functions.", :length => 30},
-	{:package_id => 1, :price => 0, :title => "Formatting I", :description => "See how to customize the look and feel of your Excel worksheets.", :length => 30},
-	{:package_id => 1, :price => 2.99, :title => "Intro to Charts", :description => "Overview of chart types such as bar charts, pie charts and line graphs.", :length => 30},
-	{:package_id => 1, :price => 2.99, :title => "Data Analyis I", :description => "Learn best practices for data analyses using tools provided by Excel.", :length => 30},
-	{:package_id => 1, :price => 2.99, :title => "Formulas II", :description => "Next step to understanding and applying Excel's wide range of formulas.", :length => 30},
-	{:package_id => 1, :price => 2.99, :title => "Printing", :description => "Everying you need to print an Excel document the way you want it.", :length => 30},
-	{:package_id => 2, :price => 2.99, :title => "Pivot Tables", :description => "Overview and examples provided in this tutorial on Pivot Tables, one of the most widely used data analysis tools in Excel.", :length => 30},
-	{:package_id => 2, :price => 2.99, :title => "Formatting II", :description => "Take your Excel document look and feel to the next level with more advanced formatting.", :length => 30},
-	{:package_id => 2, :price => 2.99, :title => "Data Analysis II", :description => "Extend your data analysis skills with intermediate version of our popular data analysis series.", :length => 30},
-	{:package_id => 2, :price => 2.99, :title => "Formulas III", :description => "Dive into nested IF statements and other complex functions.", :length => 30},
-	{:package_id => 2, :price => 2.99, :title => "Build a Budget", :description => "Pat takes you from start to finish on an example budget, which covers a broad range of Excel skills to master.", :length => 30},
-	{:package_id => 2, :price => 2.99, :title => "Financial Models", :description => "Learn from doing a project involving financial statements.", :length => 30},
-	{:package_id => 2, :price => 2.99, :title => "Intro to Macros", :description => "Beginning automating your tasks with Excel's macros.", :length => 30},
-	{:package_id => 2, :price => 2.99, :title => "Building a Database", :description => "Best practices and considerations when building a database.", :length => 30}
+	{:package_id => 1, :price => 0, :title => "Starting From Scratch", :description => "First steps to getting started with Microsoft Excel.", :length => 18, :video_path => "/videos/intro_to_excel_starting_from_scratch.m4v"},
+	{:package_id => 1, :price => 0, :title => "Worksheets", :description => "See how to manipulate data, modify the structure of a worksheet and perform basic tasks to learn the ins and outs of an Excel worksheet, the foundation of the tool.", :length => 16, :video_path => "/videos/intro_to_excel_worksheets.m4v"},
+	{:package_id => 1, :price => 0, :title => "Intro to Formulas", :description => "First glimpse into using Excel as a powerful calculator and analysis tool. We begin with manually operations and end with built-in functions.", :length => 11, :video_path => "/videos/intro_to_excel_intro_to_formulas.m4v"},
+	{:package_id => 1, :price => 0, :title => "Formatting I", :description => "See how to customize the look and feel of your Excel worksheets.", :length => 14, :video_path => "/videos/intro_to_excel_intro_to_formatting.m4v"},
+	{:package_id => 1, :price => 2.99, :title => "Intro to Charts", :description => "Overview of chart types such as bar charts, pie charts and line graphs.", :length => 30, :video_path => "/videos/intro_to_excel_intro_to_formatting.m4v"},
+	{:package_id => 1, :price => 2.99, :title => "Data Analyis I", :description => "Learn best practices for data analyses using tools provided by Excel.", :length => 30, :video_path => "/videos/intro_to_excel_intro_to_formatting.m4v"},
+	{:package_id => 1, :price => 2.99, :title => "Formulas II", :description => "Next step to understanding and applying Excel's wide range of formulas.", :length => 30, :video_path => "/videos/intro_to_excel_intro_to_formatting.m4v"},
+	{:package_id => 1, :price => 2.99, :title => "Printing", :description => "Everying you need to print an Excel document the way you want it.", :length => 30, :video_path => "/videos/intro_to_excel_intro_to_formatting.m4v"},
+	{:package_id => 2, :price => 2.99, :title => "Pivot Tables", :description => "Overview and examples provided in this tutorial on Pivot Tables, one of the most widely used data analysis tools in Excel.", :length => 30, :video_path => "/videos/intro_to_excel_intro_to_formatting.m4v"},
+	{:package_id => 2, :price => 2.99, :title => "Formatting II", :description => "Take your Excel document look and feel to the next level with more advanced formatting.", :length => 30, :video_path => "/videos/intro_to_excel_intro_to_formatting.m4v"},
+	{:package_id => 2, :price => 2.99, :title => "Data Analysis II", :description => "Extend your data analysis skills with intermediate version of our popular data analysis series.", :length => 30, :video_path => "/videos/intro_to_excel_intro_to_formatting.m4v"},
+	{:package_id => 2, :price => 2.99, :title => "Formulas III", :description => "Dive into nested IF statements and other complex functions.", :length => 30, :video_path => "/videos/intro_to_excel_intro_to_formatting.m4v"},
+	{:package_id => 2, :price => 2.99, :title => "Build a Budget", :description => "Pat takes you from start to finish on an example budget, which covers a broad range of Excel skills to master.", :length => 30, :video_path => "/videos/intro_to_excel_intro_to_formatting.m4v"},
+	{:package_id => 2, :price => 2.99, :title => "Financial Models", :description => "Learn from doing a project involving financial statements.", :length => 30, :video_path => "/videos/intro_to_excel_intro_to_formatting.m4v"},
+	{:package_id => 2, :price => 2.99, :title => "Intro to Macros", :description => "Beginning automating your tasks with Excel's macros.", :length => 30, :video_path => "/videos/intro_to_excel_intro_to_formatting.m4v"},
+	{:package_id => 2, :price => 2.99, :title => "Building a Database", :description => "Best practices and considerations when building a database.", :length => 30, :video_path => "/videos/intro_to_excel_intro_to_formatting.m4v"}
 ]
 
 topics = [
