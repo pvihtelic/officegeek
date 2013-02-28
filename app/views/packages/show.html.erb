@@ -1,15 +1,11 @@
 <div class="row">
   	<div class="container">
       	<div class="span11">
-      		<h2 class="dark show package"><%= @package.title %> (<%= @package.tutorials.count %> Episodes)</h2>
-      		<div class="span3 package-show-button">
-		      	<a class="btn btn-primary btn-large">Buy Package Now</a>
-		    </div>
-		    <div class="span7">
+      		<h3 class="dark show package"><%= @package.title %> <small><%= @package.tutorials.count %> episodes | <%= @package.tutorials.map(&:length).sum %> minutes total</small></h2>
+      		
 		    	<h3>Package Description</h3>
 		    	<p><%= @package.description %></p>
-		    	<p> <%= @package.tutorials.count %> Episodes | <%= @package.length %> minutes | <%= number_to_currency(@package.price) %> </p>
-		    </div>  	
+		    
 	  	</div>
 	</div>
 </div>
@@ -31,7 +27,6 @@
 			            <% end %> <%= tutorial.title %></h3>
 			        <% end %>
 			        <div class="span4 show-content">
-			          <h3 class="dark show-package-left"><%= tutorial.title %> </h3>
 			          <h4 class="tutorial-show-text"><%= tutorial.length %> minute screencast</h4>
 			          <h4 class="tutorial-show-text bottom-package">Difficulty: <% if tutorial.package.title == "Introduction to Excel" %>
 			              <%= "Beginner" %>

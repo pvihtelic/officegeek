@@ -39,7 +39,9 @@
           <div class="description-show-span-pull-left">
             <h3>Description</h3>
             <p><%= @tutorial.description %></p>
-            <p class="download-show"> <%= link_to "Click Here for the Excel Support File.", "/excel_files/introduction_to_excel/intro_to_excel_1_getting_started.xlsx", :target => "_blank" %> </p>
+            <%= link_to("#{@tutorial.excel_path}", :target => "_blank") do %> 
+              <p><i class="icon-cloud-download"></i> Click here for the Excel file used in this episode.</p>
+            <% end %>
           </div>  
           <div class="topics-span-pull-right">      
             <h3>Topics Covered</h3>
@@ -54,21 +56,18 @@
       </div>
       <div class="row">
         <div class="container">
+        <%= link_to(tutorial_url(@next_tutorial.id), :class=>"link-tutorial-summary-title") do %>
         <div class="bottom-show-span">  
+        
         <div class="span3 other-items">
-          <%= link_to(tutorial_url(@next_tutorial.id), :class=>"link-tutorial-summary-title") do %>
-            <h4 class="suggested-show">Next Episode</h4>
-          <% end %>  
+            <h4 class="suggested-show">Next Episode</h4>  
+        <% end %>
           <div class="span2 course-summary show-bottom">
             <div class="course-container">
                 <% if !@next_tutorial.nil? %>
-                  <h4 class="tutorial-summary-title"><%= link_to "#{@next_tutorial.title}", tutorial_url(@next_tutorial.id), :class => "link-tutorial-summary-title" %></br><small>
-                  <% if @next_tutorial.price>0 %>
-                    <%= link_to "#{number_to_currency(@next_tutorial.price)}", tutorial_url(@next_tutorial.id), :class => "price-link-tutorial-summary-title" %>
-                  <% else %>
-                    <%= link_to "(FREE!)", tutorial_url(@next_tutorial.id), :class => "price-link-tutorial-summary-title" %>
-                  <% end %>
-                  </small></h4>
+                  <h4 class="tutorial-summary-title"><%= link_to "#{@next_tutorial.title}", tutorial_url(@next_tutorial.id), :class => "link-tutorial-summary-title" %></br>
+                    <small><%= @next_tutorial.length %> min.</small></h4>
+
                   <ul class="course-intro">
                     <li class="course-summary-topics">
                       <% if !@next_tutorial.topics.first.nil? %>
@@ -86,8 +85,7 @@
                       <% end %>
                     </li>
                     <li class="course-summary-topics"><%= link_to "More...", tutorial_url(@next_tutorial.id) %></li>
-                  </ul>
-
+                  </ul>  
                 <% end %>  
               </div>
           </div>
@@ -98,13 +96,8 @@
           <% end %>  
           <div class="span2 course-summary show-bottom">
             <div class="course-container">
-                <h4 class="tutorial-summary-title"><%= link_to "#{@tutorial.package.title}", package_url(@tutorial.package.id), :class => "link-tutorial-summary-title" %></br><small>
-                <% if @tutorial.package.price>0 %>
-                  <%= link_to "#{number_to_currency(@tutorial.package.price)}", package_url(@next_tutorial.id), :class => "price-link-tutorial-summary-title" %>
-                <% else %>
-                  <%= link_to "(FREE!)", package_url(@tutorial.package.id), :class => "price-link-tutorial-summary-title" %>
-                <% end %>
-                </small></h4>
+                <h4 class="tutorial-summary-title"><%= link_to "#{@tutorial.package.title}", package_url(@tutorial.package.id), :class => "link-tutorial-summary-title" %></br>
+                  <small><%= @tutorial.package.tutorials.map(&:length).sum %> min.</small></h4>
                 <ul class="course-intro">
                   <li class="course-summary-topics">
                     <% if !@tutorial.package.tutorials[0].nil? %>
@@ -132,7 +125,7 @@
           
           <div class="course-container">
             <blockquote>
-              <p>Was able to get going with Excel faster than I thought.</p>
+              <p>I was able to get started with Excel way faster than I thought.</p>
               <footer>— Doug, Kansas</footer>
             </blockquote>
             <blockquote>

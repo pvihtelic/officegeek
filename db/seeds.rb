@@ -23,15 +23,15 @@ Tutorial.destroy_all
 Topic.destroy_all
 
 packages = [ 
-	{:price => 9.99, :title => 'Introduction to Excel', :description => 'This comprehensive, three hour screencast tutorial with numerous template and example Microsoft Excel files gives a Beginner an overview of the most popular business software program in the world. Become productive with Excel after finishing our eight Introduction to Excel lessons, which are approximately 30 minutes each.', :length => 180},
+	{:price => 9.99, :title => 'Introduction to Excel', :description => 'This comprehensive screencast tutorial, with numerous template and example Microsoft Excel files, gives a Beginner an overview of the most popular business software program in the world. Become productive with Excel after finishing our Introduction to Excel lessons, which are approximately 10-20 minutes each.', :length => 180},
 	{:price => 9.99, :title => 'Intermediate Tutorials', :description => 'Take your Excel skills to the next level with these useful lessons.  The tutorial is approximately two hours long, giving you a detailed and easy to follow explanation of complex material.', :length => 120}
 ]
 
 tutorials = [
-	{:package_id => 1, :price => 0, :title => "Starting From Scratch", :description => "First steps to getting started with Microsoft Excel.", :length => 18, :video_path => "/videos/intro_to_excel_starting_from_scratch.m4v"},
-	{:package_id => 1, :price => 0, :title => "Worksheets", :description => "See how to manipulate data, modify the structure of a worksheet and perform basic tasks to learn the ins and outs of an Excel worksheet, the foundation of the tool.", :length => 16, :video_path => "/videos/intro_to_excel_worksheets.m4v"},
-	{:package_id => 1, :price => 0, :title => "Intro to Formulas", :description => "First glimpse into using Excel as a powerful calculator and analysis tool. We begin with manually operations and end with built-in functions.", :length => 11, :video_path => "/videos/intro_to_excel_intro_to_formulas.m4v"},
-	{:package_id => 1, :price => 0, :title => "Formatting I", :description => "See how to customize the look and feel of your Excel worksheets.", :length => 14, :video_path => "/videos/intro_to_excel_intro_to_formatting.m4v"}
+	{:package_id => 1, :price => 0, :title => "Starting From Scratch", :description => "First steps to getting started with Microsoft Excel.", :length => 18, :video_path => "/videos/intro_to_excel_starting_from_scratch.m4v", :excel_path => '/excel_files/intro_to_excel_1_starting_from_scratch.xlsx'},
+	{:package_id => 1, :price => 0, :title => "Worksheets", :description => "See how to manipulate data, modify the structure of a worksheet and perform basic tasks to learn the ins and outs of an Excel worksheet, the foundation of the tool.", :length => 16, :video_path => "/videos/intro_to_excel_worksheets.m4v", :excel_path => '/excel_files/intro_to_excel_2_worksheets.xlsx'},
+	{:package_id => 1, :price => 0, :title => "Intro to Formulas", :description => "First glimpse into using Excel as a powerful calculator and analysis tool. We begin with manually operations and end with built-in functions.", :length => 11, :video_path => "/videos/intro_to_excel_intro_to_formulas.m4v", :excel_path => '/excel_files/intro_to_excel_3_intro_to_formulas.xlsx'},
+	{:package_id => 1, :price => 0, :title => "Intro to Formatting", :description => "See how to customize the look and feel of your Excel worksheets.", :length => 14, :video_path => "/videos/intro_to_excel_intro_to_formatting.m4v", :excel_path => '/excel_files/intro_to_excel_4_intro_to_formatting.xlsx'}
 ]
 
 topics = [

@@ -22,20 +22,15 @@
     <div class="row">
       <div class="span11">
         <%= link_to(package_url(1), :class => "link-tutorial-summary-title") do %>
-        <h3>Introduction to Excel <small><%= @packages[0].tutorials.count %> lessons | 3 hrs. | <%= number_to_currency(@packages[0].price) %></small></h3>
+        <h3>Introduction to Excel <small><%= @packages[0].tutorials.count %> episodes | <%= @packages[0].tutorials.map(&:length).sum %> minutes total</small></h3>
         <% end %>
         <ul>
         <% @intro_tutorials.each do |intro_tutorial| %>
         <li class="course-summary-list">
 	        <div class="span2 course-summary">
 	          <div class="course-container">
-	            <h4 class="tutorial-summary-title"><%= link_to "#{intro_tutorial.title}", tutorial_url(intro_tutorial.id), :class => "link-tutorial-summary-title" %></br><small>
-	            <% if intro_tutorial.price>0 %>
-	            	<%= link_to "#{number_to_currency(intro_tutorial.price)}", tutorial_url(intro_tutorial.id), :class => "price-link-tutorial-summary-title" %>
-	            <% else %>
-	            	<%= link_to "(FREE!)", tutorial_url(intro_tutorial.id), :class => "price-link-tutorial-summary-title" %>
-	            <% end %>
-	            </small></h4>
+	            <h4 class="tutorial-summary-title"><%= link_to "#{intro_tutorial.title}", tutorial_url(intro_tutorial.id), :class => "link-tutorial-summary-title" %></br>
+                <small><%= intro_tutorial.length %> min.</small></h4>
 	            <ul class="course-intro">
 	              <li class="course-summary-topics">
 	              	<% if !intro_tutorial.topics.first.nil? %>
@@ -66,46 +61,20 @@
         
 
   <div class="row">
-      <div class="span11">
-        <%= link_to(package_url(2)) do %>
-          <h3>Intermediate Excel <small><%= @packages[1].tutorials.count %> lessons | 3 hrs. | <%= number_to_currency(@packages[1].price) %></small></h3>
-        <% end %>  
-        <ul>
-        <% @intermediate_tutorials.each do |intermediate_tutorial| %>
-        <li class="course-summary-list">
-          <div class="span2 course-summary">
-            <div class="course-container">
-              <h4 class="tutorial-summary-title"><%= link_to "#{intermediate_tutorial.title}", tutorial_url(intermediate_tutorial.id), :class => "link-tutorial-summary-title" %></br><small>
-              <% if intermediate_tutorial.price>0 %>
-                <%= link_to "#{number_to_currency(intermediate_tutorial.price)}", tutorial_url(intermediate_tutorial.id), :class => "price-link-tutorial-summary-title" %>
-              <% else %>
-                <%= link_to "(FREE!)", tutorial_url(intermediate_tutorial.id), :class => "price-link-tutorial-summary-title" %>
-              <% end %>
-              </small></h4>
-              <ul class="course-intro">
-                <li class="course-summary-topics">
-                  <% if !intermediate_tutorial.topics.first.nil? %>
-                  <%= intermediate_tutorial.topics.first.title %>
-                  <% end %>
-                </li>
-                <li class="course-summary-topics">
-                  <% if !intermediate_tutorial.topics[1].nil? %>
-                  <%= intermediate_tutorial.topics[1].title %>
-                  <% end %>
-                </li>
-                <li class="course-summary-topics">
-                  <% if !intermediate_tutorial.topics[2].nil? %>
-                  <%= intermediate_tutorial.topics[2].title %>
-                  <% end %>
-                </li>
-                <li class="course-summary-topics"><%= link_to "More...", tutorial_url(intermediate_tutorial.id) %></li>
-              </ul>
-            </div>
-          </div>
-          <% end %> 
-      </li>
-    </ul>
-  </div>
+    <div class="span11">  
+      <h3>Curriculum Development</h3>
+      <p>We are constantly adding to our library of screencast tutorials.  As a subscriber, you not only have unlimited access to our current episodes, but also all of the content that we release on a regular basis going forward.</p>
+      <p>Soon we will be adding additional Beginner episodes, as well as Intermediate and Advanced Excel screencast tutorials to help you continue to grow your skill set.  If there is anything you'd like to see OfficeScholar cover, <%= mail_to "pat@officescholar.com", "let us know!" %></p>
+      <p>Episodes currently being produced:</p>
+      <ul class="course-intro">
+        <li class="course-summary-topics">Intro to Charts</li>
+        <li class="course-summary-topics">Data Analysis Techniques</li>
+        <li class="course-summary-topics">Printing</li>
+        <li class="course-summary-topics">Pivot Tables</li>
+        <li class="course-summary-topics">Formulas II</li>
+        <li class="course-summary-topics">Formatting II</li>
+      </ul>
+    </div>
   </div>
 
 
@@ -128,13 +97,13 @@
           <div class="how-it-works-icons-container">
             <i class="icon-facetime-video icon-4x"></i>
           </div>
-          <h3 class="intro multiple-lines">Choose from our collection of Microsoft Excel screencast tutorials.</h3>
+          <h3 class="intro multiple-lines">Preview our collection of Microsoft Excel screencast tutorials.</h3>
         </div>  
         <div class="span3 how-it-works">
           <div class="how-it-works-icons-container">
             <i class="icon-credit-card icon-4x"></i>
           </div>
-          <h3 class="intro multiple-lines">Pay in-stream using a credit card or PayPal for our premium screencasts.</h3>
+          <h3 class="intro multiple-lines">Subscribe for unlimited access using a credit card or PayPal.</h3>
         </div>
         <div class="span3 how-it-works">
           <div class="how-it-works-icons-container">

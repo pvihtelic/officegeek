@@ -9,6 +9,12 @@ class HomeController < ApplicationController
     @intermediate_tutorials = Tutorial.where(:package_id=>2)
   	end
 
+  	def faq
+  	end
 
+  	def privacy_policy
+  	end
 
+  	def terms_and_conditions
+  	end
 end

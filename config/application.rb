@@ -79,6 +79,9 @@ module Officegeek
     # adding videos to asset pipeline
     config.assets.paths << "#{Rails.root}/app/assets/videos"
 
+    # adding excel_files to asset pipeline
+    config.assets.paths << "#{Rails.root}/app/assets/excel_files/"
+
     # adding font to asset pipeline
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
 
