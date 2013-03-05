@@ -64,10 +64,18 @@
         <% end %>
           <div class="span2 course-summary show-bottom">
             <div class="course-container">
-                <% if !@next_tutorial.nil? %>
-                  <h4 class="tutorial-summary-title"><%= link_to "#{@next_tutorial.title}", tutorial_url(@next_tutorial.id), :class => "link-tutorial-summary-title" %></br>
-                    <small><%= @next_tutorial.length %> min.</small></h4>
-
+                <div class="top-section-course">
+                  <div class="top-left-course-container">
+                   <%= link_to(tutorial_url(@next_tutorial.id)) do %> 
+                    <i class="icon-play-circle icon-2x"></i>
+                   <% end %> 
+                  </div>  
+                  <div class="top-right-course-container">
+                    <% if !@next_tutorial.nil? %>
+                      <h4 class="tutorial-summary-title"><%= link_to "#{@next_tutorial.title}", tutorial_url(@next_tutorial.id), :class => "link-tutorial-summary-title" %></br>
+                        <small><%= @next_tutorial.length %> minutes | Beginner </small></h4>
+                  </div>
+                  </div>
                   <ul class="course-intro">
                     <li class="course-summary-topics">
                       <% if !@next_tutorial.topics.first.nil? %>
@@ -88,7 +96,7 @@
                   </ul>  
                 <% end %>  
               </div>
-          </div>
+              </div>
           </div>
           <div class="span3 other-items">
           <%= link_to(package_url(@tutorial.package.id), :class=>"link-tutorial-summary-title") do %>
@@ -96,8 +104,18 @@
           <% end %>  
           <div class="span2 course-summary show-bottom">
             <div class="course-container">
-                <h4 class="tutorial-summary-title"><%= link_to "#{@tutorial.package.title}", package_url(@tutorial.package.id), :class => "link-tutorial-summary-title" %></br>
-                  <small><%= @tutorial.package.tutorials.map(&:length).sum %> min.</small></h4>
+                <div class="top-section-course">
+                  <div class="top-left-course-container">
+                   <%= link_to(package_url(@tutorial.package.id)) do %> 
+                    <i class="icon-play-circle icon-2x"></i>
+                   <% end %> 
+                  </div>  
+                  <div class="top-right-course-container">
+                    <h4 class="tutorial-summary-title"><%= link_to "#{@tutorial.package.title}", package_url(@tutorial.package.id), :class => "link-tutorial-summary-title" %></br>
+                  <small><%= @tutorial.package.tutorials.map(&:length).sum %> minutes | Beginner </small></h4>
+                  </div>
+                  
+                  </div>
                 <ul class="course-intro">
                   <li class="course-summary-topics">
                     <% if !@tutorial.package.tutorials[0].nil? %>

@@ -29,26 +29,37 @@
         <li class="course-summary-list">
 	        <div class="span2 course-summary">
 	          <div class="course-container">
-	            <h4 class="tutorial-summary-title"><%= link_to "#{intro_tutorial.title}", tutorial_url(intro_tutorial.id), :class => "link-tutorial-summary-title" %></br>
-                <small><%= intro_tutorial.length %> min.</small></h4>
-	            <ul class="course-intro">
-	              <li class="course-summary-topics">
-	              	<% if !intro_tutorial.topics.first.nil? %>
-	              	<%= intro_tutorial.topics.first.title %>
-	              	<% end %>
-	              </li>
-	              <li class="course-summary-topics">
-	              	<% if !intro_tutorial.topics[1].nil? %>
-	              	<%= intro_tutorial.topics[1].title %>
-	              	<% end %>
-	              </li>
-	              <li class="course-summary-topics">
-	              	<% if !intro_tutorial.topics[2].nil? %>
-	              	<%= intro_tutorial.topics[2].title %>
-	              	<% end %>
-	              </li>
-	              <li class="course-summary-topics"><%= link_to "More...", tutorial_url(intro_tutorial.id) %></li>
-	            </ul>
+	            <div class="top-section-course">
+                <div class="top-left-course-container">
+                 <%= link_to(tutorial_url(intro_tutorial.id)) do %> 
+                  <i class="icon-play-circle icon-2x"></i>
+                 <% end %> 
+                </div>  
+                <div class="top-right-course-container">
+                  <h4 class="tutorial-summary-title"><%= link_to "#{intro_tutorial.title}", tutorial_url(intro_tutorial.id), :class => "link-tutorial-summary-title" %></br>
+                    <small><%= intro_tutorial.length %> minutes | Beginner </small></h4>
+                </div>
+              </div>  
+              <div class="course-intro-list">    
+  	            <ul class="course-intro">
+  	              <li class="course-summary-topics">
+  	              	<% if !intro_tutorial.topics.first.nil? %>
+  	              	<%= intro_tutorial.topics.first.title %>
+  	              	<% end %>
+  	              </li>
+  	              <li class="course-summary-topics">
+  	              	<% if !intro_tutorial.topics[1].nil? %>
+  	              	<%= intro_tutorial.topics[1].title %>
+  	              	<% end %>
+  	              </li>
+  	              <li class="course-summary-topics">
+  	              	<% if !intro_tutorial.topics[2].nil? %>
+  	              	<%= intro_tutorial.topics[2].title %>
+  	              	<% end %>
+  	              </li>
+  	              <li class="course-summary-topics"><%= link_to "More...", tutorial_url(intro_tutorial.id) %></li>
+  	            </ul>
+                </div>  
 	          </div>
 	        </div>
 	        <% end %> 

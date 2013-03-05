@@ -221,18 +221,18 @@ form {
 }
 
 .span2.course-summary {
-	margin-left: 9px;
-	margin-bottom: 0;
-	margin-top: 10px;
+	margin-left: 15px;
+	margin-bottom: 10px;
+	margin-top: 5px;
 	background: rgba(0, 0, 0, 0.04);
 	border-radius: 5px;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
-	box-shadow: 0px 1px 0px white, inset 0px 0px 0px 1px rgba(0, 0, 0, 0.19), 0px 0px 5px 0px rgba(255, 255, 255, 0.34), inset 0px 2px 10px 0px rgba(0, 0, 0, 0.32);
-	-moz-box-shadow: 0px 1px 0px white, inset 0px 0px 0px 1px rgba(0, 0, 0, 0.19), 0px 0px 5px 0px rgba(255, 255, 255, 0.34), inset 0px 2px 10px 0px rgba(0, 0, 0, 0.32);
-	-webkit-box-shadow: 0px 1px 0px white, inset 0px 0px 0px 1px rgba(0, 0, 0, 0.19), 0px 0px 5px 0px rgba(255, 255, 255, 0.34), inset 0px 2px 10px 0px rgba(0, 0, 0, 0.32);
-	width: 204px;
-	height: 150px;
+	-webkit-box-shadow: 2px 2px 1px rgba(0,0,0,.5);
+	-moz-box-shadow: 2px 2px 1px rgba(0,0,0,.5);
+	box-shadow: 2px 2px 1px rgba(0,0,0,.5);
+	width: 265px;
+	height: 160px;
 	border-radius:10px;
 	-moz-border-radius:10px;
 }
@@ -417,7 +417,7 @@ h3.white {
 }
 
 ul.course-intro {
-	margin: 0 0 0 20px;
+	margin: 0 0 0 30px;
 	text-align: left;
 }
 
@@ -473,6 +473,7 @@ li.footer-list-below {
 
 .tutorial-summary-title {
 	margin-bottom: 2px;
+	margin-top: 2px;
 }
 
 .span11 {
@@ -596,4 +597,26 @@ h3.dark.show-package-left {
 
 .last-privacy {
 	margin-bottom: 100px;
+}
+
+.top-right-course-container {
+	width: 190px;
+	float: right;
+	border-left: 1px solid black;
+	padding-left: 10px;
+}
+
+.top-left-course-container {
+	display: inline;
+	width: 20px;
+	line-height: 45px;
+	margin-left: 5px;
+	margin-right: 10px;
+}
+
+.top-section-course {
+	height: 40px;
+	width: 250px;
+	margin-bottom: 15px;
+	margin-top: 10px;
 }
