@@ -23,7 +23,7 @@ Tutorial.destroy_all
 Topic.destroy_all
 
 packages = [ 
-	{:price => 9.99, :title => 'Introduction to Excel', :description => 'This comprehensive screencast tutorial, with numerous template and example Microsoft Excel files, gives a Beginner an overview of the most popular business software program in the world. Become productive with Excel after finishing our Introduction to Excel lessons, which are approximately 10-20 minutes each.', :length => 180},
+	{:price => 9.99, :title => 'Introduction to Excel', :description => 'This comprehensive screencast tutorial, with numerous template and example Microsoft Excel files included as downloads, gives a Beginner an overview of the most popular business software program in the world. Become productive with Excel after finishing our Introduction to Excel lessons, which are approximately 10-25 minutes each episode.  We have designed our Beginner Excel course to be as frictionless as possible, with detailed walk throughs and examples discussed.  Watch the episodes first, then give it a try yourself.  Take advantage of having reference material available 24 hours a day.', :length => 180},
 	{:price => 9.99, :title => 'Intermediate Tutorials', :description => 'Take your Excel skills to the next level with these useful lessons.  The tutorial is approximately two hours long, giving you a detailed and easy to follow explanation of complex material.', :length => 120}
 ]
 
@@ -31,7 +31,8 @@ tutorials = [
 	{:package_id => 1, :price => 0, :title => "Starting From Scratch", :description => "First steps to getting started with Microsoft Excel.", :length => 18, :video_path => "/videos/intro_to_excel_starting_from_scratch.m4v", :excel_path => '/excel_files/intro_to_excel_1_starting_from_scratch.xlsx'},
 	{:package_id => 1, :price => 0, :title => "Worksheets", :description => "See how to manipulate data, modify the structure of a worksheet and perform basic tasks to learn the ins and outs of an Excel worksheet, the foundation of the tool.", :length => 16, :video_path => "/videos/intro_to_excel_worksheets.m4v", :excel_path => '/excel_files/intro_to_excel_2_worksheets.xlsx'},
 	{:package_id => 1, :price => 0, :title => "Intro to Formulas", :description => "First glimpse into using Excel as a powerful calculator and analysis tool. We begin with manually operations and end with built-in functions.", :length => 11, :video_path => "/videos/intro_to_excel_intro_to_formulas.m4v", :excel_path => '/excel_files/intro_to_excel_3_intro_to_formulas.xlsx'},
-	{:package_id => 1, :price => 0, :title => "Intro to Formatting", :description => "See how to customize the look and feel of your Excel worksheets.", :length => 14, :video_path => "/videos/intro_to_excel_intro_to_formatting.m4v", :excel_path => '/excel_files/intro_to_excel_4_intro_to_formatting.xlsx'}
+	{:package_id => 1, :price => 0, :title => "Intro to Formatting", :description => "See how to customize the look and feel of your Excel worksheets.", :length => 14, :video_path => "/videos/intro_to_excel_intro_to_formatting.m4v", :excel_path => '/excel_files/intro_to_excel_4_intro_to_formatting.xlsx'},
+	{:package_id => 1, :price => 0, :title => "Charts", :description => "First look into charts gives basic overview of various chart types available in Excel as well specific instructional walk-throughs building column, pie, line and sparkline charts from scratch.", :length => 23, :video_path => "/videos/intro_to_excel_charts.m4v", :excel_path => '/excel_files/intro_to_excel_5_charts.xlsx'}
 ]
 
 topics = [
@@ -59,7 +60,13 @@ topics = [
 	{:tutorial_id => 4, :title => "Formatting Cells", :description => "The first part of learning how to format in Excel is mastering cell formats.", :length => 2},
 	{:tutorial_id => 4, :title => "Formatting Numbers", :description => "Introduction to number formats and font formatting options.", :length => 2},
 	{:tutorial_id => 4, :title => "Alignment", :description => "Learn various techniques for aligning elements in Excel.", :length => 2},
-	{:tutorial_id => 4, :title => "Formatting Tips", :description => "Several tricks everyone should be using in Excel to save time with formatting.", :length => 2}
+	{:tutorial_id => 4, :title => "Formatting Tips", :description => "Several tricks everyone should be using in Excel to save time with formatting.", :length => 2},
+
+	{:tutorial_id => 5, :title => "Chart Types", :description => "Overview of chart types offered in Excel.", :length => 2},
+	{:tutorial_id => 5, :title => "Column Chart", :description => "Step-by-step tutorial on building a column chart with example data.", :length => 2},
+	{:tutorial_id => 5, :title => "Pie Chart", :description => "Watch as Pat creats a pie chart with sample data from scratch.", :length => 2},
+	{:tutorial_id => 5, :title => "Line Chart", :description => "Tutorial on creating a line chart in Excel.", :length => 2},
+	{:tutorial_id => 5, :title => "Sparklines", :description => "See how to creat column chart sparklines and line chart sparklines easily.", :length => 2}
 ]
 
 Package.create packages
