@@ -32,7 +32,8 @@ tutorials = [
 	{:package_id => 1, :price => 0, :title => "Worksheets", :description => "See how to manipulate data, modify the structure of a worksheet and perform basic tasks to learn the ins and outs of an Excel worksheet, the foundation of the tool.", :length => 16, :video_path => "http://s3.amazonaws.com/officescholar/intro_to_excel_worksheets.m4v", :excel_path => 'http://s3.amazonaws.com/officescholar/intro_to_excel_2_worksheets.xlsx'},
 	{:package_id => 1, :price => 0, :title => "Intro to Formulas", :description => "First glimpse into using Excel as a powerful calculator and analysis tool. We begin with manually operations and end with built-in functions.", :length => 11, :video_path => "http://s3.amazonaws.com/officescholar/intro_to_excel_intro_to_formulas.m4v", :excel_path => 'http://s3.amazonaws.com/officescholar/intro_to_excel_3_intro_to_formulas.xlsx'},
 	{:package_id => 1, :price => 0, :title => "Intro to Formatting", :description => "See how to customize the look and feel of your Excel worksheets.", :length => 14, :video_path => "/http://s3.amazonaws.com/officescholar/intro_to_excel_intro_to_formatting.m4v", :excel_path => 'http://s3.amazonaws.com/officescholar/intro_to_excel_4_intro_to_formatting.xlsx'},
-	{:package_id => 1, :price => 0, :title => "Charts", :description => "First look into charts gives basic overview of various chart types available in Excel as well specific instructional walk-throughs building column, pie, line and sparkline charts from scratch.", :length => 23, :video_path => "http://s3.amazonaws.com/officescholar/intro_to_excel_charts.m4v", :excel_path => 'http://s3.amazonaws.com/officescholar/intro_to_excel_5_charts.xlsx'}
+	{:package_id => 1, :price => 0, :title => "Charts", :description => "First look into charts gives basic overview of various chart types available in Excel as well specific instructional walk-throughs building column, pie, line and sparkline charts from scratch.", :length => 23, :video_path => "http://s3.amazonaws.com/officescholar/intro_to_excel_charts.m4v", :excel_path => 'http://s3.amazonaws.com/officescholar/intro_to_excel_5_charts.xlsx'},
+	{:package_id => 1, :price => 0, :title => "Sorting and Filtering", :description => "Both sorting and filtering are demonstrated on example data tables, along with multiple conditions and the VLOOKUP function for referencing data in other locations based on a matched value.", :length => 11, :video_path => "http://s3.amazonaws.com/officescholar/intro_to_excel_sorting_and_filtering.m4v", :excel_path => 'http://s3.amazonaws.com/officescholar/intro_to_excel_6_sorting_and_filtering.xlsx'}
 ]
 
 topics = [
@@ -66,7 +67,12 @@ topics = [
 	{:tutorial_id => 5, :title => "Column Chart", :description => "Step-by-step tutorial on building a column chart with example data.", :length => 2},
 	{:tutorial_id => 5, :title => "Pie Chart", :description => "Watch as Pat creats a pie chart with sample data from scratch.", :length => 2},
 	{:tutorial_id => 5, :title => "Line Chart", :description => "Tutorial on creating a line chart in Excel.", :length => 2},
-	{:tutorial_id => 5, :title => "Sparklines", :description => "See how to creat column chart sparklines and line chart sparklines easily.", :length => 2}
+	{:tutorial_id => 5, :title => "Sparklines", :description => "See how to creat column chart sparklines and line chart sparklines easily.", :length => 2},
+
+	{:tutorial_id => 5, :title => "Overview", :description => "Description of how important sorting and filtering is in data analysis.", :length => 2},
+	{:tutorial_id => 5, :title => "Sorting", :description => "Various data sorts are performed on a sample table.", :length => 2},
+	{:tutorial_id => 5, :title => "Filtering", :description => "Example data table is filtered using Excel's auto filters.", :length => 2},
+	{:tutorial_id => 5, :title => "VLOOKUP", :description => "Use the VLOOKUP function to reference data in other tables based on a matched value.", :length => 2}
 ]
 
 Package.create packages
