@@ -69,10 +69,9 @@ topics = [
 	{:tutorial_id => 5, :title => "Line Chart", :description => "Tutorial on creating a line chart in Excel.", :length => 2},
 	{:tutorial_id => 5, :title => "Sparklines", :description => "See how to creat column chart sparklines and line chart sparklines easily.", :length => 2},
 
-	{:tutorial_id => 5, :title => "Overview", :description => "Description of how important sorting and filtering is in data analysis.", :length => 2},
-	{:tutorial_id => 5, :title => "Sorting", :description => "Various data sorts are performed on a sample table.", :length => 2},
-	{:tutorial_id => 5, :title => "Filtering", :description => "Example data table is filtered using Excel's auto filters.", :length => 2},
-	{:tutorial_id => 5, :title => "VLOOKUP", :description => "Use the VLOOKUP function to reference data in other tables based on a matched value.", :length => 2}
+	{:tutorial_id => 6, :title => "Sorting", :description => "Various data sorts are performed on a sample table.", :length => 2},
+	{:tutorial_id => 6, :title => "Filtering", :description => "Example data table is filtered using Excel's auto filters.", :length => 2},
+	{:tutorial_id => 6, :title => "VLOOKUP", :description => "Use the VLOOKUP function to reference data in other tables based on a matched value.", :length => 2}
 ]
 
 Package.create packages
