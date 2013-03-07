@@ -33,7 +33,8 @@ tutorials = [
 	{:package_id => 1, :price => 0, :title => "Intro to Formulas", :description => "First glimpse into using Excel as a powerful calculator and analysis tool. We begin with manually operations and end with built-in functions.", :length => 11, :video_path => "http://s3.amazonaws.com/officescholar/intro_to_excel_intro_to_formulas.m4v", :excel_path => 'http://s3.amazonaws.com/officescholar/intro_to_excel_3_intro_to_formulas.xlsx'},
 	{:package_id => 1, :price => 0, :title => "Intro to Formatting", :description => "See how to customize the look and feel of your Excel worksheets.", :length => 14, :video_path => "/http://s3.amazonaws.com/officescholar/intro_to_excel_intro_to_formatting.m4v", :excel_path => 'http://s3.amazonaws.com/officescholar/intro_to_excel_4_intro_to_formatting.xlsx'},
 	{:package_id => 1, :price => 0, :title => "Charts", :description => "First look into charts gives basic overview of various chart types available in Excel as well specific instructional walk-throughs building column, pie, line and sparkline charts from scratch.", :length => 23, :video_path => "http://s3.amazonaws.com/officescholar/intro_to_excel_charts.m4v", :excel_path => 'http://s3.amazonaws.com/officescholar/intro_to_excel_5_charts.xlsx'},
-	{:package_id => 1, :price => 0, :title => "Sorting and Filtering", :description => "Both sorting and filtering are demonstrated on example data tables, along with multiple conditions and the VLOOKUP function for referencing data in other locations based on a matched value.", :length => 11, :video_path => "http://s3.amazonaws.com/officescholar/intro_to_excel_sorting_and_filtering.m4v", :excel_path => 'http://s3.amazonaws.com/officescholar/intro_to_excel_6_sorting_and_filtering.xlsx'}
+	{:package_id => 1, :price => 0, :title => "Sorting and Filtering", :description => "Both sorting and filtering are demonstrated on example data tables, along with multiple conditions and the VLOOKUP function for referencing data in other locations based on a matched value.", :length => 11, :video_path => "http://s3.amazonaws.com/officescholar/intro_to_excel_sorting_and_filtering.m4v", :excel_path => 'http://s3.amazonaws.com/officescholar/intro_to_excel_6_sorting_and_filtering.xlsx'},
+	{:package_id => 1, :price => 0, :title => "Pivot Tables", :description => "Using data set from the 2012-2013 NFL Football season, see how to create, modify, format and sort a pivot table.  Also cover Pivot Table filters using Excel 2010's new Slicer feature for a more visual filter interface.", :length => 13, :video_path => "http://s3.amazonaws.com/officescholar/intro_to_excel_pivot_tables.m4v", :excel_path => 'http://s3.amazonaws.com/officescholar/intro_to_excel_6_pivot_tables.xlsx'}
 ]
 
 topics = [
@@ -71,7 +72,14 @@ topics = [
 
 	{:tutorial_id => 6, :title => "Sorting", :description => "Various data sorts are performed on a sample table.", :length => 2},
 	{:tutorial_id => 6, :title => "Filtering", :description => "Example data table is filtered using Excel's auto filters.", :length => 2},
-	{:tutorial_id => 6, :title => "VLOOKUP", :description => "Use the VLOOKUP function to reference data in other tables based on a matched value.", :length => 2}
+	{:tutorial_id => 6, :title => "VLOOKUP", :description => "Use the VLOOKUP function to reference data in other tables based on a matched value.", :length => 2},
+
+	{:tutorial_id => 7, :title => "Uses", :description => "When to use a pivot table and why they can be helpful.", :length => 2},
+	{:tutorial_id => 7, :title => "Creating a Pivot Table", :description => "How to select data and create a pivot table.", :length => 2},
+	{:tutorial_id => 7, :title => "Rearranging a Pivot Table", :description => "Overview on how to quickly modify the layout of a pivot table.", :length => 2},
+	{:tutorial_id => 7, :title => "Rearranging a Pivot Table", :description => "Overview on how to quickly modify the layout of a pivot table.", :length => 2},
+	{:tutorial_id => 7, :title => "Formatting a Pivot Table", :description => "Demonstration showing how to format a pivot table.", :length => 2},
+	{:tutorial_id => 7, :title => "Sorting and Filtering", :description => "Covers sorting inside a pivot table as well as filtering with the Slicer.", :length => 2}
 ]
 
 Package.create packages
