@@ -34,7 +34,8 @@ tutorials = [
 	{:package_id => 1, :price => 0, :title => "Intro to Formatting", :description => "See how to customize the look and feel of your Excel worksheets.", :length => 14, :video_path => "/http://s3.amazonaws.com/officescholar/intro_to_excel_intro_to_formatting.m4v", :excel_path => 'http://s3.amazonaws.com/officescholar/intro_to_excel_4_intro_to_formatting.xlsx'},
 	{:package_id => 1, :price => 0, :title => "Charts", :description => "First look into charts gives basic overview of various chart types available in Excel as well specific instructional walk-throughs building column, pie, line and sparkline charts from scratch.", :length => 23, :video_path => "http://s3.amazonaws.com/officescholar/intro_to_excel_charts.m4v", :excel_path => 'http://s3.amazonaws.com/officescholar/intro_to_excel_5_charts.xlsx'},
 	{:package_id => 1, :price => 0, :title => "Sorting and Filtering", :description => "Both sorting and filtering are demonstrated on example data tables, along with multiple conditions and the VLOOKUP function for referencing data in other locations based on a matched value.", :length => 11, :video_path => "http://s3.amazonaws.com/officescholar/intro_to_excel_sorting_and_filtering.m4v", :excel_path => 'http://s3.amazonaws.com/officescholar/intro_to_excel_6_sorting_and_filtering.xlsx'},
-	{:package_id => 1, :price => 0, :title => "Pivot Tables", :description => "Using data set from the 2012-2013 NFL Football season, see how to create, modify, format and sort a pivot table.  Also cover Pivot Table filters using Excel 2010's new Slicer feature for a more visual filter interface.", :length => 13, :video_path => "http://s3.amazonaws.com/officescholar/intro_to_excel_pivot_tables.m4v", :excel_path => 'http://s3.amazonaws.com/officescholar/intro_to_excel_7_pivot_tables.xlsx'}
+	{:package_id => 1, :price => 0, :title => "Pivot Tables", :description => "Using data set from the 2012-2013 NFL Football season, see how to create, modify, format and sort a pivot table.  Also cover Pivot Table filters using Excel 2010's new Slicer feature for a more visual filter interface.", :length => 13, :video_path => "http://s3.amazonaws.com/officescholar/intro_to_excel_pivot_tables.m4v", :excel_path => 'http://s3.amazonaws.com/officescholar/intro_to_excel_7_pivot_tables.xlsx'},
+	{:package_id => 1, :price => 0, :title => "Printing", :description => "Walk through printing a document in Excel including overviews on print preview, headers and footers, print areas and repeating a single row as a column heading for multiple pages.", :length => 10, :video_path => "http://s3.amazonaws.com/officescholar/intro_to_excel_printing.m4v", :excel_path => 'http://s3.amazonaws.com/officescholar/intro_to_excel_8_printing.xlsx'}
 ]
 
 topics = [
@@ -78,7 +79,14 @@ topics = [
 	{:tutorial_id => 7, :title => "Creating a Pivot Table", :description => "How to select data and create a pivot table.", :length => 2},
 	{:tutorial_id => 7, :title => "Rearranging a Pivot Table", :description => "Overview on how to quickly modify the layout of a pivot table.", :length => 2},
 	{:tutorial_id => 7, :title => "Formatting a Pivot Table", :description => "Demonstration showing how to format a pivot table.", :length => 2},
-	{:tutorial_id => 7, :title => "Sorting and Filtering", :description => "Covers sorting inside a pivot table as well as filtering with the Slicer.", :length => 2}
+	{:tutorial_id => 7, :title => "Sorting and Filtering", :description => "Covers sorting inside a pivot table as well as filtering with the Slicer.", :length => 2},
+
+	{:tutorial_id => 8, :title => "Print Preview", :description => "Learn the shortcut for quickly previewing an excel document.", :length => 2},
+	{:tutorial_id => 8, :title => "Page Layout and Setup", :description => "Walk through sections of the page setup.", :length => 2},
+	{:tutorial_id => 8, :title => "Headers and Footers", :description => "See how to modify the header and footer.", :length => 2},
+	{:tutorial_id => 8, :title => "Page Breaks", :description => "Watch a demonstration on inserting and removing page breaks.", :length => 2},
+	{:tutorial_id => 8, :title => "Printing Selected Areas", :description => "How to print selected cell ranges and areas of a spreadsheet.", :length => 2},
+	{:tutorial_id => 8, :title => "Repeat Rows as Column Headers", :description => "Use a single row as the column header on multiple pages by repeating it.", :length => 2}
 ]
 
 Package.create packages
