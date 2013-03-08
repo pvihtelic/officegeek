@@ -17,4 +17,9 @@ class HomeController < ApplicationController
 
   	def terms_and_conditions
   	end
+
+    def chicago_classes
+      @tutorials = Tutorial.all
+    end
+
 end

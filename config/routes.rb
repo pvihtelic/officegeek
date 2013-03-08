@@ -9,6 +9,7 @@ Officegeek::Application.routes.draw do
   get "/faq" => "home#faq", :as=>"faq"
   get "/privacy_policy" => "home#privacy_policy", :as=>"privacy_policy"
   get "/terms_and_conditions" => "home#terms_and_conditions", :as=>"terms_and_conditions"
+  get "/chicago_classes" => "home#chicago_classes", :as=>"chicago_classes"
 
   authenticated :user do
     root :to => 'home#index'

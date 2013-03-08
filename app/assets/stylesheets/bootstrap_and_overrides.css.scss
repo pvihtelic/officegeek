@@ -73,6 +73,18 @@ h3.intro.multiple-lines{
 	margin-top: 150px;
 }
 
+h2.intro.logo {
+	font-family: 'Droid Sans', sans-serif;
+	font-weight: bold;
+	color: black;
+	font-size: 400%;
+	margin-top: 90px;
+}
+
+h3.intro.class-intro {
+	color: black;
+}
+
 .content {
 	padding-left: 20px;
 	padding-right: 20px;
@@ -233,6 +245,23 @@ form {
 	box-shadow: 2px 2px 1px rgba(0,0,0,.5);
 	width: 265px;
 	height: 160px;
+	border-radius:10px;
+	-moz-border-radius:10px;
+}
+
+.span2.class-summary {
+	margin-left: 15px;
+	margin-bottom: 10px;
+	margin-top: 5px;
+	background: rgba(0, 0, 0, 0.04);
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-box-shadow: 2px 2px 1px rgba(0,0,0,.5);
+	-moz-box-shadow: 2px 2px 1px rgba(0,0,0,.5);
+	box-shadow: 2px 2px 1px rgba(0,0,0,.5);
+	width: 265px;
+	height: 180px;
 	border-radius:10px;
 	-moz-border-radius:10px;
 }

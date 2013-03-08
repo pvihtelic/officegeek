@@ -1,0 +1,58 @@
+<div class="row">
+  	<div class="container">
+      	<div class="span11">
+      		
+      		<div class="section-title">
+			    <h2 class="intro logo">Introduction to Excel</h2>
+			    <h3 class="intro class-intro">Three Hour, Instructor-Led Class in Chicago.</h3>
+			</div>
+
+      		<h3 class="dark show package">Learn The Basics of Microsoft Excel from an Expert</h3>
+      		
+		    	<h4 class="faq-heading">When is the next class?</h4>
+		    	<p>Wednesday, March 27, 2013</br>  
+		    		6:00 - 9:00 PM CT</p>
+
+		    	<h4 class="faq-heading">How do I reserve a spot?</h4>
+		    	<p>You can reserve your seat in the class via PayPal by paying the $100 class tuition in advance.</p>  
+		    	<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+				<input type="hidden" name="cmd" value="_s-xclick">
+				<input type="hidden" name="hosted_button_id" value="WUH8EJUWYVUZL">
+				<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+				<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+				</form>
+
+
+		    	<h4 class="faq-heading">Where are the classes held?</h4>
+		    	<p>Classes are held in a fully equipped computer lab at IIT's main campus in Chicago:</p>
+		    	<p>Illinois Institute of Technology</br>
+					Computer Lab - SB 112E</br>
+					3241 South Federal Street</br>
+					Chicago IL 60616</br>
+					312-567-3700 / 312-567-3701</br>
+				</p>
+		    	
+		    	<h4 class="faq-heading">What will be taught?</h4>
+		    	<p>We will cover everything you need to be productive as a new user in Excel.  We use Microsoft Excel 2010 and will discuss the material below.  Always happy to emphasize certain topics if the class requests.  We provide computers and Office 2010 for each student to use during the class</p>
+
+		    	<ul>
+			        <% @tutorials.each do |intro_tutorial| %>
+			        <li class="course-summary-list">
+				        <div class="span2 class-summary">
+				          <div class="course-container">
+				            
+			                
+			              <h4 class="tutorial-summary-title"><%= intro_tutorial.title%></h4>
+			              <ul class="course-intro">
+			              	<% intro_tutorial.topics.each do |topic| %>
+			              		<li class="course-summary-topics"><%= topic.title %></li>
+			              	<% end %>
+				          </div>
+				        </div>
+				        </ul>
+				        <% end %> 
+				    </li>
+				</ul>
+	  	</div>
+	</div>
+</div>
