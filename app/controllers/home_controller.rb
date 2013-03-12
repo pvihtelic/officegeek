@@ -2,7 +2,11 @@ class HomeController < ApplicationController
   
 	def index
     @home_banner = true
-    @user = User.new
+    if current_user.nil?
+        @user = User.new
+      else 
+        @user = User.find(current_user.id)
+    end
     @packages = Package.all
     @tutorials = Tutorial.all
     @intro_tutorials = Tutorial.where(:package_id=>1)

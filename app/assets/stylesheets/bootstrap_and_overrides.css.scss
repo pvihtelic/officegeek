@@ -33,7 +33,7 @@ a:hover {
 
 body {
 	padding-top: 30px;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Droid Sans', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -48,7 +48,7 @@ h2 {
 
 .intro {
 	color: white;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Droid Sans', sans-serif;
 	text-shadow: 0 1px 3px rgba(0, 0, 0, .6), 0 0 30px rgba(0, 0, 0, .075);
 	margin-top: 30px;
 }
@@ -129,6 +129,10 @@ div.section.intro {
 	padding-bottom: 15px;
 }
 
+ul.nav {
+	font-family: 'Droid Sans', sans-serif;
+}
+
 .form-horizontal .control-group {
 	margin-top: 20px;
 	margin-bottom: 10px;
@@ -175,8 +179,23 @@ div.section.intro {
 	background-color: transparent;
 }
 
+li > .active > a {
+	font-weight: bold;
+}
+
 .btn {
-	font-family: 'Open Sans', sans-serif;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);
+	font-weight: normal;
+}
+
+.btn.btn-primary {
+	font-family: 'Droid Sans', sans-serif;
+	font-weight: normal;
+	text-shadow: 0 1px 1px rgba(75, 71, 71, 0.2);
+}
+
+.btn.btn-primary.form-btn {
+	margin-bottom: 20px;
 }
 
 .span3 {
@@ -232,7 +251,7 @@ form {
 	margin-left: 40px;
 }
 
-.span2.course-summary {
+.course-summary {
 	margin-left: 15px;
 	margin-bottom: 10px;
 	margin-top: 5px;
@@ -247,6 +266,16 @@ form {
 	height: 160px;
 	border-radius:10px;
 	-moz-border-radius:10px;
+}
+
+.form-box.course-summary {
+	width: 500px;
+	margin-top: 60px;
+	padding-top: 20px;
+	padding-right: 20px;
+	padding-left: 20px;
+	padding-bottom: 20px;
+	height: 100%;
 }
 
 .span2.class-summary {
@@ -331,14 +360,19 @@ ul {
 }
 
 h3.dark {
-	border-bottom: 1px solid black;
-	margin-top: 40px;
+	border-bottom: 2px solid black;
+	margin-top: 50px;
 }
 
 h3.dark.package-show {
-	border-bottom: 1px solid black;
-	margin-top: 40px;
+	border-bottom: 2px solid black;
+	margin-top: 50px;
+}
 
+h3.dark.form-heading {
+	border-bottom: 2px solid black;
+	margin-top: 0;
+	margin-bottom: 30px;
 }
 
 h3.dark.show {
@@ -377,8 +411,8 @@ a.anchor-navigation.white {
 }
 
 h3.white {
-	border-bottom: 1px solid white;
-	margin-top: 40px;
+	border-bottom: 2px solid white;
+	margin-top: 50px;
 }
 
 .span3.how-it-works {
@@ -542,8 +576,6 @@ ul.topic-list {
 
 .bottom-show-span {
 	width: 900px;
-	margin-top: 40px;
-	border-top: 1px solid black;	
 }
 
 .show-package-list {
@@ -552,10 +584,13 @@ ul.topic-list {
 
 .show-span {
 	width: 900px;
+	padding-bottom: 20px;
+	border-bottom: 2px solid black;
 }
 
 .show-span.first-show {
-	border-bottom: 1px solid black;
+	border-bottom: 2px solid black;
+	padding-bottom: 0;
 }
 
 .download-show {
@@ -620,7 +655,7 @@ h3.dark.show-package-left {
 }
 
 .top-right-course-container {
-	width: 190px;
+	width: 185px;
 	float: right;
 	border-left: 1px solid black;
 	padding-left: 10px;
@@ -639,4 +674,70 @@ h3.dark.show-package-left {
 	width: 250px;
 	margin-bottom: 15px;
 	margin-top: 10px;
+}
+
+.signup-container {
+	width: 500px;
+	height: 300px;
+}
+
+.alert {
+	margin-top: 42px;
+	margin-bottom: 0;
+}
+
+.form-pages {
+	height: 800px;
+}
+
+select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+	margin-bottom: 25px;
+	width: 250px;
+}
+
+.form-actions {
+	background-color: transparent;
+	border: none;
+	padding: 0;
+}
+
+.logout {
+	margin-right: 5px;
+}
+
+.fileupload.small-upload {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 200px;
+    margin-right: 0;
+    margin-bottom: 4px;
+}
+
+.table td {
+	vertical-align: middle;
+}
+
+td.center-td {
+	text-align: center;	
+}
+
+.icon-trophy {
+	color: #CFB53B;
+}
+
+.icon-trophy:hover {
+	color: #CFB53B;
+	font-size: 150%;
+}
+
+.skill-assessment-download-heading {
+	margin-bottom: 10px;	
+}
+
+.account-no-quiz-message {
+	text-align: center;
+	margin-right: auto;
+	margin-left: auto;
+	width: 80%;
 }

@@ -1,0 +1,27 @@
+<h2>Quizzes</h2>
+
+<table>
+  <tr>
+    <th>User_id</th>
+    <th>Quiz_path</th>
+    <th>File path on AWS</th>
+    <th>User ID</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @quizzes.each do |quiz| %>
+  <tr>
+    <td><%= quiz.user_id %></td>
+    <td><%= quiz.quiz_path %></td>
+    <td><%= quiz.quiz_path.url %></td>
+    <td><%= quiz.user_id %></td>
+    <td><%= link_to 'Show', quiz %></td>
+    <td><%= link_to 'Edit', edit_quiz_path(quiz) %></td>
+    <td><%= link_to 'Destroy', quiz, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />

@@ -1,15 +1,18 @@
 class User < ActiveRecord::Base
   rolify
-  # Include default devise modules. Others available are:
+  # Include default devise modules
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  # Setup accessible (or protected) attributes for your model
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :opt_in, :confirmed_at
 
   after_create :add_user_to_mailchimp unless Rails.env.test?
   before_destroy :remove_user_from_mailchimp unless Rails.env.test?
+
+  # to associate with quizzes uploaded by the user
+
+  has_many :quizzes
 
   # override Devise method
   # no password is required when the account is created; validate password when the user sets one
@@ -25,11 +28,6 @@ class User < ActiveRecord::Base
   # override Devise method
   def confirmation_required?
     false
-  end
-
-  # override Devise method
-  def active_for_authentication?
-    confirmed? || confirmation_period_valid?
   end
 
   # new function to set the password

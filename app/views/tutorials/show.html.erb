@@ -39,9 +39,8 @@
           <div class="description-show-span-pull-left">
             <h3>Description</h3>
             <p><%= @tutorial.description %></p>
-            <%= link_to("#{@tutorial.excel_path}", :target => "_blank") do %> 
-              <p><i class="icon-cloud-download"></i> Click here for the Excel file used in this episode.</p>
-            <% end %>
+            <p>Download the Excel file used in this episode for free.</p>
+            <%= link_to "<i class='icon-cloud-download'></i> Excel Sample File".html_safe, "#{@tutorial.excel_path}", :target => "_blank", :class=>"btn btn-primary" %> 
           </div>  
           <div class="topics-span-pull-right">      
             <h3>Topics Covered</h3>
@@ -54,6 +53,44 @@
         </div>
       </div>
       </div>
+
+      <div class="row">
+        <div class="container">
+          <div class="show-span">
+            <h3>Skill Assessment</h3>
+            <p>After finishing each of the screencasts for this tutorial - <%= @tutorial.title %> - try putting your Excel knoweldge to the test!</p>
+
+            <p>Simply download our quiz, then upload your answers to our secure server below.  We will review your work and let you know where you need improvement or if you've earned the tutorial's skill certificate, which lists the areas you've been tested on along with OfficeScholar's seal of approval.</p>
+
+            <p>As a reminder, you can also access all of the quizzes through your Account Overview.</p>
+
+            <h4 class="skill-assessment-download-heading">Download, Open and Follow the Directions</h4>
+            <%= link_to "<i class='icon-cloud-download'></i> Skill Assessment".html_safe, "#{@tutorial.excel_path}", :target => "_blank", :class=>"btn btn-primary" %>
+
+            
+            <h4 class="skill-assessment-download-heading">After Completing, Submit Your Answer File</h4>
+
+            <%= simple_form_for :quiz, :url => "/quizzes", :html => { :multipart => true } do |form| %>
+
+            <div class="fileupload fileupload-new" data-provides="fileupload">
+              <span class="btn btn-file">Select Your Answer File<%= form.file_field :quiz_path %><span class="fileupload-new"></span><span class="fileupload-exists"></span><input type="file" /></span>
+              <span class="fileupload-preview"></span>
+              <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
+              
+              <button type="submit" class="btn btn-primary">Submit</button>
+
+            </div>
+
+            
+
+            <% end %>
+
+
+          </div>
+        </div>
+      </div>        
+
+
       <div class="row">
         <div class="container">
         <%= link_to(tutorial_url(@next_tutorial.id), :class=>"link-tutorial-summary-title") do %>
@@ -139,7 +176,7 @@
         </div>
         
         <div class="span3 other-items">
-          <h4 class="suggested-show">What Our Customers Are Saying</h4>
+          <h4 class="suggested-show">Fellow OfficeScholars</h4>
           
           <div class="course-container">
             <blockquote>

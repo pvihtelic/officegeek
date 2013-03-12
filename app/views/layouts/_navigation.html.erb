@@ -34,6 +34,28 @@
         <li>
         <%= link_to 'About', root_path(:controller => "home", :anchor => "about") %>
         </li>
-    </ul>   
+    </ul>
 
-<% end %>    
+<% end %>
+
+<ul class="nav pull-right">
+        <% if signed_in? %>
+          <li class="nav-rightside">
+          <small><%= link_to('Logout', destroy_user_session_path, :method => :delete, :class=>"btn btn-small logout") %></small>
+          </li>
+        <% else %>
+          <li class="nav-rightside">
+          <small><%= link_to('Login', new_user_session_path, :class=>"btn btn-primary btn-small logout") %></small>
+          </li>
+        <% end %>
+
+        <% if signed_in? %>
+          <li class="nav-rightside">
+          <small><%= link_to("My Account", "/users/#{current_user.id}", :class=>"btn btn-primary btn-small") %></small>
+          </li>
+        <% else %>
+          <li class="nav-rightside">
+          <small><%= link_to('Sign Up', new_user_registration_path, :class=>"btn btn-primary btn-small")%></small>
+          </li>
+        <% end %>
+</ul>     

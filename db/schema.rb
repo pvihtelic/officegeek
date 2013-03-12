@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130228215508) do
+ActiveRecord::Schema.define(:version => 20130311164641) do
 
   create_table "packages", :force => true do |t|
     t.decimal  "price"
@@ -20,6 +20,17 @@ ActiveRecord::Schema.define(:version => 20130228215508) do
     t.integer  "length"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "quizzes", :force => true do |t|
+    t.string   "quiz_path"
+    t.integer  "user_id"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
+    t.string   "quiz_path_file_name"
+    t.string   "quiz_path_content_type"
+    t.integer  "quiz_path_file_size"
+    t.datetime "quiz_path_updated_at"
   end
 
   create_table "roles", :force => true do |t|

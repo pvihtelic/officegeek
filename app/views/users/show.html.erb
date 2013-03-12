@@ -1,3 +1,54 @@
-<h3>User</h3>
-<p>User: <%= @user.name %></p>
-<p>Email: <%= @user.email if @user.email %></p>
+<div class="row">
+  	<div class="container form-pages">
+      	<div class="span11">
+      		<h3 class="dark show package">My Account <small><%= link_to('Edit <i class="icon-cog"></i>'.html_safe, edit_user_registration_path) %> | <%= @user.email %></small></h3>
+
+			<h3>My Quizzes</h3>
+
+			<table class="table table-hover">
+			  <tr>
+			    
+			    <th>Download Original</th>
+
+			    <th>Your Answer File</th>
+			    <th>Status</th>
+			    <th>Last Modified</th>
+			    <th>Resubmit If You Failed</th>
+			    <th>Delete</th>
+			  </tr>
+
+			<% if !@quizzes.blank? %>
+				<% @quizzes.each do |quiz| %>
+				  <tr>
+				    <td>Starting From Scratch</td>
+				    <td><%= quiz.quiz_path_file_name[0,20] %>...</td>
+				    <td class="center-td"><i class="icon-trophy icon-large"></i></td>
+				    <td><%= quiz.updated_at.to_formatted_s(:short) %></td>
+				    <td>
+				    <%= simple_form_for :quiz, :url => "/quizzes", :html => { :multipart => true } do |form| %>
+				    <div class="fileupload fileupload-new small-upload" data-provides="fileupload">
+					  <span class="btn btn-file btn-small">Select<%= form.file_field :quiz_path %><span class="fileupload-new"></span><span class="fileupload-exists"></span><input type="file" /></span>
+					  <span class="fileupload-preview"></span>
+					  <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
+					  
+					</div>
+
+					<button type="submit" class="btn btn-primary btn-small">Submit</button>
+
+				  	<% end %>
+				    </td>
+				    
+				    <td class="center-td"><%= link_to '<i class="icon-remove"'.html_safe, quiz, method: :delete, data: { confirm: 'Are you sure you want to delete your quiz?' } %></td>
+				  </tr>
+				<% end %>
+				</table>
+				<% else %>
+				</table>
+				
+				<h4 class="account-no-quiz-message">You haven't taken any skill assessments yet - check out <%= link_to 'Our Excel Tutorials', root_path(:controller => "home", :anchor => "our-excel-tutorials") %> first!</h4>
+			<% end %>
+
+
+</div>
+</div>
+</div>
