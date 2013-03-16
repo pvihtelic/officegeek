@@ -1,0 +1,18 @@
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+
+        <h3 class="dark form-heading">Sign Up for Free!</h3>
+
+        <div><%= f.label :email %>
+        <%= f.email_field :email, :autofocus => true %></div>
+
+        <div><%= f.label :password, "Password (at least 6 characters)"  %>
+        <%= f.password_field :password %></div>
+
+        <div><%= f.label :password_confirmation, "Password confirmation" %>
+        <%= f.password_field :password_confirmation %></div>
+
+        <div><%= f.submit "Sign up", :class => "btn btn-primary form-btn" %></div>
+      <% end %>
+
+        <p><%= link_to('Already have an account?', new_user_session_path)  %></p>

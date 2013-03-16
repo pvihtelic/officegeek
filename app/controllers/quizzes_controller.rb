@@ -61,10 +61,13 @@ class QuizzesController < ApplicationController
         # email = ReservationMailer.confirm(@reservation)
         # email.deliver
 
-        format.html { redirect_to @user, notice: 'Quiz was successfully created.' }
+      format.html { redirect_to @user, notice: 'Your skill assessment answer file was successfully uploaded.  We will review your responses and email you a link to your results as soon as possible.' }
         format.json { render json: @user, status: :created, location: @quiz }
-      else
-        format.html { render action: "new" }
+      elsif @quiz.errors.any?
+        flash[:error] = 'Please make sure you selected your answer file and it ended in ".xlsx".'
+        return(redirect_to :back)
+      else  
+        format.html { redirect_to @user, notice: 'No file was selected.  Please back and choose "Select Your Answer File" before submitting.' }
         format.json { render json: @quiz.errors, status: :unprocessable_entity }
       end
     end
@@ -73,8 +76,8 @@ class QuizzesController < ApplicationController
   # PUT /quizzes/1
   # PUT /quizzes/1.json
   def update
-    @quiz = Quiz.find(params[:id])
-    @quiz = Quiz.update_attr(params)
+    @quiz = Quiz.find(params[:quiz][:id])
+    @quiz.update_attributes(params[:quiz])
     @user = current_user
 
     respond_to do |format|

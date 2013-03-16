@@ -1,78 +1,125 @@
 <div class="row">
   
-  <%= render 'devise/registrations/registrationmodal' %>
   <div id="wrapper">
-  <div class="section intro">
-  <div class="section-title">
-    <h1 class="intro logo">OfficeScholar</h1>
-    <h3 class="intro">Learn Microsoft Excel.  Start for free.</h3>
-  </div>
-  <div class="section-title">
-    <a class="btn btn-primary btn-large" data-toggle="modal" href="#request-invite">Sign up for updates</a>
-  </div>
-  <div class="section-title next">
-    <%= link_to 'Get started with our screencast tutorials for free <i class="icon-circle-arrow-down"></i>'.html_safe, "#", :id => "next1", :class=>"hero-next" %>
-  </div>
-</div>
-  <div class="section"><a name="our-excel-tutorials"></a>
-  <div class="container">
-  <div class="content">
-    <h3 class="dark"><a class="anchor-navigation">Our Excel Tutorials</a></h3>
+    <div class="section intro">
+      <div class="container">
+        
+        <div class="span4 left-home-container">
+          
+          <div class="section-title">
+            <h2 class="intro logo">OfficeScholar</h2>
+            <h4 class="intro">Learn Microsoft Excel and test your skills for free.</h3>
+            
+            <h3 class="left-home-below-logo">Popular Excel Screencasts</h3>  
+            
+            <ul>
+              <% @topics_preview.each do |topic| %>
+              <li class="course-summary-list">
+                
+                  
+                  <%= link_to(topic_url(topic.id)) do %> 
+                  <div class="span2 course-summary topic-tile">
+                        <div class="play-icon-container">
+                          <i class="icon-play-circle icon-2x"></i>
+                        </div>
+                        <div class="topic-tile-details">
+                          <% if topic.length > 0 %>
+                            <small><%= topic.length %> min.</small>
+                          <% else %>
+                            <small>&lt;1 min.</small>
+                          <% end %>
+                        </div>
+                        <h6><%= topic.title %></h6>
+                        <small> <%= topic.tutorial.title %> </small>
+                  </div>
+                  <% end %>      
 
-    <div class="row">
-      <div class="span11">
-        <%= link_to(package_url(1), :class => "link-tutorial-summary-title") do %>
-        <h3>Introduction to Excel <small><%= @packages[0].tutorials.count %> episodes | <%= @packages[0].tutorials.map(&:length).sum %> minutes total</small></h3>
-        <% end %>
-        <ul>
-        <% @intro_tutorials.each do |intro_tutorial| %>
-        <li class="course-summary-list">
-	        <div class="span2 course-summary">
-	          <div class="course-container">
-	            <div class="top-section-course">
-                <div class="top-left-course-container">
-                 <%= link_to(tutorial_url(intro_tutorial.id)) do %> 
-                  <i class="icon-play-circle icon-2x"></i>
-                 <% end %> 
+
+              </li>
+              <% end %>
+            </ul>
+          </div>
+          
+          <div class="section-title next">
+          <%= link_to 'Check Out Our Library of Tutorials <i class="icon-circle-arrow-down"></i>'.html_safe, "#", :id => "next1", :class=>"hero-next btn btn-primary btn-large" %>
+          </div>
+
+        </div>
+
+        <div class="span4 right-home-container">
+          <div class="form-box course-summary course-summary-home">
+          
+          <%= render "layouts/signup_form" %>
+
+          </div>
+        </div>
+      </div>    
+    </div>  
+
+
+    <div class="section"><a name="our-excel-tutorials"></a>
+      <div class="container">
+        <div class="content">
+        <h3 class="dark"><a class="anchor-navigation">Our Excel Tutorials</a></h3>
+
+        <div class="row">
+          <div class="span11">
+            <ul class="ul-index-row">
+              <% @tutorials.each do |tutorial| %>
+              <li class="course-summary-list">
+                <div class="tutorial-row-container">
+                  <div class="span4 left-home-container index-tutorials-left">
+                  <%= link_to(tutorial_url(tutorial.id), :class => "link-tutorial-summary-title") do %>
+                    <h3><%= tutorial.title %></h3>
+                    <p><%= tutorial.topics.count %> lessons | <%=tutorial.topics.map(&:length).sum %> minutes total</p>
+                    <p><%= tutorial.description %></p>
+                    <%= link_to 'Skill Assessment <i class="icon-cloud-download"></i>'.html_safe, tutorial.blank_quizzes.first.url, :target => "_blank", :class=>"hero-next btn btn-primary btn-small" %>
+                    <%= link_to 'Submit Your Answers <i class="icon-cloud-upload"></i>'.html_safe, "/users/#{current_user.id}", :class=>"hero-next btn btn-small" %>
+
+
+                    <% end %>
+                  </div>
+                  <div class="span4 right-home-container index-tutorials-right">
+                    <ul>
+                    <% tutorial.topics.each do |topic| %>
+                      <li class="course-summary-list">
+                          <%= link_to(topic_url(topic.id)) do %> 
+                          <div class="span2 course-summary topic-tile">
+                                <div class="play-icon-container">
+                                  <i class="icon-play-circle icon-2x"></i>
+                                </div>
+                                <div class="topic-tile-details">
+                                  <% if topic.length > 0 %>
+                                    <small><%= topic.length %> min.</small>
+                                  <% else %>
+                                    <small>&lt;1 min.</small>
+                                  <% end %>
+                                </div>
+                                <h6><%= topic.title %></h6>
+                                <small> <%= topic.tutorial.title %> </small>
+                          </div>
+                          <% end %>      
+                      </li>
+                    <% end %>
+                  </ul>
+                  </ul>
+                  </div>  
+
+
+
                 </div>  
-                <div class="top-right-course-container">
-                  <h4 class="tutorial-summary-title"><%= link_to "#{intro_tutorial.title}", tutorial_url(intro_tutorial.id), :class => "link-tutorial-summary-title" %></br>
-                    <small><%= intro_tutorial.length %> minutes | Beginner </small></h4>
-                </div>
-              </div>  
-              <div class="course-intro-list">    
-  	            <ul class="course-intro">
-  	              <li class="course-summary-topics">
-  	              	<% if !intro_tutorial.topics.first.nil? %>
-  	              	<%= intro_tutorial.topics.first.title %>
-  	              	<% end %>
-  	              </li>
-  	              <li class="course-summary-topics">
-  	              	<% if !intro_tutorial.topics[1].nil? %>
-  	              	<%= intro_tutorial.topics[1].title %>
-  	              	<% end %>
-  	              </li>
-  	              <li class="course-summary-topics">
-  	              	<% if !intro_tutorial.topics[2].nil? %>
-  	              	<%= intro_tutorial.topics[2].title %>
-  	              	<% end %>
-  	              </li>
-  	              <li class="course-summary-topics"><%= link_to "More...", tutorial_url(intro_tutorial.id) %></li>
-  	            </ul>
-                </div>  
-	          </div>
-	        </div>
-	        <% end %> 
-	    </li>
-		</ul>
-	</div>
-	</div>
+              </li>
+              <% end %>
+            </ul>  
+
+
+            
 	
 	   
   <div class="row">
     <div class="span11">  
       <h3>Curriculum Development</h3>
-      <p>We are constantly adding to our library of screencast tutorials.  As a subscriber, you not only have unlimited access to our current episodes, but also all of the content that we release on a regular basis going forward.</p>
+      <p>We are constantly adding to our library of screencast tutorials.</p>
       <p>Soon we will be adding additional Beginner episodes, as well as Intermediate and Advanced Excel screencast tutorials to help you continue to grow your skill set.  If there is anything you'd like to see OfficeScholar cover, <%= mail_to "info@officescholar.com", "let us know!" %></p>
       <p>Episodes currently being produced:</p>
       <ul class="course-intro">

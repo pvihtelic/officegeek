@@ -45,13 +45,13 @@
           </li>
         <% else %>
           <li class="nav-rightside">
-          <small><%= link_to('Login', new_user_session_path, :class=>"btn btn-primary btn-small logout") %></small>
+          <small><%= link_to('Login', new_user_session_path, :class=>"btn btn-small logout") %></small>
           </li>
         <% end %>
 
         <% if signed_in? %>
           <li class="nav-rightside">
-          <small><%= link_to("My Account", "/users/#{current_user.id}", :class=>"btn btn-primary btn-small") %></small>
+          <small><%= link_to("My Dashboard <i class='icon-cog'></i>".html_safe, "/users/#{current_user.id}", :class=>"btn btn-primary btn-small") %></small>
           </li>
         <% else %>
           <li class="nav-rightside">

@@ -40,13 +40,13 @@
             <h3>Description</h3>
             <p><%= @tutorial.description %></p>
             <p>Download the Excel file used in this episode for free.</p>
-            <%= link_to "<i class='icon-cloud-download'></i> Excel Sample File".html_safe, "#{@tutorial.excel_path}", :target => "_blank", :class=>"btn btn-primary" %> 
+            <%= link_to "Excel Tutorial File <i class='icon-cloud-download'></i>".html_safe, "#{@tutorial.excel_path}", :target => "_blank", :class=>"btn btn-primary" %> 
           </div>  
           <div class="topics-span-pull-right">      
             <h3>Topics Covered</h3>
             <ul class="topic-list">
               <% @tutorial.topics.each do |topic| %>
-              <li class="course-summary-topics"><%= topic.title %></li>
+              <li class="course-summary-topics"><%= link_to topic.title, topic_url(topic.id) %></li>
               <% end %>
             </ul>
           </div>  
@@ -62,13 +62,13 @@
 
             <p>Simply download our quiz, then upload your answers to our secure server below.  We will review your work and let you know where you need improvement or if you've earned the tutorial's skill certificate, which lists the areas you've been tested on along with OfficeScholar's seal of approval.</p>
 
-            <p>As a reminder, you can also access all of the quizzes through your Account Overview.</p>
+            <p>As a reminder, you can also access all of the quizzes through your <%= link_to "Account Overview", user_url %> after signing in.</p>
 
             <h4 class="skill-assessment-download-heading">Download, Open and Follow the Directions</h4>
-            <%= link_to "<i class='icon-cloud-download'></i> Skill Assessment".html_safe, "#{@tutorial.excel_path}", :target => "_blank", :class=>"btn btn-primary" %>
+            <%= link_to "Skill Assessment <i class='icon-cloud-download'></i>".html_safe, "#{@tutorial.excel_path}", :target => "_blank", :class=>"btn btn-primary" %>
 
             
-            <h4 class="skill-assessment-download-heading">After Completing, Submit Your Answer File</h4>
+            <h4 class="skill-assessment-download-heading">After Completing, Submit Your Excel File for Review</h4>
 
             <%= simple_form_for :quiz, :url => "/quizzes", :html => { :multipart => true } do |form| %>
 
@@ -76,6 +76,8 @@
               <span class="btn btn-file">Select Your Answer File<%= form.file_field :quiz_path %><span class="fileupload-new"></span><span class="fileupload-exists"></span><input type="file" /></span>
               <span class="fileupload-preview"></span>
               <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
+
+              <%= form.hidden_field :tutorial_id, :value => @tutorial.id %>
               
               <button type="submit" class="btn btn-primary">Submit</button>
 

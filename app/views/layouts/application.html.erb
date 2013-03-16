@@ -47,6 +47,16 @@
           e.preventDefault();
       });
 
+      if($('#file-field').val() ==  "") 
+         $('#submitButtonId').attr('disabled', true);
+
+      $('#text-field').keyup(function(){
+            if($('#file-field').val() !=  "") 
+                 $('#submitButtonId').attr('disabled', false);    
+        else
+           $('#submitButtonId').attr('disabled', true);   
+      });
+
     });
       
     </script>

@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130311164641) do
+ActiveRecord::Schema.define(:version => 20130316042905) do
+
+  create_table "blank_quizzes", :force => true do |t|
+    t.string   "title"
+    t.string   "url"
+    t.integer  "tutorial_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "description"
+  end
 
   create_table "packages", :force => true do |t|
     t.decimal  "price"
@@ -31,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20130311164641) do
     t.string   "quiz_path_content_type"
     t.integer  "quiz_path_file_size"
     t.datetime "quiz_path_updated_at"
+    t.integer  "tutorial_id"
   end
 
   create_table "roles", :force => true do |t|
@@ -51,6 +61,7 @@ ActiveRecord::Schema.define(:version => 20130311164641) do
     t.integer  "length"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "topic_path"
   end
 
   create_table "tutorials", :force => true do |t|

@@ -1,7 +1,16 @@
 class Quiz < ActiveRecord::Base
-  attr_accessible :quiz_path, :user_id
+  attr_accessible :quiz_path, :user_id, :tutorial_id
+
+  validates_presence_of :quiz_path
+  validates_attachment_size :quiz_path, :less_than => 50.kilobytes    
+  validates_attachment_presence :quiz_path 
+  validates_attachment_content_type :quiz_path, 
+                                    :content_type => ["application/pdf","application/vnd.ms-excel",     
+             "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"],
+                                    :message => 'We only accept Microsoft Excel files ending in .xlsx or .xls'
 
   belongs_to :user
+  belongs_to :tutorial
   has_attached_file :quiz_path,
     :url => "/system/:hash.:extension",
     :hash_secret => "longSecretString",

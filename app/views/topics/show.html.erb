@@ -1,25 +1,200 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="container">
+    
+      <div class="show-span first-show">
+        <h3 class="dark show top-show"><%= @topic.title %> <small>| <%= @topic.length %> minute screencast | <% if @topic.tutorial.package.title == "Introduction to Excel" %>
+                <%= "Beginner" %>
+                <% else %>
+                <%= "Intermediate" %>
+                <% end %> </small></h3>
+          <div id="myElement">Loading the player...</div>
+            <script type="text/javascript">
+                $(document).ready(function(){
+                  jwplayer("myElement").setup({
+                      players: [{type: "flash", src:'/jwplayer/player.swf'}],
+                      height: 525,
+                      width: 900,
+                      'invideous.pid': '96274',
+                      'invideous.video_id': '10053143',
+                      plugins: 'http://plugin.invideous.com/v5/invideous.swf',
+                      file: '<%= @topic.topic_path %>',
+                      volume: 75,
+                      controlbar: "bottom",
+                  });              
+                });
+            </script>
+          <div class="tutorial-show-span-pull-left">
+            <h3 class="dark show below-video">Episode
+              <% if @topic.tutorial.package.id == 2 %> 
+                  #<%= @topic.id - @topic.tutorial.package.tutorials.count %>
+                <% else %> 
+                  #<%= @topic.id %>
+              <% end %> - <%= @topic.tutorial.package.title %></h3>
+          </div>
+          <div class="download-span-pull-right">      
+            
+          </div>  
+        </div>        
+        <div class="show-span">
+          <div class="description-show-span-pull-left">
+            <h3>Description</h3>
+            <p><%= @topic.description %></p>
+            <p>Download the Excel file used in this episode for free.</p>
+            <%= link_to "Excel Tutorial File <i class='icon-cloud-download'></i>".html_safe, "#{@topic.tutorial.excel_path}", :target => "_blank", :class=>"btn btn-primary" %> 
+          </div>  
+          <div class="topics-span-pull-right">      
+            <h3>All Topics In This Series</h3>
+            <ul class="topic-list">
+              <% @topic.tutorial.topics.each do |topic| %>
+              <li class="course-summary-topics"><%= link_to topic.title, topic_url(topic.id) %></li>
+              <% end %>
+            </ul>
+          </div>  
+        </div>
+      </div>
+      </div>
 
-<p>
-  <b>Title:</b>
-  <%= @topic.title %>
-</p>
+      <div class="row">
+        <div class="container">
+          <div class="show-span">
+            <h3>Skill Assessment</h3>
+            <p>After finishing each of the screencasts for this topic's tutorial - <%= @topic.tutorial.title %> - try putting your Excel knoweldge to the test!</p>
 
-<p>
-  <b>Description:</b>
-  <%= @topic.description %>
-</p>
+            <p>Simply download our quiz, then upload your answers to our secure server below.  We will review your work and let you know where you need improvement or if you've earned the tutorial's skill certificate, which lists the areas you've been tested on along with OfficeScholar's seal of approval.</p>
 
-<p>
-  <b>Length:</b>
-  <%= @topic.length %>
-</p>
+            <p>As a reminder, you can also access all of the quizzes through your <%= link_to "Account Overview", user_url %> after signing in.</p>
 
-<p>
-  <b>Tutorial:</b>
-  <%= @topic.tutorial_id %>
-</p>
+            <h4 class="skill-assessment-download-heading">Download, Open and Follow the Directions</h4>
+            <%= link_to "Skill Assessment <i class='icon-cloud-download'></i>".html_safe, "#{@topic.tutorial.excel_path}", :target => "_blank", :class=>"btn btn-primary" %>
+
+            
+            <h4 class="skill-assessment-download-heading">After Completing, Submit Your Excel File for Review</h4>
+
+            <%= simple_form_for :quiz, :url => "/quizzes", :html => { :multipart => true } do |form| %>
+
+            <div class="fileupload fileupload-new" data-provides="fileupload">
+              <span class="btn btn-file">Select Your Answer File<%= form.file_field :quiz_path %><span class="fileupload-new"></span><span class="fileupload-exists"></span><input type="file" /></span>
+              <span class="fileupload-preview"></span>
+              <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
+
+              <%= form.hidden_field :tutorial_id, :value => @topic.tutorial.id %>
+              
+              <button type="submit" class="btn btn-primary">Submit</button>
+
+            </div>
+
+            
+
+            <% end %>
 
 
-<%= link_to 'Edit', edit_topic_path(@topic) %> |
-<%= link_to 'Back', topics_path %>
+          </div>
+        </div>
+      </div>        
+
+
+      <div class="row">
+        <div class="container">
+        <%= link_to(topic_url(@next_topic.id), :class=>"link-tutorial-summary-title") do %>
+        <div class="bottom-show-span">  
+        
+        <div class="span3 other-items">
+            <h4 class="suggested-show">Next Episode</h4>  
+        <% end %>
+          <div class="span2 course-summary show-bottom">
+            <div class="course-container">
+                <div class="top-section-course">
+                  <div class="top-left-course-container">
+                   <%= link_to(topic_url(@next_topic.id)) do %> 
+                    <i class="icon-play-circle icon-2x"></i>
+                   <% end %> 
+                  </div>  
+                  <div class="top-right-course-container">
+                    <% if !@next_topic.nil? %>
+                      <h4 class="tutorial-summary-title"><%= link_to "#{@next_topic.title}", tutorial_url(@next_topic.id), :class => "link-tutorial-summary-title" %></br>
+                        <small><%= pluralize(@next_topic.length, "minute") %> | Beginner </small></h4>
+                  </div>
+                  </div>
+                  <ul class="course-intro">
+                    <li class="course-summary-topics">
+                      <% if !@next_topic.tutorial.topics.first.nil? %>
+                      <%= @next_topic.tutorial.topics.first.title %>
+                      <% end %>
+                    </li>
+                    <li class="course-summary-topics">
+                      <% if !@next_topic.tutorial.topics[1].nil? %>
+                      <%= @next_topic.tutorial.topics[1].title %>
+                      <% end %>
+                    </li>
+                    <li class="course-summary-topics">
+                      <% if !@next_topic.tutorial.topics[2].nil? %>
+                      <%= @next_topic.tutorial.topics[2].title %>
+                      <% end %>
+                    </li>
+                    <li class="course-summary-topics"><%= link_to "More...", topic_url(@next_topic.id) %></li>
+                  </ul>  
+                <% end %>  
+              </div>
+              </div>
+          </div>
+          <div class="span3 other-items">
+          <%= link_to(package_url(@topic.tutorial.package.id), :class=>"link-tutorial-summary-title") do %>
+            <h4 class="suggested-show">Check Out The Series</h4>
+          <% end %>  
+          <div class="span2 course-summary show-bottom">
+            <div class="course-container">
+                <div class="top-section-course">
+                  <div class="top-left-course-container">
+                   <%= link_to(package_url(@topic.tutorial.package.id)) do %> 
+                    <i class="icon-play-circle icon-2x"></i>
+                   <% end %> 
+                  </div>  
+                  <div class="top-right-course-container">
+                    <h4 class="tutorial-summary-title"><%= link_to "#{@topic.tutorial.package.title}", package_url(@topic.tutorial.package.id), :class => "link-tutorial-summary-title" %></br>
+                  <small><%= pluralize(@topic.tutorial.package.tutorials.map(&:length).sum, "minute") %> | Beginner </small></h4>
+                  </div>
+                  
+                  </div>
+                <ul class="course-intro">
+                  <li class="course-summary-topics">
+                    <% if !@topic.tutorial.package.tutorials[0].nil? %>
+                    <%= @topic.tutorial.package.tutorials[0].title %>
+                    <% end %>
+                  </li>
+                  <li class="course-summary-topics">
+                    <% if !@topic.tutorial.package.tutorials[1].nil? %>
+                    <%= @topic.tutorial.package.tutorials[1].title %>
+                    <% end %>
+                  </li>
+                  <li class="course-summary-topics">
+                    <% if !@topic.tutorial.package.tutorials[2].nil? %>
+                    <%= @topic.tutorial.package.tutorials[2].title %>
+                      <% end %>
+                  </li>
+                  <li class="course-summary-topics"><%= link_to "More...", package_url(@topic.tutorial.package.id) %></li>
+                </ul>
+              </div>
+          </div>
+        </div>
+        
+        <div class="span3 other-items">
+          <h4 class="suggested-show">Fellow OfficeScholars</h4>
+          
+          <div class="course-container">
+            <blockquote>
+              <p>I was able to get started with Excel way faster than I thought.</p>
+              <footer>— Doug, Kansas</footer>
+            </blockquote>
+            <blockquote>
+              <p>So easy!</p>
+              <footer>— Michelle, Florida</footer>
+            </blockquote>
+          </div>  
+          
+        </div>
+        </div>
+        </div>
+    </div>
+    </div>
+  
+</div>

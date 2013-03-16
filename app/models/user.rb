@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   # to associate with quizzes uploaded by the user
 
   has_many :quizzes
+  accepts_nested_attributes_for :quizzes
 
   # override Devise method
   # no password is required when the account is created; validate password when the user sets one

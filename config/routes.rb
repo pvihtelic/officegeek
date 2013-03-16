@@ -16,6 +16,8 @@ Officegeek::Application.routes.draw do
   get "/chicago_classes" => "home#chicago_classes", :as=>"chicago_classes"
 
   put "/quizzes" => "quizzes#index", :as=>"quizzes_url"
+  put "/quizzes/:id" => "quizzes#update"
+  post "/quizzes/:id" => "quizzes#update"
 
   authenticated :user do
     root :to => 'home#index'

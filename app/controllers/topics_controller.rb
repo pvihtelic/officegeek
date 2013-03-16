@@ -14,6 +14,11 @@ class TopicsController < ApplicationController
   # GET /topics/1.json
   def show
     @topic = Topic.find(params[:id])
+    if @topic.id == Topic.maximum("id")
+      @next_topic = Topic.find(1)
+    else 
+      @next_topic = Topic.find(@topic.id + 1)
+    end
 
     respond_to do |format|
       format.html # show.html.erb

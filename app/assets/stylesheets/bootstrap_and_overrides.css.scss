@@ -3,11 +3,12 @@
 body { 
 	padding-top: 60px; 
 	background: url('subtle_freckles.png'); 	
+	color: black;
 }
 
 
 a {
-	color: rgb(51, 51, 51);
+	color: #4876FF;
 	font-weight: normal;
 }
 
@@ -23,7 +24,7 @@ a.price-link-tutorial-summary-title {
 }
 
 a:hover {
-	color: #4876FF;
+	color: #ff8000;
 	text-decoration: none;
 	-webkit-transition: all 0.2s ease-in-out;
 	-moz-transition: all 0.2s ease-in-out;
@@ -49,13 +50,14 @@ h2 {
 .intro {
 	color: white;
 	font-family: 'Droid Sans', sans-serif;
-	text-shadow: 0 1px 3px rgba(0, 0, 0, .6), 0 0 30px rgba(0, 0, 0, .075);
-	margin-top: 30px;
+	text-shadow: 0 1px 3px rgba(0, 0, 0, .075), 0 0 30px rgba(0, 0, 0, .075);
+	margin-top: 10px;
 }
 
-h3.intro {
+h4.intro {
 	font-family: 'Droid Sans', sans-serif;
 	font-weight: normal;	
+	margin-left: 3px;
 }
 
 h3.intro.multiple-lines{
@@ -69,11 +71,11 @@ h3.intro.multiple-lines{
 	font-family: 'Droid Sans', sans-serif;
 	font-weight: bold;
 	color: white;
-	font-size: 500%;
-	margin-top: 150px;
+	font-size: 400%;
+	margin-top: 70px;
 }
 
-h2.intro.logo {
+h2.intro.logo-class {
 	font-family: 'Droid Sans', sans-serif;
 	font-weight: bold;
 	color: black;
@@ -102,12 +104,12 @@ div.section.intro {
 }
 
 .section-title {
-	text-align: center; 
-	margin-top: 30px;
+	
+	margin-top: 10px;
 }
 
 .section-title.next {
-	margin-top: 90px;
+	margin-top: 30px;
 }
 
 .end {
@@ -252,10 +254,11 @@ form {
 }
 
 .course-summary {
-	margin-left: 15px;
-	margin-bottom: 10px;
+	background: white; 
 	margin-top: 5px;
-	background: rgba(0, 0, 0, 0.04);
+	margin-right: 15px;
+	margin-bottom: 10px;
+	margin-left: 0;
 	border-radius: 5px;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -263,19 +266,44 @@ form {
 	-moz-box-shadow: 2px 2px 1px rgba(0,0,0,.5);
 	box-shadow: 2px 2px 1px rgba(0,0,0,.5);
 	width: 265px;
-	height: 160px;
+	height: 265px;
 	border-radius:10px;
 	-moz-border-radius:10px;
 }
 
+.course-summary.topic-tile {
+	width: 140px;
+	height: 70px;
+	margin-right: 10px;
+	margin-bottom: 5px;
+	padding-top: 10px;
+	padding-right: 5px;
+	padding-left: 10px;
+	padding-bottom: 10px;
+}
+
+.course-summary.topic-tile:hover {
+
+	box-shadow: 0px 1px 0px white, inset 0px 0px 0px 1px rgba(0, 0, 0, 0.19), 0px 0px 5px 		0px rgba(255, 255, 255, 0.34), inset 0px 2px 10px 0px rgba(0, 0, 0, 0.32);
+	-moz-box-shadow: 0px 1px 0px white, inset 0px 0px 0px 1px rgba(0, 0, 0, 0.19), 0px 0px 		5px 0px rgba(255, 255, 255, 0.34), inset 0px 2px 10px 0px rgba(0, 0, 0, 0.32);
+	-webkit-box-shadow: 0px 1px 0px white, inset 0px 0px 0px 1px rgba(0, 0, 0, 0.19), 0px 		0px 5px 0px rgba(255, 255, 255, 0.34), inset 0px 2px 10px 0px rgba(0, 0, 0, 0.32);
+
+}
+
+
 .form-box.course-summary {
-	width: 500px;
+	width: 400px;
 	margin-top: 60px;
 	padding-top: 20px;
 	padding-right: 20px;
 	padding-left: 20px;
 	padding-bottom: 20px;
 	height: 100%;
+}
+
+.form-box.course-summary.course-summary-home {
+	width: 100%;
+	margin-left: 30px;
 }
 
 .span2.class-summary {
@@ -297,6 +325,7 @@ form {
 
 .span2.course-summary.show-bottom {
 	margin-left: 0;
+	height: 160px;
 }
 
 .span5.show-content, .span4.show-content {
@@ -341,16 +370,6 @@ ul {
 	padding-left: 10px;
 }
 
-.hero-next {
-	font-size: 150%;
-	color: #4876FF;
-}
-
-.hero-next:hover {
-	text-decoration: none;
-	color: white;
-}
-
 .icon-circle-arrow-down {
 	font-size: 150%;
 }
@@ -360,19 +379,22 @@ ul {
 }
 
 h3.dark {
-	border-bottom: 2px solid black;
+	border-bottom: 2px solid;
+	border-color: inherit;
 	margin-top: 50px;
 }
 
 h3.dark.package-show {
-	border-bottom: 2px solid black;
+	border-bottom: 2px solid;
+	border-color: inherit;
 	margin-top: 50px;
 }
 
 h3.dark.form-heading {
-	border-bottom: 2px solid black;
+	border-bottom: 2px solid;
 	margin-top: 0;
 	margin-bottom: 30px;
+	color: black;
 }
 
 h3.dark.show {
@@ -471,7 +493,7 @@ h3.white {
 }
 
 ul.course-intro {
-	margin: 0 0 0 30px;
+	margin: 0 0 0 25px;
 	text-align: left;
 }
 
@@ -666,7 +688,7 @@ h3.dark.show-package-left {
 	width: 20px;
 	line-height: 45px;
 	margin-left: 5px;
-	margin-right: 10px;
+	margin-right: 0;
 }
 
 .top-section-course {
@@ -682,8 +704,8 @@ h3.dark.show-package-left {
 }
 
 .alert {
-	margin-top: 42px;
-	margin-bottom: 0;
+	margin-top: 30px;
+	margin-bottom: 10px;
 }
 
 .form-pages {
@@ -692,7 +714,7 @@ h3.dark.show-package-left {
 
 select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
 	margin-bottom: 25px;
-	width: 250px;
+	width: 300px;
 }
 
 .form-actions {
@@ -735,9 +757,69 @@ td.center-td {
 	margin-bottom: 10px;	
 }
 
-.account-no-quiz-message {
-	text-align: center;
-	margin-right: auto;
-	margin-left: auto;
-	width: 80%;
+.span4.left-home-container {
+	width: 500px;
+	height: 100%;
+}
+
+.span4.left-home-container.index-tutorials-left {
+	margin-left: 2px;
+	width: 300px;
+}
+
+.span4.right-home-container.index-tutorials-right {
+	margin-top: 10px;
+	width: 500px;
+	margin-left: 55px;
+}
+
+.span4.right-home-container {
+	width: 320px;
+	margin-left: 30px;	
+	height: 100%;
+}
+
+.play-icon-container {
+	display: inline;
+	height: 30px;
+	width: 30px;
+	margin-left: 0px;
+	margin-top: 10px;
+}
+
+.topic-tile-details {
+	display: inline;
+	height: 30px;
+}
+
+label {
+	color: black;
+}
+
+.left-home-below-logo {
+	margin-top: 50px;
+}
+
+.hero-next {
+	margin-top: 17px;
+}
+
+blockquote {
+	border-left: 2px solid black;
+}
+
+.topic-tile-clickable a {
+	color: black;
+}
+
+div.tutorial-row-container {
+	width: 900px;
+	overflow: auto;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	border-bottom: 2px solid black;
+}
+
+.ul-index-row {
+	margin-left: 0;
 }
