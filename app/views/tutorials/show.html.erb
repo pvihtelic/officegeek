@@ -78,6 +78,9 @@
               <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
 
               <%= form.hidden_field :tutorial_id, :value => @tutorial.id %>
+              <%= form.hidden_field :blank_quiz_id, :value => @tutorial.id %>
+              <%= form.hidden_field :id, :value => @tutorial.id %>
+              <%= form.hidden_field :user_id, :value => @user.id %>
               
               <button type="submit" class="btn btn-primary">Submit</button>
 

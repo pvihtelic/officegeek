@@ -35,6 +35,12 @@
           e.preventDefault();
       });
 
+      $('#next1bottom').click(function(e) 
+      {
+        $('#next2').click()
+          e.preventDefault();
+      });
+
       $('#next3').click(function(e) 
       {
         $('#next4').click()
@@ -81,6 +87,11 @@
 
     <%= yield(:head) %>
   </head>
+  <div id="getsat-widget-4978"></div>
+    <script type="text/javascript" src="https://loader.engage.gsfn.us/loader.js"></script>
+    <script type="text/javascript">
+    if (typeof GSFN !== "undefined") { GSFN.loadWidget(4978,{"containerId":"getsat-widget-4978"}); }
+    </script>
   <body class="<%= controller_name %> <%= action_name %>">
     <header class="navbar navbar-fixed-top">
       <nav class="navbar-inner">

@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   def show
     @user = current_user
     @quizzes = current_user.quizzes.all
+    @blank_quizzes = BlankQuiz.all
 
   end
 

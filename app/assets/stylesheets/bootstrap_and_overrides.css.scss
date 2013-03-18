@@ -67,6 +67,15 @@ h3.intro.multiple-lines{
 	font-size: 160%;	
 }
 
+.intro.multiple-lines strong {
+	color: #4876FF;
+	font-weight: normal;
+}
+
+.intro.multiple-lines strong:hover {
+	color: #ff8000;
+}
+
 .intro.logo {
 	font-family: 'Droid Sans', sans-serif;
 	font-weight: bold;
@@ -306,6 +315,19 @@ form {
 	margin-left: 30px;
 }
 
+.form-box.course-summary.course-summary-home-signed-in {
+	background: transparent;
+	box-shadow: none;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+.form-box.course-summary.course-summary-home-signed-in:hover {
+	box-shadow: 0px 1px 0px #A8A8A8, inset 0px 0px 0px 1px rgba(0, 0, 0, 0.19), 0px 0px 5px 		0px rgba(168, 168, 168, 0.34), inset 0px 2px 10px 0px rgba(0, 0, 0, 0.32);
+	-moz-box-shadow: 0px 1px 0px #A8A8A8, inset 0px 0px 0px 1px rgba(0, 0, 0, 0.19), 0px 0px 		5px 0px rgba(168, 168, 168, 0.34), inset 0px 2px 10px 0px rgba(0, 0, 0, 0.32);
+	-webkit-box-shadow: 0px 1px 0px #A8A8A8, inset 0px 0px 0px 1px rgba(0, 0, 0, 0.19), 0px 		0px 5px 0px rgba(168, 168, 168, 0.34), inset 0px 2px 10px 0px rgba(0, 0, 0, 0.32);
+}
+
 .span2.class-summary {
 	margin-left: 15px;
 	margin-bottom: 10px;
@@ -382,6 +404,7 @@ h3.dark {
 	border-bottom: 2px solid;
 	border-color: inherit;
 	margin-top: 50px;
+	color: black;
 }
 
 h3.dark.package-show {
@@ -457,8 +480,8 @@ h3.white {
 }
 
 .how-it-works-icons-container:hover {
-	color: grey;
-	border: 5px solid grey;
+	color: #ff8000;
+	border: 5px solid #ff8000;
 }
 
 .icon-facetime-video.icon-4x {
@@ -479,13 +502,17 @@ h3.white {
 	line-height: 40px;
 }
 
-.icon-cloud-download.icon-4x {
+.icon-cloud-download.icon-4x, .icon-lightbulb.icon-4x {
 	margin-top: 30px;
 	margin-right: 10px;
 	background-image: none;
 	width: 50px;
 	height: 40px;
 	line-height: 40px;
+}
+
+.icon-lightbulb.icon-4x {
+	margin-right: 0;
 }
 
 .next-container {
@@ -777,6 +804,7 @@ td.center-td {
 	width: 320px;
 	margin-left: 30px;	
 	height: 100%;
+	color: black;
 }
 
 .play-icon-container {

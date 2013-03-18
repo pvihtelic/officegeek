@@ -1,5 +1,5 @@
   class Quiz < ActiveRecord::Base
-  attr_accessible :quiz_path, :user_id, :tutorial_id
+  attr_accessible :quiz_path, :user_id, :tutorial_id, :blank_quiz_id
 
   validates_presence_of :quiz_path
   validates_attachment_size :quiz_path, :less_than => 50.kilobytes    
@@ -11,6 +11,7 @@
 
   belongs_to :user
   belongs_to :tutorial
+  belongs_to :blank_quiz
   has_attached_file :quiz_path,
     :storage => :s3,
     :s3_permissions => :private,

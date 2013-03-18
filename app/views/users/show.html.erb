@@ -17,30 +17,45 @@
 			    <th>Delete</th>
 			  </tr>
 
-			<% if !@quizzes.blank? %>
-				<% @quizzes.each do |quiz| %>
+			<% if !@blank_quizzes.blank? %>
+				<% @blank_quizzes.each do |blank_quiz| %>
 				  <tr>
-				    <td>Starting From Scratch</td>
-				    <td><%= quiz.quiz_path_file_name[0,20] %>...</td>
-				    <td><i class="icon-trophy icon-large"></i></td>
+				    <td><%= link_to "#{blank_quiz.title} <i class='icon-cloud-download'></i>".html_safe, blank_quiz.url, :target => "_blank" %></td>
 				    <td>
-				    	<%= simple_form_for :quiz, :url => url_for(:action => 'update', :controller => 'quizzes'), :html => { :multipart => true, :method => "put" } do |form| %>
-					    <div class="fileupload fileupload-new small-upload" data-provides="fileupload">
-						  <span class="btn btn-file btn-small">Select<%= form.file_field :quiz_path %><span class="fileupload-new"></span><span class="fileupload-exists"></span><input type="file" /></span>
-						  <span class="fileupload-preview"></span>
-						  <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
+				    	<% if blank_quiz.quizzes.empty? %>
+				    		<p>Nothing Submitted</p>
+				    	<% else %>
+				    		<%= blank_quiz.quizzes.last.quiz_path_file_name[0,20] %>...</td>
+				    	<% end %>
 
-						  <%= form.hidden_field :id, :value => quiz.id %>
-						  
-						</div>
 
-						<button type="submit" class="btn btn-primary btn-small">Submit</button>
 
-					  	<% end %>
-				    </td>
+					    <td><i class="icon-trophy icon-large"></i></td>
+					    <td>
+					    	<%= simple_form_for :quiz, :url => url_for(:action => 'update', :controller => 'quizzes'), :html => { :multipart => true, :method => "put" } do |form| %>
+						    <div class="fileupload fileupload-new small-upload" data-provides="fileupload">
+							  <span class="btn btn-file btn-small">Select<%= form.file_field :quiz_path %><span class="fileupload-new"></span><span class="fileupload-exists"></span><input type="file" /></span>
+							  <span class="fileupload-preview"></span>
+							  <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
+
+							  <%= form.hidden_field :id, :value => blank_quiz.id %>
+							  <%= form.hidden_field :tutorial_id, :value => blank_quiz.id %>
+							  <%= form.hidden_field :blank_quiz_id, :value => blank_quiz.id %>
+							  <%= form.hidden_field :user_id, :value => @user.id %>
+							  
+							</div>
+
+							<button type="submit" class="btn btn-primary btn-small">Submit</button>
+
+						  	<% end %>
+					    </td>
+					    
 				    
-				    <td><%= link_to '<i class="icon-remove"'.html_safe, quiz, method: :delete, data: { confirm: 'Are you sure you want to delete your quiz?' } %></td>
+				    <td><% if !blank_quiz.quizzes.empty? %>
+				    	<%= link_to '<i class="icon-remove"'.html_safe, blank_quiz.quizzes.last, method: :delete, data: { confirm: 'Are you sure you want to delete your quiz?' } %></td>
+				    	<% end %>
 				  </tr>
+				
 				<% end %>
 				</table>
 				
