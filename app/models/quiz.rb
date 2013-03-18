@@ -1,4 +1,4 @@
-class Quiz < ActiveRecord::Base
+  class Quiz < ActiveRecord::Base
   attr_accessible :quiz_path, :user_id, :tutorial_id
 
   validates_presence_of :quiz_path
@@ -12,8 +12,9 @@ class Quiz < ActiveRecord::Base
   belongs_to :user
   belongs_to :tutorial
   has_attached_file :quiz_path,
-    :url => "/system/:hash.:extension",
-    :hash_secret => "longSecretString",
+    :storage => :s3,
+    :s3_permissions => :private,
+    :path => "quizzes/:attachment/:style/:id.:extension",
   	:storage => :s3,
     :s3_credentials => {
       :access_key_id => ENV["AWS_ACCESS_KEY_ID"],

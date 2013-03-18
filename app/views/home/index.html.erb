@@ -73,8 +73,12 @@
                     <h3><%= tutorial.title %></h3>
                     <p><%= tutorial.topics.count %> lessons | <%=tutorial.topics.map(&:length).sum %> minutes total</p>
                     <p><%= tutorial.description %></p>
-                    <%= link_to 'Skill Assessment <i class="icon-cloud-download"></i>'.html_safe, tutorial.blank_quizzes.first.url, :target => "_blank", :class=>"hero-next btn btn-primary btn-small" %>
-                    <%= link_to 'Submit Your Answers <i class="icon-cloud-upload"></i>'.html_safe, "/users/#{current_user.id}", :class=>"hero-next btn btn-small" %>
+                    <%= link_to 'Skill Assessment <i class="icon-cloud-download"></i>'.html_safe, tutorial.blank_quizzes.first.url, :target => "_blank", :class=>"hero-next btn btn-primary btn-small" %> </br>
+                    <% if !current_user.nil? %>
+                      <%= link_to 'Submit Your Answers <i class="icon-cloud-upload"></i>'.html_safe, "/users/#{current_user.id}", :class=>"hero-next btn btn-small" %>
+                    <% else %>
+                      <%= link_to 'Sign In to Submit Your Answers', new_user_registration_path %>
+                    <% end %>
 
 
                     <% end %>

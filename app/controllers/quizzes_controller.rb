@@ -58,10 +58,10 @@ class QuizzesController < ApplicationController
 
     respond_to do |format|
       if @quiz.save
-        # email = ReservationMailer.confirm(@reservation)
-        # email.deliver
+        UserMailer.upload_notification_email(@user).deliver
+        AdminMailer.admin_upload_notification_email(@quiz, @user).deliver
 
-      format.html { redirect_to @user, notice: 'Your skill assessment answer file was successfully uploaded.  We will review your responses and email you a link to your results as soon as possible.' }
+        format.html { redirect_to @user, notice: 'Your skill assessment answer file was successfully uploaded.  We will review your responses and email you a link to your results as soon as possible.' }
         format.json { render json: @user, status: :created, location: @quiz }
       elsif @quiz.errors.any?
         flash[:error] = 'Please make sure you selected your answer file and it ended in ".xlsx".'
@@ -82,6 +82,9 @@ class QuizzesController < ApplicationController
 
     respond_to do |format|
       if @quiz.update_attributes(params[:quiz])
+        UserMailer.user_update_quiz_notification_email(@user).deliver
+        AdminMailer.admin_update_quiz_notification_email(@quiz, @user).deliver
+
         format.html { redirect_to @user, notice: 'Your quiz was successfully updated.' }
         format.json { head :no_content }
       else
