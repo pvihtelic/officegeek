@@ -70,134 +70,64 @@
             
             <h4 class="skill-assessment-download-heading">After Completing, Submit Your Excel File for Review</h4>
 
-            <%= simple_form_for :quiz, :url => "/quizzes", :html => { :multipart => true } do |form| %>
-
-            <div class="fileupload fileupload-new" data-provides="fileupload">
-              <span class="btn btn-file">Select Your Answer File<%= form.file_field :quiz_path %><span class="fileupload-new"></span><span class="fileupload-exists"></span><input type="file" /></span>
-              <span class="fileupload-preview"></span>
-              <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
-
-              <%= form.hidden_field :tutorial_id, :value => @tutorial.id %>
-              <%= form.hidden_field :blank_quiz_id, :value => @tutorial.id %>
-              <%= form.hidden_field :id, :value => @tutorial.id %>
-              <%= form.hidden_field :user_id, :value => @user.id %>
+            <% if !@quiz.nil? %>
               
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <%= simple_form_for :quiz, :url => url_for(:action => 'update', :controller => 'quizzes'), :html => { :multipart => true, :method => "put" } do |form| %>
 
-            </div>
+                <div class="fileupload fileupload-new" data-provides="fileupload">
+                  <span class="btn btn-file">Select Your Answer File<%= form.file_field :quiz_path %><span class="fileupload-new"></span><span class="fileupload-exists"></span><input type="file" /></span>
+                  <span class="fileupload-preview"></span>
+                  <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
 
-            
+                  <%= form.hidden_field :tutorial_id, :value => @tutorial.id %>
+                  <%= form.hidden_field :blank_quiz_id, :value => @tutorial.id %>
+                  
+                  <% if !@user.nil? %>
+                    <%= form.hidden_field :user_id, :value => @user.id %>
+                  <% end %>
+                  
+                  <button type="submit" class="btn btn-primary">Submit</button>
+
+                </div>
+
+                <% end %>
+
+            <% else %>
+
+              <%= simple_form_for :quiz, :url => "/quizzes", :html => { :multipart => true } do |form| %>
+
+                <div class="fileupload fileupload-new" data-provides="fileupload">
+                  <span class="btn btn-file">Select Your Answer File<%= form.file_field :quiz_path %><span class="fileupload-new"></span><span class="fileupload-exists"></span><input type="file" /></span>
+                  <span class="fileupload-preview"></span>
+                  <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
+
+                  <%= form.hidden_field :tutorial_id, :value => @tutorial.id %>
+                  <%= form.hidden_field :blank_quiz_id, :value => @tutorial.id %>
+                  
+                  <% if !@user.nil? %>
+                    <%= form.hidden_field :user_id, :value => @user.id %>
+                  <% end %>
+                  
+                  <button type="submit" class="btn btn-primary">Submit</button>
+
+                </div>      
+
+                <% end %>
 
             <% end %>
-
 
           </div>
         </div>
       </div>        
 
 
-      <div class="row">
-        <div class="container">
-        <%= link_to(tutorial_url(@next_tutorial.id), :class=>"link-tutorial-summary-title") do %>
-        <div class="bottom-show-span">  
-        
-        <div class="span3 other-items">
-            <h4 class="suggested-show">Next Episode</h4>  
-        <% end %>
-          <div class="span2 course-summary show-bottom">
-            <div class="course-container">
-                <div class="top-section-course">
-                  <div class="top-left-course-container">
-                   <%= link_to(tutorial_url(@next_tutorial.id)) do %> 
-                    <i class="icon-play-circle icon-2x"></i>
-                   <% end %> 
-                  </div>  
-                  <div class="top-right-course-container">
-                    <% if !@next_tutorial.nil? %>
-                      <h4 class="tutorial-summary-title"><%= link_to "#{@next_tutorial.title}", tutorial_url(@next_tutorial.id), :class => "link-tutorial-summary-title" %></br>
-                        <small><%= @next_tutorial.length %> minutes | Beginner </small></h4>
-                  </div>
-                  </div>
-                  <ul class="course-intro">
-                    <li class="course-summary-topics">
-                      <% if !@next_tutorial.topics.first.nil? %>
-                      <%= @next_tutorial.topics.first.title %>
-                      <% end %>
-                    </li>
-                    <li class="course-summary-topics">
-                      <% if !@next_tutorial.topics[1].nil? %>
-                      <%= @next_tutorial.topics[1].title %>
-                      <% end %>
-                    </li>
-                    <li class="course-summary-topics">
-                      <% if !@next_tutorial.topics[2].nil? %>
-                      <%= @next_tutorial.topics[2].title %>
-                      <% end %>
-                    </li>
-                    <li class="course-summary-topics"><%= link_to "More...", tutorial_url(@next_tutorial.id) %></li>
-                  </ul>  
-                <% end %>  
-              </div>
-              </div>
-          </div>
-          <div class="span3 other-items">
-          <%= link_to(package_url(@tutorial.package.id), :class=>"link-tutorial-summary-title") do %>
-            <h4 class="suggested-show">Check Out The Series</h4>
-          <% end %>  
-          <div class="span2 course-summary show-bottom">
-            <div class="course-container">
-                <div class="top-section-course">
-                  <div class="top-left-course-container">
-                   <%= link_to(package_url(@tutorial.package.id)) do %> 
-                    <i class="icon-play-circle icon-2x"></i>
-                   <% end %> 
-                  </div>  
-                  <div class="top-right-course-container">
-                    <h4 class="tutorial-summary-title"><%= link_to "#{@tutorial.package.title}", package_url(@tutorial.package.id), :class => "link-tutorial-summary-title" %></br>
-                  <small><%= @tutorial.package.tutorials.map(&:length).sum %> minutes | Beginner </small></h4>
-                  </div>
-                  
-                  </div>
-                <ul class="course-intro">
-                  <li class="course-summary-topics">
-                    <% if !@tutorial.package.tutorials[0].nil? %>
-                    <%= @tutorial.package.tutorials[0].title %>
-                    <% end %>
-                  </li>
-                  <li class="course-summary-topics">
-                    <% if !@tutorial.package.tutorials[1].nil? %>
-                    <%= @tutorial.package.tutorials[1].title %>
-                    <% end %>
-                  </li>
-                  <li class="course-summary-topics">
-                    <% if !@tutorial.package.tutorials[2].nil? %>
-                    <%= @tutorial.package.tutorials[2].title %>
-                      <% end %>
-                  </li>
-                  <li class="course-summary-topics"><%= link_to "More...", package_url(@tutorial.package.id) %></li>
-                </ul>
-              </div>
-          </div>
-        </div>
-        
-        <div class="span3 other-items">
-          <h4 class="suggested-show">Fellow OfficeScholars</h4>
-          
-          <div class="course-container">
-            <blockquote>
-              <p>I was able to get started with Excel way faster than I thought.</p>
-              <footer>— Doug, Kansas</footer>
-            </blockquote>
-            <blockquote>
-              <p>So easy!</p>
-              <footer>— Michelle, Florida</footer>
-            </blockquote>
-          </div>  
-          
-        </div>
-        </div>
-        </div>
-    </div>
-    </div>
-  
+<div class="row">
+  <div class="container">
+    <div class="span11">
+      <h3>Post a Comment</h3>
+    
+    <%= render "layouts/comments" %>
+    
+  </div>
+  </div>
 </div>

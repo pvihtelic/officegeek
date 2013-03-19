@@ -1,75 +1,125 @@
 <div class="row">
   	<div class="container form-pages">
       	<div class="span11">
-      		<h3 class="dark show package">My Dashboard <small><%= link_to('Edit Account <i class="icon-cog"></i>'.html_safe, edit_user_registration_path) %> | <%= @user.email %></small></h3>
+      		<h3 class="dark show package">My Dashboard</h3>
 
-			<h3>My Quizzes</h3>
+			<ul class="nav nav-tabs">
+			  <li class="active">
+			    <a href="#skill-assessment-summary" data-toggle="tab">Skill Assessments</a>
+			  </li>
+			  <li>
+			  	<a href="#account-summary" data-toggle="tab">Account Summary</a>
+			  </li>
+			</ul>
 
-			<table class="table table-hover">
-			  <tr>
-			    
-			    <th>Download Blank Quiz</th>
+			  <div class="tab-content">
+			  	<div class="tab-pane active" id="skill-assessment-summary">	
+			  		<h3>Excel Skill Assessments</h3>
 
-			    <th>Your Answer File</th>
-			    <th>Status</th>
-			    <!-- <th>Last Modified</th> -->
-			    <th>Resubmit to Try Again</th>
-			    <th>Delete</th>
-			  </tr>
-
-			<% if !@blank_quizzes.blank? %>
-				<% @blank_quizzes.each do |blank_quiz| %>
-				  <tr>
-				    <td><%= link_to "#{blank_quiz.title} <i class='icon-cloud-download'></i>".html_safe, blank_quiz.url, :target => "_blank" %></td>
-				    <td>
-				    	<% if blank_quiz.quizzes.empty? %>
-				    		<p>Nothing Submitted</p>
-				    	<% else %>
-				    		<%= blank_quiz.quizzes.last.quiz_path_file_name[0,20] %>...</td>
-				    	<% end %>
-
-
-
-					    <td><i class="icon-trophy icon-large"></i></td>
-					    <td>
-					    	<%= simple_form_for :quiz, :url => url_for(:action => 'update', :controller => 'quizzes'), :html => { :multipart => true, :method => "put" } do |form| %>
-						    <div class="fileupload fileupload-new small-upload" data-provides="fileupload">
-							  <span class="btn btn-file btn-small">Select<%= form.file_field :quiz_path %><span class="fileupload-new"></span><span class="fileupload-exists"></span><input type="file" /></span>
-							  <span class="fileupload-preview"></span>
-							  <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
-
-							  <%= form.hidden_field :id, :value => blank_quiz.id %>
-							  <%= form.hidden_field :tutorial_id, :value => blank_quiz.id %>
-							  <%= form.hidden_field :blank_quiz_id, :value => blank_quiz.id %>
-							  <%= form.hidden_field :user_id, :value => @user.id %>
-							  
-							</div>
-
-							<button type="submit" class="btn btn-primary btn-small">Submit</button>
-
-						  	<% end %>
-					    </td>
+					<table class="table table-hover">
+					  <tr>
 					    
-				    
-				    <td><% if !blank_quiz.quizzes.empty? %>
-				    	<%= link_to '<i class="icon-remove"'.html_safe, blank_quiz.quizzes.last, method: :delete, data: { confirm: 'Are you sure you want to delete your quiz?' } %></td>
-				    	<% end %>
-				  </tr>
-				
-				<% end %>
-				</table>
-				
-				<% else %>
-				
-				</table>
-				
-				<div class="alert alert-error">
-					<h4>You haven't taken any skill assessments yet - check out <%= link_to 'Our Excel Tutorials', root_path(:controller => "home", :anchor => "our-excel-tutorials") %> first!</h4>
-				</div>
+					    <th>Skill Assessments</th>
 
-			<% end %>
+					    <th>Your Submitted Skill Assessments</th>
+					    <th>Status</th>
+					    <!-- <th>Last Modified</th> -->
+					    <th>Resubmit to Try Again</th>
+					    <th>Delete</th>
+					  </tr>
+
+					<% if !@blank_quizzes.blank? %>
+						<% @blank_quizzes.each do |blank_quiz| %>
+						  <tr>
+						    <td><%= link_to "#{blank_quiz.title} <i class='icon-cloud-download'></i>".html_safe, blank_quiz.url, :target => "_blank" %></td>
+						    <td>
+						    	<% if @quizzes.find_by_tutorial_id(blank_quiz.id).nil? %>
+						    		Nothing Submitted
+						    	<% else %>
+						    		<%= @quizzes.where(:blank_quiz_id => blank_quiz.id).last.quiz_path_file_name[0,30] %>...</td>
+						    	<% end %>
 
 
+
+							    <td><i class="icon-trophy icon-large"></i></td>
+							    <td>
+							    	<% if !@quizzes.find_by_tutorial_id(blank_quiz.id).nil? %>
+								    	<%= simple_form_for :quiz, :url => url_for(:action => 'update', :controller => 'quizzes'), :html => { :multipart => true, :method => "put" } do |form| %>
+									    <div class="fileupload fileupload-new small-upload" data-provides="fileupload">
+										  <span class="btn btn-file btn-small">Select<%= form.file_field :quiz_path %><span class="fileupload-new"></span><span class="fileupload-exists"></span><input type="file" /></span>
+										  <span class="fileupload-preview"></span>
+										  <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
+
+										  
+										  <%= form.hidden_field :tutorial_id, :value => blank_quiz.id %>
+										  <%= form.hidden_field :blank_quiz_id, :value => blank_quiz.id %>
+										  <%= form.hidden_field :user_id, :value => @user.id %>
+										  
+										</div>
+
+										<button type="submit" class="btn btn-primary btn-small">Submit</button>
+
+									  	<% end %>
+									<% else %>
+										<%= simple_form_for :quiz, :url => "/quizzes", :html => { :multipart => true } do |form| %>
+
+								            <div class="fileupload fileupload-new" data-provides="fileupload">
+								              <span class="btn btn-file btn-small">Select<%= form.file_field :quiz_path %><span class="fileupload-new"></span><span class="fileupload-exists"></span><input type="file" /></span>
+								              <span class="fileupload-preview"></span>
+								              <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
+
+								              <%= form.hidden_field :tutorial_id, :value => blank_quiz.tutorial_id %>
+								              <%= form.hidden_field :blank_quiz_id, :value => blank_quiz.id %>
+								              
+								              <% if !@user.nil? %>
+								                <%= form.hidden_field :user_id, :value => @user.id %>
+								              <% end %>
+								              
+								              </div>
+
+												<button type="submit" class="btn btn-primary btn-small">Submit</button>
+
+								        <% end %>
+								    <% end %>
+							    </td>
+							    
+						    
+						    <td><% if !@quizzes.find_by_blank_quiz_id(blank_quiz.id).nil? %>
+						    	<%= link_to '<i class="icon-remove"'.html_safe, @quizzes.find_by_blank_quiz_id(blank_quiz.id), method: :delete, data: { confirm: 'Are you sure you want to delete your quiz?' } %></td>
+						    	<% end %>
+						  </tr>
+						
+						<% end %>
+						</table>
+						
+						<% else %>
+						
+						</table>
+						
+						<div class="alert alert-error">
+							<h4>You haven't taken any skill assessments yet - check out <%= link_to 'Our Excel Tutorials', root_path(:controller => "home", :anchor => "our-excel-tutorials") %> first!</h4>
+						</div>
+
+					<% end %>
+
+			</div>
+			
+
+			
+		  	<div class="tab-pane" id="account-summary">			
+				<h3>My Account Summary</h3>
+				<h4>Edit Account Information</h4>
+				<p><%= link_to('Click here to edit your account <i class="icon-cog"></i>'.html_safe, edit_user_registration_path) %></p>
+				<h4>Email Address</h4>
+				<p><%= @user.email %></p>
+				<h4>Last Login</h4>
+				<p><%= @user.last_sign_in_at.to_formatted_s(:long_ordinal) %> </p>
+				<h4>Total Logins</h4>
+				<p> <%= current_user.sign_in_count %> </p>
+		
+			</div>
+					
+		</div>	
 </div>
 </div>
 </div>

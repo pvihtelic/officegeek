@@ -76,8 +76,10 @@ class QuizzesController < ApplicationController
   # PUT /quizzes/1
   # PUT /quizzes/1.json
   def update
-    @quiz = Quiz.find_or_create_by_id(params[:quiz][:id])
+    @quiz = Quiz.find_or_initialize_by_id(params[:quiz][:id])
     @quiz.update_attributes(params[:quiz])
+
+
     @user = current_user
 
     respond_to do |format|

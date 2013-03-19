@@ -19,6 +19,10 @@ class TopicsController < ApplicationController
     else 
       @next_topic = Topic.find(@topic.id + 1)
     end
+    
+    @user = current_user
+    @quiz = Quiz.find_by_user_id_and_tutorial_id(@user.id, @topic.tutorial_id)
+
 
     respond_to do |format|
       format.html # show.html.erb

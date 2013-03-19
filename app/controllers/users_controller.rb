@@ -9,9 +9,8 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-    @quizzes = current_user.quizzes.all
+    @quizzes = Quiz.where(:user_id => current_user.id)
     @blank_quizzes = BlankQuiz.all
-
   end
 
   def invite

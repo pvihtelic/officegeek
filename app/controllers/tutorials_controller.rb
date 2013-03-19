@@ -19,6 +19,9 @@ class TutorialsController < ApplicationController
     else 
       @next_tutorial = Tutorial.find(@tutorial.id + 1)
     end
+
+    @user = current_user
+    @quiz = Quiz.where(:user_id => @user.id, :tutorial_id => @tutorial.id)
     
     respond_to do |format|
       format.html # show.html.erb
