@@ -299,6 +299,8 @@ form {
 
 }
 
+.course-summary.topic-tile:on-click
+
 
 .form-box.course-summary {
 	width: 400px;
@@ -859,4 +861,14 @@ div.tutorial-row-container {
 
 .hero-next.btn.btn-small {
 	margin-top: 0;
+}
+
+p.p-below-ul {
+	margin-top: 10px;
+}
+
+select {
+	margin-bottom: 0;
+	font-family: 'Droid Sans', sans-serif;
+	width: 180px;
 }

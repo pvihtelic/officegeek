@@ -15,6 +15,39 @@
 			  <div class="tab-content">
 			  	<div class="tab-pane active" id="skill-assessment-summary">	
 			  		<h3>Excel Skill Assessments</h3>
+			  		<p>Test your abilities with real Excel files, gain expert feedback and earn certificates of completion for passing.</p>
+			  		
+			  		<ul class="topic-list">
+			  			<li class="course-summary-topics"><strong>Download</strong> a Skill Assessment Excel file.</li>
+			  			<li class="course-summary-topics"><strong>Complete</strong> by opening the file and following the directions.  Save your work!</li>
+			  			<li class="course-summary-topics"><strong>Upload</strong> your Skill Assessment to OfficeScholar (you must be logged in).  You will receive a confirmation via email immediately.</li>
+
+			  		</ul>
+
+				  	</br>
+				  	<%= simple_form_for :quiz, :url => "/quizzes", :html => { :multipart => true } do |form| %>
+
+
+				  		<div class="fileupload fileupload-new" data-provides="fileupload">
+		                <span class="btn btn-file">Select Your Answer File<%= form.file_field :quiz_path %><span class="fileupload-new"></span><span class="fileupload-exists"></span><input type="file" /></span>
+		                <span class="fileupload-preview"></span>
+		                <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>	
+
+			    
+			              <% if !@user.nil? %>
+			                <%= form.hidden_field :user_id, :value => @user.id %>
+			              <% end %>
+
+			              <%= collection_select(:quiz, :title, @blank_quizzes.sort_by(&:title), :title, :title, prompt: "Select The Topic") %>
+			              
+			              
+
+							<button type="submit" class="btn btn-primary">Submit</button>
+
+							</div>
+
+			        <% end %>
+
 
 					<table class="table table-hover">
 					  <tr>
@@ -46,7 +79,7 @@
 							    	<% if !@quizzes.find_by_tutorial_id(blank_quiz.id).nil? %>
 								    	<%= simple_form_for :quiz, :url => url_for(:action => 'update', :controller => 'quizzes'), :html => { :multipart => true, :method => "put" } do |form| %>
 									    <div class="fileupload fileupload-new small-upload" data-provides="fileupload">
-										  <span class="btn btn-file btn-small">Select<%= form.file_field :quiz_path %><span class="fileupload-new"></span><span class="fileupload-exists"></span><input type="file" /></span>
+										  <span class="btn btn-file btn-small">Select File<%= form.file_field :quiz_path %><span class="fileupload-new"></span><span class="fileupload-exists"></span><input type="file" /></span>
 										  <span class="fileupload-preview"></span>
 										  <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
 
@@ -64,7 +97,7 @@
 										<%= simple_form_for :quiz, :url => "/quizzes", :html => { :multipart => true } do |form| %>
 
 								            <div class="fileupload fileupload-new" data-provides="fileupload">
-								              <span class="btn btn-file btn-small">Select<%= form.file_field :quiz_path %><span class="fileupload-new"></span><span class="fileupload-exists"></span><input type="file" /></span>
+								              <span class="btn btn-file btn-small">Select File<%= form.file_field :quiz_path %><span class="fileupload-new"></span><span class="fileupload-exists"></span><input type="file" /></span>
 								              <span class="fileupload-preview"></span>
 								              <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
 

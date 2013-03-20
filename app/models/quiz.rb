@@ -1,5 +1,9 @@
   class Quiz < ActiveRecord::Base
-  attr_accessible :quiz_path, :user_id, :tutorial_id, :blank_quiz_id
+  attr_accessible :quiz_path, :user_id, :tutorial_id, :blank_quiz_id, :title
+
+  
+  validates :title, :presence => {:message => 'Please select the Skill Assessment Topic.'}
+  validates_presence_of :title
 
   validates_presence_of :quiz_path
   validates_attachment_size :quiz_path, :less_than => 50.kilobytes    

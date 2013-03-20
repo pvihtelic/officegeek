@@ -54,7 +54,36 @@ class QuizzesController < ApplicationController
   # POST /quizzes.json
   def create
     @user = current_user
-    @quiz = @user.quizzes.create(params[:quiz])
+    @quiz = Quiz.new(params[:quiz])
+    if !params[:blank_quiz].nil?
+      if params[:blank_quiz][:title].include? "Starting from Scratch"
+        @quiz.tutorial_id = 1
+        @quiz.blank_quiz_id = 1
+      elsif params[:blank_quiz][:title].include? "Worksheets"
+        @quiz.tutorial_id = 2
+        @quiz.blank_quiz_id = 2
+      elsif params[:blank_quiz][:title].include? "Intro to Formulas"
+        @quiz.tutorial_id = 3
+        @quiz.blank_quiz_id = 3
+      elsif params[:blank_quiz][:title].include? "Into to Formatting"
+        @quiz.tutorial_id = 4
+        @quiz.blank_quiz_id = 4
+      elsif params[:blank_quiz][:title].include? "Charts"
+        @quiz.tutorial_id = 5
+        @quiz.blank_quiz_id = 5
+      elsif params[:blank_quiz][:title].include? "Sorting and Filtering"
+        @quiz.tutorial_id = 6
+        @quiz.blank_quiz_id = 6
+      elsif params[:blank_quiz][:title].include? "Pivot Tables"
+        @quiz.tutorial_id = 7
+        @quiz.blank_quiz_id = 7
+      elsif params[:blank_quiz][:title].include? "Printing"
+        @quiz.tutorial_id = 8
+        @quiz.blank_quiz_id = 8
+      end
+    end
+
+    @quiz.save
 
     respond_to do |format|
       if @quiz.save

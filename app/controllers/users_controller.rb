@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     @user = current_user
     @quizzes = Quiz.where(:user_id => current_user.id)
     @blank_quizzes = BlankQuiz.all
+
   end
 
   def invite

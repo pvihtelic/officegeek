@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130318202553) do
+ActiveRecord::Schema.define(:version => 20130320014240) do
 
   create_table "blank_quizzes", :force => true do |t|
     t.string   "title"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(:version => 20130318202553) do
     t.datetime "quiz_path_updated_at"
     t.integer  "tutorial_id"
     t.integer  "blank_quiz_id"
+    t.string   "title"
   end
 
   create_table "roles", :force => true do |t|
