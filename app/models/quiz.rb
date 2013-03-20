@@ -19,7 +19,8 @@
   has_attached_file :quiz_path,
     :storage => :s3,
     :s3_permissions => :private,
-    :path => "quizzes/:attachment/:style/:id.:extension",
+    :path => "quizzes/:attachment/:filename",
+    :url => "quizzes/:attachment/:filename",
   	:storage => :s3,
     :s3_credentials => {
       :access_key_id => ENV["AWS_ACCESS_KEY_ID"],

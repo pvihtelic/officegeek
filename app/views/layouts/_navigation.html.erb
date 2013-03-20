@@ -51,7 +51,7 @@
 
         <% if signed_in? %>
           <li class="nav-rightside">
-          <small><%= link_to("My Dashboard <i class='icon-cog'></i>".html_safe, "/users/#{current_user.id}", :class=>"btn btn-primary btn-small") %></small>
+          <small><%= link_to("Dashboard <i class='icon-cog'></i>".html_safe, "/users/#{current_user.id}", :class=>"btn btn-primary btn-small") %></small>
           </li>
         <% else %>
           <li class="nav-rightside">

@@ -55,29 +55,29 @@ class QuizzesController < ApplicationController
   def create
     @user = current_user
     @quiz = Quiz.new(params[:quiz])
-    if !params[:blank_quiz].nil?
-      if params[:blank_quiz][:title].include? "Starting from Scratch"
+    if !params[:quiz][:title].nil?
+      if params[:quiz][:title].include? "Starting from Scratch"
         @quiz.tutorial_id = 1
         @quiz.blank_quiz_id = 1
-      elsif params[:blank_quiz][:title].include? "Worksheets"
+      elsif params[:quiz][:title].include? "Worksheets"
         @quiz.tutorial_id = 2
         @quiz.blank_quiz_id = 2
-      elsif params[:blank_quiz][:title].include? "Intro to Formulas"
+      elsif params[:quiz][:title].include? "Intro to Formulas"
         @quiz.tutorial_id = 3
         @quiz.blank_quiz_id = 3
-      elsif params[:blank_quiz][:title].include? "Into to Formatting"
+      elsif params[:quiz][:title].include? "Into to Formatting"
         @quiz.tutorial_id = 4
         @quiz.blank_quiz_id = 4
-      elsif params[:blank_quiz][:title].include? "Charts"
+      elsif params[:quiz][:title].include? "Charts"
         @quiz.tutorial_id = 5
         @quiz.blank_quiz_id = 5
-      elsif params[:blank_quiz][:title].include? "Sorting and Filtering"
+      elsif params[:quiz][:title].include? "Sorting and Filtering"
         @quiz.tutorial_id = 6
         @quiz.blank_quiz_id = 6
-      elsif params[:blank_quiz][:title].include? "Pivot Tables"
+      elsif params[:quiz][:title].include? "Pivot Tables"
         @quiz.tutorial_id = 7
         @quiz.blank_quiz_id = 7
-      elsif params[:blank_quiz][:title].include? "Printing"
+      elsif params[:quiz][:title].include? "Printing"
         @quiz.tutorial_id = 8
         @quiz.blank_quiz_id = 8
       end
@@ -90,10 +90,10 @@ class QuizzesController < ApplicationController
         UserMailer.upload_notification_email(@user).deliver
         AdminMailer.admin_upload_notification_email(@quiz, @user).deliver
 
-        format.html { redirect_to @user, notice: 'Your skill assessment answer file was successfully uploaded.  We will review your responses and email you a link to your results as soon as possible.' }
+        format.html { redirect_to @user, notice: 'Your Skill Assessment was successfully uploaded.  We will review your responses and follow up with an email.' }
         format.json { render json: @user, status: :created, location: @quiz }
       elsif @quiz.errors.any?
-        flash[:error] = 'Please make sure you selected your answer file and it ended in ".xlsx".'
+        flash[:error] = 'Please make sure that you selected a file that ends in ".xlsx" and that is under 50 KB in size. Also please check that you selected a topic.'
         return(redirect_to :back)
       else  
         format.html { redirect_to @user, notice: 'No file was selected.  Please back and choose "Select Your Answer File" before submitting.' }

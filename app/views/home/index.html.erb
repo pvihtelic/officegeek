@@ -81,9 +81,9 @@
                     <h3><%= tutorial.title %></h3>
                     <p><%= tutorial.topics.count %> lessons | <%=tutorial.topics.map(&:length).sum %> minutes total</p>
                     <p><%= tutorial.description %></p>
-                    <%= link_to 'Skill Assessment <i class="icon-cloud-download"></i>'.html_safe, tutorial.blank_quizzes.first.url, :target => "_blank", :class=>"hero-next btn btn-primary btn-small" %> </br>
+                    <%= link_to 'Skill Assessment <i class="icon-cloud-download"></i>'.html_safe, tutorial.blank_quizzes.first.url, :target => "_blank", :class=>"hero-next btn btn-primary index-skill-download" %> </br>
                     <% if !current_user.nil? %>
-                      <%= link_to 'Submit Your Answers <i class="icon-cloud-upload"></i>'.html_safe, "/users/#{current_user.id}", :class=>"hero-next btn btn-small" %>
+                      <%= link_to 'Submit Your Answers <i class="icon-cloud-upload"></i>'.html_safe, "/users/#{current_user.id}" %>
                     <% else %>
                       <%= link_to 'Sign In to Submit Your Answers', new_user_registration_path %>
                     <% end %>
@@ -96,7 +96,7 @@
                     <% tutorial.topics.each do |topic| %>
                       <li class="course-summary-list">
                           <%= link_to(topic_url(topic.id)) do %> 
-                          <div class="span2 course-summary topic-tile">
+                          <div class="span2 course-summary topic-tile topic-tile-index">
                                 <div class="play-icon-container">
                                   <i class="icon-play-circle icon-2x"></i>
                                 </div>
@@ -220,7 +220,7 @@
           <li class="course-summary-topics"><strong>Job candidate evaluation</strong> using our one-of-a-kind Excel Skill Assessment tests fully administered online.</li>
         </ul>
         
-        <p class="p-below-ul">For more information on pricing, please contact us at <%= mail_to "sales@officescholar.com" %>.</p>
+        <p class="p-below-ul">For more information, please contact us at <%= mail_to "sales@officescholar.com" %>.</p>
 
         <h3>Meet Your Instructor</h3>
         <p>Pat Vihtelic is the chief instructor and founder of OfficeScholar.  He most recently worked as a technology investment banker for over four years at William Blair &amp; Company, where he relied heavily on Microsoft Office products completing over 20 IPO and M&amp;A transactions for high growth technology companies.</p>  

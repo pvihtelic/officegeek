@@ -21,7 +21,9 @@ class TutorialsController < ApplicationController
     end
 
     @user = current_user
-    @quiz = Quiz.where(:user_id => @user.id, :tutorial_id => @tutorial.id)
+    if !@user.nil?
+      @quiz = Quiz.where(:user_id => @user.id, :tutorial_id => @tutorial.id)
+    end
     
     respond_to do |format|
       format.html # show.html.erb

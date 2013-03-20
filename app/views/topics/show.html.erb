@@ -14,9 +14,6 @@
                       players: [{type: "flash", src:'/jwplayer/player.swf'}],
                       height: 525,
                       width: 900,
-                      'invideous.pid': '96274',
-                      'invideous.video_id': '10053143',
-                      plugins: 'http://plugin.invideous.com/v5/invideous.swf',
                       file: '<%= @topic.topic_path %>',
                       volume: 75,
                       controlbar: "bottom",
@@ -29,7 +26,7 @@
                   #<%= @topic.id - @topic.tutorial.package.tutorials.count %>
                 <% else %> 
                   #<%= @topic.id %>
-              <% end %> - <%= @topic.tutorial.package.title %></h3>
+              <% end %> - <%= @topic.tutorial.title %></h3>
           </div>
           <div class="download-span-pull-right">      
             
@@ -58,62 +55,17 @@
         <div class="container">
           <div class="show-span">
             <h3>Skill Assessment</h3>
-            <p>After finishing each of the screencasts for this topic's tutorial - <%= @topic.tutorial.title %> - try putting your Excel knoweldge to the test!</p>
+            <p>After mastering each of the topics in the <%= @topic.tutorial.title %> series, try putting your Excel knoweldge to the test!</p>
 
-            <p>Simply download our quiz, then upload your answers to our secure server below.  We will review your work and let you know where you need improvement or if you've earned the tutorial's skill certificate, which lists the areas you've been tested on along with OfficeScholar's seal of approval.</p>
+            <p>Simply download our Skill Assessment, then upload your answer file.  We will review and let you know if your Skill Assessment needs improvement or if you earned the certificate of completion.</p>
 
-            <p>As a reminder, you can also access all of the quizzes through your <%= link_to "Account Overview", user_url %> after signing in.</p>
+            <p>Manage all Skill Assessments through your <%= link_to "Dashboard", user_url %> after signing in.</p>
 
             <h4 class="skill-assessment-download-heading">Download, Open and Follow the Directions</h4>
             <%= link_to "Skill Assessment <i class='icon-cloud-download'></i>".html_safe, "#{@topic.tutorial.excel_path}", :target => "_blank", :class=>"btn btn-primary" %>
 
             
-            <h4 class="skill-assessment-download-heading">After Completing, Submit Your Excel File for Review</h4>
-
-            <% if !@quiz.nil? %>
-              <%= simple_form_for :quiz, :url => url_for(:action => 'update', :controller => 'quizzes'), :html => { :multipart => true, :method => "put" } do |form| %>
-
-                <div class="fileupload fileupload-new" data-provides="fileupload">
-                  <span class="btn btn-file">Select Your Answer File<%= form.file_field :quiz_path %><span class="fileupload-new"></span><span class="fileupload-exists"></span><input type="file" /></span>
-                  <span class="fileupload-preview"></span>
-                  <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
-
-                  <%= form.hidden_field :tutorial_id, :value => @topic.tutorial.id %>
-                  <%= form.hidden_field :blank_quiz_id, :value => @topic.tutorial.id %>
-                  
-                  <% if !@user.nil? %>
-                    <%= form.hidden_field :user_id, :value => @user.id %>
-                  <% end %>
-                  
-                  <button type="submit" class="btn btn-primary">Submit</button>
-
-                </div>
-
-                <% end %>
-
-            <% else %>
-
-              <%= simple_form_for :quiz, :url => "/quizzes", :html => { :multipart => true } do |form| %>
-
-              <div class="fileupload fileupload-new" data-provides="fileupload">
-                <span class="btn btn-file">Select Your Answer File<%= form.file_field :quiz_path %><span class="fileupload-new"></span><span class="fileupload-exists"></span><input type="file" /></span>
-                <span class="fileupload-preview"></span>
-                <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
-
-                <%= form.hidden_field :tutorial_id, :value => @topic.tutorial.id %>
-                <%= form.hidden_field :blank_quiz_id, :value => @topic.tutorial.id %>
-                
-                <% if !@user.nil? %>
-                  <%= form.hidden_field :user_id, :value => @user.id %>
-                <% end %>
-                
-                <button type="submit" class="btn btn-primary">Submit</button>
-
-              </div>
-
-              <% end %>
-
-            <% end %>
+            
 
 
           </div>
@@ -124,8 +76,10 @@
 <div class="row">
   <div class="container">
     <div class="span11">
-      <h3>Post a Comment</h3>
-      <%= render "layouts/comments" %>
+      <h3>Leave a Comment</h3>
+        <div class="span11 disqus-container">
+        <%= render "layouts/comments" %>
+        </div>
     </div>
   </div>
 </div>

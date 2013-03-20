@@ -21,7 +21,9 @@ class TopicsController < ApplicationController
     end
     
     @user = current_user
-    @quiz = Quiz.find_by_user_id_and_tutorial_id(@user.id, @topic.tutorial_id)
+    if !@user.nil?
+      @quiz = Quiz.find_by_user_id_and_tutorial_id(@user.id, @topic.tutorial_id)
+    end
 
 
     respond_to do |format|
