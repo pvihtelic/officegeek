@@ -53,8 +53,8 @@
 					    <th>Skill Assessments</th>
 
 					    <th>Your Submitted Skill Assessments</th>
+					    <th>Time Submitted</th>
 					    <th>Status</th>
-					    <!-- <th>Last Modified</th> -->
 					    <th>Delete</th>
 					  </tr>
 
@@ -66,16 +66,40 @@
 						    	<% if @quizzes.find_by_tutorial_id(blank_quiz.id).nil? %>
 						    		Nothing Submitted
 						    	<% else %>
-						    		<%= link_to("#{@quizzes.where(:blank_quiz_id => blank_quiz.id).last.quiz_path_file_name}", @quizzes.where(:blank_quiz_id => blank_quiz.id).last.quiz_path.expiring_url(60), :target => "_blank") %></td>
+						    		<%= link_to("#{@quizzes.where(:blank_quiz_id => blank_quiz.id).last.quiz_path_file_name}", @quizzes.where(:blank_quiz_id => blank_quiz.id).last.quiz_path.expiring_url(60), :target => "_blank") %>
 						    	<% end %>
+						    </td>
+						    	
 
-							    <td><i class="icon-trophy icon-2x"></i></td>
-							    
-							    
-						    
-						    	<td><% if !@quizzes.find_by_blank_quiz_id(blank_quiz.id).nil? %>
-						    	<%= link_to '<i class="icon-remove"'.html_safe, @quizzes.find_by_blank_quiz_id(blank_quiz.id), method: :delete, data: { confirm: 'Are you sure you want to delete your quiz?' } %></td>
-						    	<% end %>
+							    <td>
+							    	<% if !@quizzes.find_by_blank_quiz_id(blank_quiz.id).nil? %>
+							    		<%= @quizzes.find_by_blank_quiz_id(blank_quiz.id).created_at.to_formatted_s(:short) %> ET
+							    	<% end %>
+							    </td>
+							    <td>
+							    	<% if !@quizzes.find_by_blank_quiz_id(blank_quiz.id).nil? %>
+							    		<% if @quizzes.find_by_blank_quiz_id(blank_quiz.id).status == 1 %>
+							    			
+							    			<em class="icon icon-time icon-large" href="#" rel="popover" title="Under Review" data-content='Your Skill Assessment is currently under review.  We will email you shortly with feedback.'></em>
+
+							    		<% elsif @quizzes.find_by_blank_quiz_id(blank_quiz.id).status == 2 %>
+							    			
+							    			<em class="icon icon-envelope icon-large" href="#" rel="popover" title="Feedback Sent" data-content="Check your email inbox for feedback."></em>
+
+							    		<% elsif @quizzes.find_by_blank_quiz_id(blank_quiz.id).status == 3  %>
+
+							    			<em class="icon icon-trophy icon-large" href="#" rel="popover" title="Congratulations!" data-content="You have already passed this Skill Assessment!"></em>	
+
+							    		<% else %>
+							    		<% end %>
+							    	<% end %>
+						    	</td>
+						    	<td>
+						    		<% if !@quizzes.find_by_blank_quiz_id(blank_quiz.id).nil? %>
+						    		<%= link_to '<i class="icon-trash icon-large"'.html_safe, destroy_multiple_quizzes_path(:quiz => @quizzes.where(:blank_quiz_id => blank_quiz.id).map(&:id)), method: :delete, data: { confirm: "Are you sure you want to permanently delete your #{@quizzes.find_by_blank_quiz_id(blank_quiz.id).title} Skill Assessment?  It will not be recoverable." } %>
+						    		<% end %>
+						    	</td>
+						    		
 						  </tr>
 						
 						<% end %>
@@ -101,8 +125,14 @@
 				<p><%= link_to('Click here to edit your account <i class="icon-cog"></i>'.html_safe, edit_user_registration_path) %></p>
 				<h4>Email Address</h4>
 				<p><%= @user.email %></p>
+				<h4>Total Skill Assessments Submitted</h4>
+				<p><%= @user.quizzes.count %></p>
+				<h4>Skill Assessments Passed</h4>
+				<p><%= @quizzes_passed.count %></p>
+				<h4>Skill Assessments Under Review</h4>
+				<p><%= @quizzes_under_review.count %></p>
 				<h4>Last Login</h4>
-				<p><%= @user.last_sign_in_at.to_formatted_s(:long_ordinal) %> </p>
+				<p><%= @user.last_sign_in_at.to_formatted_s(:long_ordinal) %> ET</p>
 				<h4>Total Logins</h4>
 				<p> <%= current_user.sign_in_count %> </p>
 		

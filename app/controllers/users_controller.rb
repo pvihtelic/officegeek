@@ -12,6 +12,9 @@ class UsersController < ApplicationController
     @quizzes = Quiz.where(:user_id => current_user.id)
     @blank_quizzes = BlankQuiz.all
 
+    @quizzes_passed = @user.quizzes.where(:status=>3)
+    @quizzes_under_review = @user.quizzes.where(:status=>1)
+
   end
 
   def invite

@@ -1,6 +1,10 @@
 Officegeek::Application.routes.draw do
   
-  resources :quizzes
+  resources :quizzes do
+    collection do
+      delete 'destroy_multiple'
+    end
+  end
 
   resources :topics
 

@@ -1,5 +1,5 @@
   class Quiz < ActiveRecord::Base
-  attr_accessible :quiz_path, :user_id, :tutorial_id, :blank_quiz_id, :title
+  attr_accessible :quiz_path, :user_id, :tutorial_id, :blank_quiz_id, :title, :status
 
   
   validates :title, :presence => {:message => 'Please select the Skill Assessment Topic.'}

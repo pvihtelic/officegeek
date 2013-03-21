@@ -26,7 +26,9 @@ class QuizzesController < ApplicationController
   # GET /quizzes/1
   # GET /quizzes/1.json
   def show
+    
     @quiz = Quiz.find(params[:id])
+
 
     respond_to do |format|
       format.html # show.html.erb
@@ -56,7 +58,7 @@ class QuizzesController < ApplicationController
     @user = current_user
     @quiz = Quiz.new(params[:quiz])
     if !params[:quiz][:title].nil?
-      if params[:quiz][:title].include? "Starting from Scratch"
+      if params[:quiz][:title].include? "Scratch"
         @quiz.tutorial_id = 1
         @quiz.blank_quiz_id = 1
       elsif params[:quiz][:title].include? "Worksheets"
@@ -65,7 +67,7 @@ class QuizzesController < ApplicationController
       elsif params[:quiz][:title].include? "Intro to Formulas"
         @quiz.tutorial_id = 3
         @quiz.blank_quiz_id = 3
-      elsif params[:quiz][:title].include? "Into to Formatting"
+      elsif params[:quiz][:title].include? "Intro to Formatting"
         @quiz.tutorial_id = 4
         @quiz.blank_quiz_id = 4
       elsif params[:quiz][:title].include? "Charts"
@@ -82,6 +84,8 @@ class QuizzesController < ApplicationController
         @quiz.blank_quiz_id = 8
       end
     end
+
+    @quiz.status = 1
 
     @quiz.save
 
@@ -138,4 +142,14 @@ class QuizzesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def destroy_multiple
+    Quiz.destroy(params[:quiz])
+
+    respond_to do |format|
+      format.html { redirect_to "/users/#{current_user.id}" }
+      format.json { head :no_content }
+    end
+  end
+
 end

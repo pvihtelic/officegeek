@@ -330,7 +330,7 @@ form {
 .form-box.course-summary.course-summary-home {
 	width: 100%;
 	margin-left: 30px;
-	margin-top: 80px;
+	margin-top: 60px;
 }
 
 .form-box.course-summary.course-summary-home-signed-in {
@@ -555,12 +555,13 @@ ul.course-intro {
 ul.footer-list {
 	padding-top: 20px;
 	padding-bottom: 5px;
+	margin-left: 0;
 }
 
 li.footer-list {
 	display: inline;
 	list-type: none;
-	padding-left: 15px;
+	padding-left: 7px;
 }
 
 .footer-list a {
@@ -575,7 +576,7 @@ li.footer-list {
 li.footer-list-below {
 	display: inline;
 	list-type: none;
-	padding-left: 15px;
+	padding-left: 3px;
 }
 
 .course-summary-list {
@@ -793,9 +794,13 @@ td.center-td {
 	color: #CFB53B;
 }
 
-.icon-trophy:hover {
+.icon-trophy:hover, .icon-envelope:hover, .icon-time:hover {
 	color: #CFB53B;
 	font-size: 150%;
+}
+
+.icon-envelope:hover, .icon-time:hover {
+	color: #ff8000;
 }
 
 .skill-assessment-download-heading {
@@ -900,4 +905,8 @@ p.p-below-ul {
 .index-skill-download {
 	margin-top: 5px;
 	margin-bottom: 10px;
+}
+
+.no-bullet-list {
+	list-style-type: none;
 }
