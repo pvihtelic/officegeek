@@ -1,7 +1,16 @@
   class Quiz < ActiveRecord::Base
   attr_accessible :quiz_path, :user_id, :tutorial_id, :blank_quiz_id, :title, :status
 
-  
+  require 'roo'
+  require 'open-uri'
+  require 'iconv'
+
+
+  Spreadsheet.client_encoding = 'UTF-8'
+
+
+
+  after_create :grade_skill_assessment
   validates :title, :presence => {:message => 'Please select the Skill Assessment Topic.'}
   validates_presence_of :title
 
@@ -18,7 +27,6 @@
   belongs_to :blank_quiz
   has_attached_file :quiz_path,
     :storage => :s3,
-    :s3_permissions => :private,
     :path => "quizzes/:attachment/:filename",
     :url => "quizzes/:attachment/:filename",
   	:storage => :s3,
@@ -27,5 +35,17 @@
       :bucket => ENV["S3_BUCKET_NAME"],
       :secret_access_key => ENV["AWS_SECRET_ACCESS_KEY"]
     }
+
+
+  def grade_skill_assessment
+    if self.title.include? "Scratch"
+      file = Roo::Excelx.new("https://s3.amazonaws.com/officescholar/intro_to_excel_1_starting_from_scratch.xlsx")
+      file.default_sheet = file.sheets.first
+      if file.cell(1,1).include? "Office"
+        self.update_attribute(:question_1, 1)
+      end
+    end
+  end
+
 
 end

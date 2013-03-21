@@ -152,4 +152,5 @@ class QuizzesController < ApplicationController
     end
   end
 
+
 end
