@@ -14,13 +14,13 @@
 
 			  <div class="tab-content">
 			  	<div class="tab-pane active" id="skill-assessment-summary">	
-			  		<h3>Excel Skill Assessments</h3>
+			  		<h3>Skill Assessments</h3>
 			  		<p>Test your abilities with real Excel files, gain expert feedback and earn certificates of completion for passing.</p>
 			  		
 			  		<ul class="topic-list">
 			  			<li class="course-summary-topics"><strong>Download</strong> a Skill Assessment Excel file.</li>
 			  			<li class="course-summary-topics"><strong>Complete</strong> by opening the file and following the directions.  Save your work!</li>
-			  			<li class="course-summary-topics"><strong>Upload</strong> your Skill Assessment to OfficeScholar (you must be logged in).  You will receive a confirmation email immediately.</li>
+			  			<li class="course-summary-topics"><strong>Upload</strong> your Skill Assessment to OfficeScholar after logging in.  You will see your results immediately.</li>
 
 			  		</ul>
 
@@ -40,7 +40,7 @@
 				                <%= form.hidden_field :user_id, :value => @user.id %>
 				            <% end %>
 				            <%= collection_select(:quiz, :title, @blank_quizzes.sort_by(&:title), :title, :title, prompt: "Choose The Topic") %>
-							<button type="submit" class="btn btn-primary">Submit</button>
+							<button type="submit" class="btn btn-primary custom-submit-button">Submit</button>
 							</div>
 
 				        <% end %>
@@ -54,6 +54,7 @@
 
 					    <th>Your Submitted Skill Assessments</th>
 					    <th>Time Submitted</th>
+					    <th>Score</th>
 					    <th>Status</th>
 					    <th>Delete</th>
 					  </tr>
@@ -63,32 +64,40 @@
 						  <tr>
 						    <td><%= link_to "#{blank_quiz.title} <i class='icon-cloud-download'></i>".html_safe, blank_quiz.url, :target => "_blank" %></td>
 						    <td>
-						    	<% if @quizzes.find_by_tutorial_id(blank_quiz.id).nil? %>
+						    	<% @relevant_quiz = @quizzes.where(:blank_quiz_id => blank_quiz.id).last %>
+						    	<% if @relevant_quiz.nil? %>
 						    		Nothing Submitted
 						    	<% else %>
-						    		<%= link_to("#{@quizzes.where(:blank_quiz_id => blank_quiz.id).last.quiz_path_file_name}", @quizzes.where(:blank_quiz_id => blank_quiz.id).last.quiz_path.expiring_url(60), :target => "_blank") %>
+						    		<%= link_to("#{@relevant_quiz.quiz_path_file_name}", @relevant_quiz.quiz_path.expiring_url(60), :target => "_blank") %>
 						    	<% end %>
 						    </td>
 						    	
 
 							    <td>
-							    	<% if !@quizzes.find_by_blank_quiz_id(blank_quiz.id).nil? %>
-							    		<%= @quizzes.find_by_blank_quiz_id(blank_quiz.id).created_at.to_formatted_s(:short) %> ET
+							    	<% if !@relevant_quiz.nil? %>
+							    		<%= @relevant_quiz.created_at.to_formatted_s(:short) %> ET
 							    	<% end %>
 							    </td>
 							    <td>
-							    	<% if !@quizzes.find_by_blank_quiz_id(blank_quiz.id).nil? %>
-							    		<% if @quizzes.find_by_blank_quiz_id(blank_quiz.id).status == 1 %>
+							    	<% if !@relevant_quiz.nil? %>
+							    		<%= @relevant_quiz.question_1 + @relevant_quiz.question_2 + @relevant_quiz.question_3 + @relevant_quiz.question_4 + @relevant_quiz.question_5 %> / 5
+							    	<% end %>
+
+							    </td>	
+							    <td>
+							    	<% if !@relevant_quiz.nil? %>
+							    		<% if @relevant_quiz.status == 1 %>
 							    			
-							    			<em class="icon icon-time icon-large" href="#" rel="popover" title="Under Review" data-content='Your Skill Assessment is currently under review.  We will email you shortly with feedback.'></em>
-
-							    		<% elsif @quizzes.find_by_blank_quiz_id(blank_quiz.id).status == 2 %>
 							    			
-							    			<em class="icon icon-envelope icon-large" href="#" rel="popover" title="Feedback Sent" data-content="Check your email inbox for feedback."></em>
 
-							    		<% elsif @quizzes.find_by_blank_quiz_id(blank_quiz.id).status == 3  %>
+							    		<% elsif @relevant_quiz.status == 2 %>
+											
+							    			<%= link_to('<i class="icon-envelope icon-large"'.html_safe, '#', :class => "popover-icons", :rel => "popover", :title => "#{pluralize(5 - (@relevant_quiz.question_1 + @relevant_quiz.question_2 + @relevant_quiz.question_3 + @relevant_quiz.question_4 + @relevant_quiz.question_5), "Question")} to Correct Before Passing", "data-content" => "#{render 'layouts/popover_feedback'}") %>
 
-							    			<em class="icon icon-trophy icon-large" href="#" rel="popover" title="Congratulations!" data-content="You have already passed this Skill Assessment!"></em>	
+							    	
+							    		<% elsif @quizzes.where(:blank_quiz_id => blank_quiz.id).last.status == 3  %>
+
+							    			<%= link_to('<i class="icon-trophy icon-large"'.html_safe, '#', :class => "popover-icons", :rel => "popover", :title => "Congratulations, You Passed!", "data-content" => "You completed the #{@relevant_quiz.title.html_safe} Skill Assessment!  We'll be adding more skill assessments soon so please check back!") %>
 
 							    		<% else %>
 							    		<% end %>

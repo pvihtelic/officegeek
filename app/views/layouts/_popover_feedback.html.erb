@@ -1,0 +1,44 @@
+<p>Please fix your answers, then resubmit your file to try again.  Good luck!</p>
+<ul class="course-intro">
+
+	<li class="course-summary-topics">
+		Question 1: <% if @relevant_quiz.question_1 == 1 %>
+			<i class="icon-ok icon-large"></i>
+		<% else %>
+			<i class="icon-remove icon-large"></i>
+		<% end %>
+	</li>
+
+	<li class="course-summary-topics">
+		Question 2: <% if @relevant_quiz.question_2 == 1 %>
+			<i class="icon-ok icon-large"></i>
+		<% else %>
+			<i class="icon-remove icon-large"></i>
+		<% end %>
+	</li>
+
+	<li class="course-summary-topics">
+		Question 3: <% if @relevant_quiz.question_3 == 1 %>
+			<i class="icon-ok icon-large"></i>
+		<% else %>
+			<i class="icon-remove icon-large"></i>
+		<% end %>
+	</li>
+
+	<li class="course-summary-topics">
+		Question 4: <% if @relevant_quiz.question_4 == 1 %>
+			<i class="icon-ok icon-large"></i>
+		<% else %>
+			<i class="icon-remove icon-large"></i>
+		<% end %>
+	</li>
+
+	<li class="course-summary-topics">
+		Question 5: <% if @relevant_quiz.question_5 == 1 %>
+			<i class="icon-ok icon-large"></i>
+		<% else %>
+			<i class="icon-remove icon-large"></i>
+		<% end %>
+	</li>
+
+</ul>

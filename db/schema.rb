@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130321011443) do
+ActiveRecord::Schema.define(:version => 20130321182030) do
 
   create_table "blank_quizzes", :force => true do |t|
     t.string   "title"
@@ -45,6 +45,10 @@ ActiveRecord::Schema.define(:version => 20130321011443) do
     t.string   "title"
     t.integer  "status"
     t.integer  "question_1"
+    t.integer  "question_2"
+    t.integer  "question_3"
+    t.integer  "question_4"
+    t.integer  "question_5"
   end
 
   create_table "roles", :force => true do |t|

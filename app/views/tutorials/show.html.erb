@@ -61,7 +61,11 @@
             <p>Manage all Skill Assessments through your <%= link_to "Dashboard", user_url %> after signing in.</p>
 
             <h4 class="skill-assessment-download-heading">Download, Open and Follow the Directions</h4>
-            <%= link_to "Skill Assessment <i class='icon-cloud-download'></i>".html_safe, "#{@tutorial.excel_path}", :target => "_blank", :class=>"btn btn-primary" %>            
+            <% if !@tutorial.blank_quizzes.first.nil? %>
+              <%= link_to "Skill Assessment <i class='icon-cloud-download'></i>".html_safe, "#{@tutorial.tutorial.excel_path}", :target => "_blank", :class=>"btn btn-primary" %>
+            <% else %>
+              <p style="color: green;">We'll get a Skill Assessment posted soon for this topic!  In the meantime, please let us know if you want one by leaving a comment below or giving feedback on the left.</p>
+            <% end %>
 
           </div>
         </div>

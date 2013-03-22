@@ -41,7 +41,7 @@
           </div>
           
           <div class="section-title next">
-          <%= link_to 'Check Out Our Library of Tutorials <i class="icon-circle-arrow-down"></i>'.html_safe, "#", :id => "next1", :class=>"hero-next btn btn-primary btn-large" %>
+          <%= link_to 'Check Out Our Library of Tutorials <i class="icon-circle-arrow-down"></i>'.html_safe, "#", :class=>"hero-next btn btn-primary btn-large" %>
           </div>
 
         </div>
@@ -65,10 +65,10 @@
     </div>  
 
 
-    <div class="section"><a name="our-excel-tutorials"></a>
+    <div class="section" id="our-excel-tutorials">
       <div class="container">
         <div class="content">
-        <h3 class="dark"><a class="anchor-navigation">Our Excel Tutorials</a></h3>
+        <h3 class="dark">Our Excel Tutorials</h3>
 
         <div class="row">
           <div class="span11">
@@ -81,12 +81,14 @@
                     <h3><%= tutorial.title %></h3>
                     <p><%= tutorial.topics.count %> lessons | <%=tutorial.topics.map(&:length).sum %> minutes total</p>
                     <p><%= tutorial.description %></p>
-                    <%= link_to 'Skill Assessment <i class="icon-cloud-download"></i>'.html_safe, tutorial.blank_quizzes.first.url, :target => "_blank", :class=>"hero-next btn btn-primary index-skill-download" %> </br>
-                    <% if !current_user.nil? %>
-                      <%= link_to 'Submit Your Answers <i class="icon-cloud-upload"></i>'.html_safe, "/users/#{current_user.id}" %>
-                    <% else %>
-                      <%= link_to 'Sign In to Submit Your Answers', new_user_registration_path %>
-                    <% end %>
+                    <% if !tutorial.blank_quizzes.first.nil? %>
+                      <%= link_to 'Skill Assessment <i class="icon-cloud-download"></i>'.html_safe, tutorial.blank_quizzes.first.url, :target => "_blank", :class=>"hero-next btn btn-primary index-skill-download" %> </br>
+                      <% if !current_user.nil? %>
+                        <%= link_to 'Submit Your Answers <i class="icon-cloud-upload"></i>'.html_safe, "/users/#{current_user.id}" %>
+                      <% else %>
+                        <%= link_to 'Sign In to Submit Your Answers', new_user_registration_path %>
+                      <% end %>
+                    <% end %> 
 
 
                     <% end %>
@@ -155,10 +157,10 @@
   </div>
   </div>
 
-  <div class="section intro"><a name="how-it-works"></a>
+  <div class="section intro" id="how-it-works">
     <div class="container">
     <div class="content">
-      <h3 class="white"><a class="anchor-navigation white">How it Works</a></h3>
+      <h3 class="white">How it Works</h3>
       <div class="row">
         <div class="span3 how-it-works">
           
@@ -201,10 +203,10 @@
   </div>
 
 </div>
-  <div class="section"><a id="about"></a>
+  <div class="section" id="about">
     <div class="container">
     <div class="content">  
-    <h3 class="dark"><a class="anchor-navigation">About</a></h3>
+    <h3 class="dark">About</h3>
     <div class="row">
       <div class="span11">
         <h3>We Teach You Microsoft Excel</h3>

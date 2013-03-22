@@ -50,8 +50,9 @@ $('document').ready(function() {
   //   return false;
   // });
 
-  $('em.icon').popover({trigger:"hover",
+  $('.popover-icons').popover({trigger:"hover",
                   placement:"left",
+                  html: true,
   });
 
 });

@@ -85,16 +85,16 @@ class QuizzesController < ApplicationController
       end
     end
 
-    @quiz.status = 1
+    title = @quiz.title
 
     @quiz.save
 
     respond_to do |format|
       if @quiz.save
-        UserMailer.upload_notification_email(@user).deliver
+        # UserMailer.upload_notification_email(@user).deliver
         AdminMailer.admin_upload_notification_email(@quiz, @user).deliver
 
-        format.html { redirect_to @user, notice: 'Your Skill Assessment was successfully uploaded.  We will review your responses and follow up with an email.' }
+        format.html { redirect_to @user, notice: 'Your Skill Assessment was successfully uploaded and reviewed.  Check the status in the table below for your results!' }
         format.json { render json: @user, status: :created, location: @quiz }
       elsif @quiz.errors.any?
         flash[:error] = 'Please make sure that you selected a file that ends in ".xlsx" and that is under 50 KB in size. Also please check that you selected a topic.'
