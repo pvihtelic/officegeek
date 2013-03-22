@@ -1,16 +1,16 @@
 Officegeek::Application.routes.draw do
   
-  resources :quizzes do
+  resources :quizzes, :except => [:index, :new, :edit, :destroy] do
     collection do
       delete 'destroy_multiple'
     end
   end
 
-  resources :topics
+  resources :topics, :except => [:index, :new, :edit, :destroy]
 
-  resources :tutorials
+  resources :tutorials, :except => [:index, :new, :edit, :destroy]
 
-  resources :packages
+  resources :packages, :except => [:index, :new, :edit, :destroy]
 
 
   get "/index" => "home#index", :as=>"index"
@@ -33,9 +33,9 @@ Officegeek::Application.routes.draw do
   
   devise_for :users, :controllers => { :registrations => "registrations" }
   
-  resources :users do
+  resources :users, :except => [:index, :destroy] do
     get 'invite', :on => :member
-    resources :quizzes
+    resources :quizzes, :except => [:index, :new, :edit, :destroy]
   end
 
 end
