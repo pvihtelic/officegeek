@@ -41,7 +41,7 @@ tutorials = [
 
 topics = [
 	{:tutorial_id => 1, :title => "Intro", :description => "Introduction and overview of Microsoft Excel with a discussion on uses.", :length => 2, :topic_path => "http://s3.amazonaws.com/officescholar/intro_to_excel_starting_from_scratch_intro.m4v"},
-	{:tutorial_id => 1, :title => "Accessing Excel", :description => "Learn how to open Excel multiple ways including creating a desktop shortcut.", :length => 1, :topic_path => "http://s3.amazonaws.com/officescholar/intro_to_excel_starting_from_scratch_accessing_excel.m4v"},
+	{:tutorial_id => 1, :title => "Accessing Excel", :description => "Learn how to open Excel multiple ways including creating a desktop shortcut.", :length => 1, :topic_path => "http://s3.amazonaws.com/officescholar/intro_to_excel_starting_from_scratch_accessing_excel.m4v"},	
 	{:tutorial_id => 1, :title => "Navigation", :description => "Explanation of Excel windows and introduction to navigating the ribbon interface.", :length => 2, :topic_path => "http://s3.amazonaws.com/officescholar/intro_to_excel_starting_from_scratch_navigating_excel.m4v"},
 	{:tutorial_id => 1, :title => "Open and Save", :description => "Walk through discussing how to open a file in Excel from within the program, how to save a file and how to close out of the program.", :length => 2, :topic_path => "http://s3.amazonaws.com/officescholar/intro_to_excel_starting_from_scratch_opening_saving_closing.m4v"},
 	{:tutorial_id => 1, :title => "Keyboard Shortcuts", :description => "Useful keyboard shortcuts that will save you a ton of time and effort over the long haul.", :length => 4, :topic_path => "http://s3.amazonaws.com/officescholar/intro_to_excel_starting_from_scratch_shortcuts.m4v"},
