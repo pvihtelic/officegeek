@@ -10,7 +10,7 @@
           <div id="myElement">Loading the player...</div>
             <script type="text/javascript">
                 $(document).ready(function(){
-                  jwplayer("myElement").setup({
+                  jwplayer("#myElement").setup({
                       height: 525,
                       width: 900,
                       file: '<%= @topic.topic_path %>',
