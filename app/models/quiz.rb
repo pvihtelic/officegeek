@@ -102,6 +102,9 @@ has_attached_file :quiz_path,
         self.update_attribute(:status, 2)
       end
 
+    
+    ##### SKILL ASSESSMENT 2 #####
+
     elsif self.title.include? 'Worksheet'
       file = Roo::Excelx.new("#{self.quiz_path.queued_for_write[:original].path}")
       if file.sheets[0].to_s.include? 'Grossing'
@@ -111,7 +114,8 @@ has_attached_file :quiz_path,
       else
       end
 
-      if file.default_sheet.to_s.include? 'Grossing'
+      if file.default_sheet.to_s.include? 'Grossing' && !file.cell('A',5).nil?
+        if file.cell('A',5).to_s.include? 'gross'
           self.update_attribute(:question_1, 1)
       else 
           self.update_attribute(:question_1, 0)
