@@ -64,7 +64,7 @@
 						  <tr>
 						    <td><%= link_to "#{blank_quiz.title} <i class='icon-cloud-download'></i>".html_safe, blank_quiz.url, :target => "_blank" %></td>
 						    <td>
-						    	<% @relevant_quiz = @quizzes.where(:blank_quiz_id => blank_quiz.id).last %>
+						    	<% @relevant_quiz = @quizzes.where(:title => blank_quiz.title).last %>
 						    	<% if @relevant_quiz.nil? %>
 						    		Nothing Submitted
 						    	<% else %>
@@ -92,10 +92,10 @@
 
 							    		<% elsif @relevant_quiz.status == 2 %>
 											
-							    			<%= link_to('<i class="icon-envelope icon-large"'.html_safe, '#', :class => "popover-icons", :rel => "popover", :title => "#{pluralize(5 - (@relevant_quiz.question_1 + @relevant_quiz.question_2 + @relevant_quiz.question_3 + @relevant_quiz.question_4 + @relevant_quiz.question_5), "Question")} to Correct Before Passing", "data-content" => "#{render 'layouts/popover_feedback'}") %>
+							    			<%= link_to('<i class="icon-envelope icon-large"'.html_safe, '#', :class => "popover-icons", :rel => "popover", :title => "#{pluralize(5 - (@relevant_quiz.question_1 + @relevant_quiz.question_2 + @relevant_quiz.question_3 + @relevant_quiz.question_4 + @relevant_quiz.question_5), "Question")} to Fix Before Passing", "data-content" => "#{render 'layouts/popover_feedback'}") %>
 
 							    	
-							    		<% elsif @quizzes.where(:blank_quiz_id => blank_quiz.id).last.status == 3  %>
+							    		<% elsif @relevant_quiz.status == 3  %>
 
 							    			<%= link_to('<i class="icon-trophy icon-large"'.html_safe, '#', :class => "popover-icons", :rel => "popover", :title => "Congratulations, You Passed!", "data-content" => "You completed the #{@relevant_quiz.title.html_safe} Skill Assessment!  We'll be adding more skill assessments soon so please check back!") %>
 
@@ -104,8 +104,8 @@
 							    	<% end %>
 						    	</td>
 						    	<td>
-						    		<% if !@quizzes.find_by_blank_quiz_id(blank_quiz.id).nil? %>
-						    		<%= link_to '<i class="icon-trash icon-large"'.html_safe, destroy_multiple_quizzes_path(:quiz => @quizzes.where(:blank_quiz_id => blank_quiz.id).map(&:id)), method: :delete, data: { confirm: "Are you sure you want to permanently delete your #{@quizzes.find_by_blank_quiz_id(blank_quiz.id).title} Skill Assessment?  It will not be recoverable." } %>
+						    		<% if !@relevant_quiz.nil? %>
+						    		<%= link_to '<i class="icon-trash icon-large"'.html_safe, destroy_multiple_quizzes_path(:quiz => @quizzes.where(:title => @relevant_quiz.title).map(&:id)), method: :delete, data: { confirm: "Are you sure you want to permanently delete your #{@relevant_quiz.title} Skill Assessment?  It will not be recoverable." } %>
 						    		<% end %>
 						    	</td>
 						    		

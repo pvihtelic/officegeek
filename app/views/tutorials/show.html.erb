@@ -2,11 +2,7 @@
   <div class="container">
     
       <div class="show-span first-show">
-        <h3 class="dark show top-show"><%= @tutorial.title %> <small>| <%= @tutorial.length %> minute screencast | <% if @tutorial.package.title == "Introduction to Excel" %>
-                <%= "Beginner" %>
-                <% else %>
-                <%= "Intermediate" %>
-                <% end %> </small></h3>
+        <h3 class="dark show top-show"><%= @tutorial.title %> <small>| <%= @tutorial.length %> minute screencast</small></h3>
           <div id="myElement">Loading the player...</div>
             <script type="text/javascript">
                 $(document).ready(function(){
@@ -21,11 +17,11 @@
             </script>
           <div class="tutorial-show-span-pull-left">
             <h3 class="dark show below-video">Series
-              <% if @tutorial.package.id == 2 %> 
-                  #<%= @tutorial.id - @tutorial.package.tutorials.count %>
+              <% if (@tutorial.id - @first_tutorial.id) > 1 %> 
+                  #<%= @tutorial.id - @first_tutorial.id + 1 %>
                 <% else %> 
-                  #<%= @tutorial.id %>
-              <% end %> - <%= @tutorial.package.title %></h3>
+                  #1
+              <% end %></h3>
           </div>
           <div class="download-span-pull-right">      
             

@@ -9,10 +9,10 @@ class HomeController < ApplicationController
     end
     @packages = Package.all
     @tutorials = Tutorial.all
-    @topics_preview = Topic.where(:id => [3,5,21,41,38,36])
+    @topics_preview = Topic.where(:title => ["Navigation","Keyboard Shortcuts","IF Statements","Sorting","VLOOKUP","Creating a Pivot Table"])
     @topics = Topic.all
-    @intro_tutorials = Tutorial.where(:package_id=>1)
-    @intermediate_tutorials = Tutorial.where(:package_id=>2)
+    # @intro_tutorials = Tutorial.where(:package_id=>1)
+    # @intermediate_tutorials = Tutorial.where(:package_id=>2)
    end
 
   	def faq

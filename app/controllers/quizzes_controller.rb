@@ -57,31 +57,32 @@ class QuizzesController < ApplicationController
   def create
     @user = current_user
     @quiz = Quiz.new(params[:quiz])
+    @tutorial = Tutorial.first
     if !params[:quiz][:title].nil?
-      if params[:quiz][:title].include? "Scratch"
-        @quiz.tutorial_id = 1
-        @quiz.blank_quiz_id = 1
-      elsif params[:quiz][:title].include? "Worksheets"
-        @quiz.tutorial_id = 2
-        @quiz.blank_quiz_id = 2
-      elsif params[:quiz][:title].include? "Intro to Formulas"
-        @quiz.tutorial_id = 3
-        @quiz.blank_quiz_id = 3
-      elsif params[:quiz][:title].include? "Intro to Formatting"
-        @quiz.tutorial_id = 4
-        @quiz.blank_quiz_id = 4
-      elsif params[:quiz][:title].include? "Charts"
-        @quiz.tutorial_id = 5
-        @quiz.blank_quiz_id = 5
-      elsif params[:quiz][:title].include? "Sorting and Filtering"
-        @quiz.tutorial_id = 6
-        @quiz.blank_quiz_id = 6
-      elsif params[:quiz][:title].include? "Pivot Tables"
-        @quiz.tutorial_id = 7
-        @quiz.blank_quiz_id = 7
-      elsif params[:quiz][:title].include? "Printing"
-        @quiz.tutorial_id = 8
-        @quiz.blank_quiz_id = 8
+      if params[:quiz][:title].include? "Getting"
+        @quiz.tutorial_id = @tutorial.id
+        @quiz.blank_quiz_id = @tutorial.id
+      elsif params[:quiz][:title].include? "Worksheet"
+        @quiz.tutorial_id = @tutorial.id + 1
+        @quiz.blank_quiz_id = @tutorial.id + 1
+      elsif params[:quiz][:title].include? "formula"
+        @quiz.tutorial_id = @tutorial.id + 2
+        @quiz.blank_quiz_id = @tutorial.id + 2
+      elsif params[:quiz][:title].include? "formatting"
+        @quiz.tutorial_id = @tutorial.id + 3
+        @quiz.blank_quiz_id = @tutorial.id + 3
+      elsif params[:quiz][:title].include? "charts"
+        @quiz.tutorial_id = @tutorial.id + 4
+        @quiz.blank_quiz_id = @tutorial.id + 4
+      elsif params[:quiz][:title].include? "sorting"
+        @quiz.tutorial_id = @tutorial.id + 5
+        @quiz.blank_quiz_id = @tutorial.id + 5
+      elsif params[:quiz][:title].include? "pivot"
+        @quiz.tutorial_id = @tutorial.id + 6
+        @quiz.blank_quiz_id = @tutorial.id + 6
+      elsif params[:quiz][:title].include? "print"
+        @quiz.tutorial_id = @tutorial.id + 7
+        @quiz.blank_quiz_id = @tutorial.id + 7
       end
     end
 
@@ -147,7 +148,7 @@ class QuizzesController < ApplicationController
     Quiz.destroy(params[:quiz])
 
     respond_to do |format|
-      format.html { redirect_to "/users/#{current_user.id}" }
+      format.html { redirect_to "/users/#{current_user.id}", notice: "Your quiz was successfully deleted." }
       format.json { head :no_content }
     end
   end

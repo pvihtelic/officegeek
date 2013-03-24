@@ -34,7 +34,7 @@ has_attached_file :quiz_path,
   }
 
   def grade_skill_assessment
-    if self.title.include? 'Scratch'
+    if self.title.include? 'Getting'
       file = Roo::Excelx.new("#{self.quiz_path.queued_for_write[:original].path}")
       file.default_sheet = file.sheets.first
       
@@ -102,7 +102,79 @@ has_attached_file :quiz_path,
         self.update_attribute(:status, 2)
       end
 
-    end
+    elsif self.title.include? 'Worksheet'
+      file = Roo::Excelx.new("#{self.quiz_path.queued_for_write[:original].path}")
+      if file.sheets[0].to_s.include? 'Grossing'
+          file.default_sheet = file.sheets[0]
+      elsif !file.sheets[1].nil?
+          file.default_sheet = file.sheets[0]
+      else
+      end
+
+      if file.default_sheet.to_s.include? 'Grossing'
+          self.update_attribute(:question_1, 1)
+      else 
+          self.update_attribute(:question_1, 0)
+      end
+
+      if !file.cell('B',5).nil? && !file.cell('B',8).nil?
+        if file.cell('B',5).to_s.include?('Title') && file.cell('B',8).to_s.include?('Avenger')
+          self.update_attribute(:question_2, 1)
+        else 
+          self.update_attribute(:question_2, 0)
+        end
+      else
+        self.update_attribute(:question_2, 0)
+      end
+
+      if !file.cell('A',5).nil? && !file.cell('A',8).nil?
+        if file.cell('A',5).to_s.include?('Rank') && file.cell('A',8).to_s.include?('3')
+          self.update_attribute(:question_3, 1)
+        else 
+          self.update_attribute(:question_3, 0)
+        end
+      else
+        self.update_attribute(:question_3, 0)
+      end
+
+      if !file.cell('B',10).nil? && !file.cell('A',15).nil?
+        if file.cell('B',10).to_s.include?('Transformer') && file.cell('A',15).to_s.include?('10')
+          self.update_attribute(:question_4, 1)
+        else 
+          self.update_attribute(:question_4, 0)
+        end
+      else
+        self.update_attribute(:question_4, 0)
+      end
+
+      if !file.cell('C',5).nil? && !file.cell('C',15).nil?
+        if file.cell('C',5).to_s.include?('gross') && file.excelx_value('C',15).to_s.include?('171')
+          self.update_attribute(:question_5, 1)
+        else 
+          self.update_attribute(:question_5, 0)
+        end
+      else
+        self.update_attribute(:question_5, 0)
+      end
+
+      score_array = []
+      score_array << self.question_1.to_i
+      score_array << self.question_2.to_i
+      score_array << self.question_3.to_i
+      score_array << self.question_4.to_i
+      score_array << self.question_5.to_i
+
+      if score_array.inject{|sum,x| sum + x } == 5
+        self.update_attribute(:status, 3)
+      else
+        self.update_attribute(:status, 2)
+      end
+
+
+    end  
+  
+  
+  
   end
 
 
