@@ -117,8 +117,9 @@ has_attached_file :quiz_path,
       if file.default_sheet.to_s.include? 'Grossing' && !file.cell('A',5).nil?
         if file.cell('A',5).to_s.include? 'gross'
           self.update_attribute(:question_1, 1)
-      else 
+        else 
           self.update_attribute(:question_1, 0)
+        end
       end
 
       if !file.cell('B',5).nil? && !file.cell('B',8).nil?
