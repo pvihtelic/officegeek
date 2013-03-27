@@ -1,5 +1,16 @@
 Officegeek::Application.routes.draw do
   
+  require 'gollum/frontend/app'
+
+  
+
+  Precious::App.set(:gollum_path, Rails.root.join('wiki').to_s)
+  Precious::App.set(:default_markup, :markdown) # set your favorite markup language
+  Precious::App.set(:wiki_options, {:universal_toc => false})
+  mount Precious::App, at: 'wiki'
+
+
+
   resources :quizzes, :except => [:index, :new, :edit, :destroy] do
     collection do
       delete 'destroy_multiple'
