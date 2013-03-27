@@ -15,11 +15,11 @@ class TutorialsController < ApplicationController
   def show
     @tutorial = Tutorial.find(params[:id])
     @first_tutorial = Tutorial.first
-    if @tutorial.id == Tutorial.maximum("id")
-      @next_tutorial = Tutorial.find(1)
-    else 
-      @next_tutorial = Tutorial.find(@tutorial.id + 1)
-    end
+    # if @tutorial.id == Tutorial.maximum("id")
+    #   @next_tutorial = Tutorial.find(1)
+    # else 
+    #   @next_tutorial = Tutorial.find(@tutorial.id + 1)
+    # end
 
     @user = current_user
     if !@user.nil?
