@@ -15,11 +15,11 @@ class TopicsController < ApplicationController
   def show
     @topic = Topic.find(params[:id])
     @first_topic = Topic.first
-    if @topic.id == Topic.maximum("id")
-      @next_topic = Topic.find(1)
-    else 
-      @next_topic = Topic.find(@topic.id + 1)
-    end
+    # if @topic.id == Topic.maximum("id")
+    #   @next_topic = Topic.find(1)
+    # else 
+    #   @next_topic = Topic.find(@topic.id + 1)
+    # end
     
     @user = current_user
     if !@user.nil?
