@@ -175,6 +175,77 @@ has_attached_file :quiz_path,
         self.update_attribute(:status, 2)
       end
 
+    ##### SKILL ASSESSMENT 3 #####
+
+    elsif self.title.include? 'Formula'
+      file = Roo::Excelx.new("#{self.quiz_path.queued_for_write[:original].path}")
+      file = Roo::Excelx.new("#{self.quiz_path.queued_for_write[:original].path}")
+      file.default_sheet = file.sheets.first
+      
+      if !file.cell('B',16).nil?
+        if file.formula('B',16).to_s.include?('+') && file.excelx_value('B',16).to_s.include?('398')
+          self.update_attribute(:question_1, 1)
+        else 
+          self.update_attribute(:question_1, 0)
+        end
+      else
+        self.update_attribute(:question_1, 0)
+      end
+
+      if !file.cell('B',26).nil?
+        if file.formula('B',26).to_s.include?('*') && file.excelx_value('B',26).to_s.include?('10')
+          self.update_attribute(:question_2, 1)
+        else 
+          self.update_attribute(:question_2, 0)
+        end
+      else
+        self.update_attribute(:question_2, 0)
+      end
+
+      if !file.cell('D',34).nil? && !file.cell('D',35).nil? && !file.cell('D',36).nil? && !file.cell('D',37).nil?
+        if file.formula('D',34).to_s.include?('COUNT') && file.excelx_value('D',34).to_s.include?('9') && file.formula('D',35).to_s.include?('SUM') && file.excelx_value('D',35).to_s.include?('841') && file.formula('D',36).to_s.include?('AVERAGE') && file.excelx_value('D',36).to_s.include?('93') && file.formula('D',37).to_s.include?('MEDIAN') && file.excelx_value('D',37).to_s.include?('64');
+          self.update_attribute(:question_3, 1)
+        else 
+          self.update_attribute(:question_3, 0)
+        end
+      else
+        self.update_attribute(:question_3, 0)
+      end
+
+      if !file.cell('B',48).nil?
+        if file.formula('B',48).to_s.include?('IF') && file.formula('B',48).to_s.include?('A33')
+          self.update_attribute(:question_4, 1)
+        else 
+          self.update_attribute(:question_4, 0)
+        end
+      else
+        self.update_attribute(:question_4, 0)
+      end
+
+      if !file.cell('B',55).nil?
+        if file.formula('B',55).to_s.include?('IF') && file.formula('B',55).to_s.include?('250') && file.excelx_value('B',55).to_s.include?('SELL')
+          self.update_attribute(:question_5, 1)
+        else 
+          self.update_attribute(:question_5, 0)
+        end
+      else
+        self.update_attribute(:question_5, 0)
+      end
+
+
+
+      score_array = []
+      score_array << self.question_1.to_i
+      score_array << self.question_2.to_i
+      score_array << self.question_3.to_i
+      score_array << self.question_4.to_i
+      score_array << self.question_5.to_i
+
+      if score_array.inject{|sum,x| sum + x } == 5
+        self.update_attribute(:status, 3)
+      else
+        self.update_attribute(:status, 2)
+      end
 
     end  
   
