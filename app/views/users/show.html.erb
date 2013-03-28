@@ -68,7 +68,7 @@
 						    	<% if @relevant_quiz.nil? %>
 						    		Nothing Submitted
 						    	<% else %>
-						    		<%= link_to("#{@relevant_quiz.quiz_path_file_name}", @relevant_quiz.quiz_path.expiring_url(60), :target => "_blank") %>
+						    		<%= @relevant_quiz.quiz_path_file_name %>
 						    	<% end %>
 						    </td>
 						    	
