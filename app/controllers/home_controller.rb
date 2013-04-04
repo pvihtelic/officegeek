@@ -28,6 +28,12 @@ class HomeController < ApplicationController
       @tutorials = Tutorial.all
     end
 
+    def company_example
+      @topics = Topic.all
+      @tutorials = Tutorial.all
+    end
+
+
     prepend_before_filter :require_no_authentication, :only => [ :new, :create ]
     prepend_before_filter :allow_params_authentication!, :only => :create
     prepend_before_filter { request.env["devise.skip_timeout"] = true }

@@ -25,6 +25,7 @@ Officegeek::Application.routes.draw do
 
 
   get "/index" => "home#index", :as=>"index"
+  get "/company_example" => "home#company_example", :as=>"company_example"
   get "/faq" => "home#faq", :as=>"faq"
   get "/about" => "home#about", :as=>"about"
   get "/privacy_policy" => "home#privacy_policy", :as=>"privacy_policy"

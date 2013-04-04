@@ -26,14 +26,20 @@
         <%= link_to '' %>
         </li>
         <li>
-        <%= link_to 'Our Excel Tutorials', root_path(:controller => "home", :anchor => "our-excel-tutorials") %>
+        <%= link_to 'Free Excel Tutorials', topics_url %>
         </li>
         <li>
-        <%= link_to 'How it Works', root_path(:controller => "home", :anchor => "how-it-works") %>
+        <%= link_to 'About Us', about_url %>
         </li>
+        <% if signed_in? %>        
         <li>
-        <%= link_to('About', root_path(:controller => 'home', :anchor => 'about')) %>
+          <%= link_to('Submit a Skill Assessment', "/users/#{current_user.id}") %>
         </li>
+        <% else %>
+        <li>
+          <%= link_to('Submit a Skill Assessment', "/users/new_user_registration_path") %>
+        </li>
+        <% end %>
     </ul>
 
 <% end %>

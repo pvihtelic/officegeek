@@ -37,7 +37,7 @@
               <li class="course-summary-list">
                 <div class="homepage-icon-left">
                   <div class="inside-homepage-icon-left">
-                    <i class="icon-lightbulb icon-4x"></i>
+                    <%= link_to '<i class="icon-lightbulb icon-4x"></i>'.html_safe, "/users/sign_up" %>
                   </div>
                   <div class="inside-homepage-icon-text">
                     <h4 class="inside-homepage-icon-left-heading">Become a productive Excel whiz.</h4>
@@ -109,9 +109,9 @@
         <div class="row">
           <div class="span11 corporate-training-container">
             <div class="span3 left-corporate-training-container">
-              <h4 class="left-corportate-training-text">We help you determine what training material you need, then we produce it and make it available to your employees.</h4>
-              <h4 class="left-corportate-training-text">On-demand instructional screencasts tailored to your business.</h4>
-              <h4 class="left-corportate-training-text">Proprietary Excel skill assessments.</h4>
+              <h4 class="left-corportate-training-text">We help you determine what training material you need.</h4>
+              <h4 class="left-corportate-training-text">We produce the screencasts and reference files for you.</h4>
+              <h4 class="left-corportate-training-text">We host the all of the content in a secure repository that your employees can access.</h4>
             </div>
 
             <div class="span7 right-corporate-training-container">
@@ -121,7 +121,7 @@
                     jwplayer("myElement").setup({
                         height: 336,
                         width: 576,
-                        file: '',
+                        file: 'http://s3.amazonaws.com/officescholar/officescholar_promo.m4v',
                         volume: 75,
                         controlbar: "bottom",
                     });              
@@ -138,7 +138,7 @@
     
 
     <div class="span11 link-to-next">
-      <%= link_to 'Make Cash by Referring Us', "#", :id => "next3", :class=>"btn btn-primary btn-large" %>
+      <%= link_to 'Make Cash by Referring Us to Your Company', "#", :id => "next3", :class=>"btn btn-primary btn-large" %>
     </div>  
       
   </div>
@@ -172,7 +172,45 @@
     <h1 class="dark after-fixed-nav" id="sticky-header-below">Training Resources and Excel Skill Assessments</h1>
     <h4>Don't let your employees struggle with software - show them how to use it!</h4>
     <div class="row">
+      <div class="span11 training-resources-and-skill-assessments-first">
+        <div class="span5">
+          <h4>Secure Access</h4>
+          <p>Dedicated domain with employee authentication.  Just give a list of email addresses and we'll set up your company's portal.</p>
+
+          <h4>Available 24/7</h4>
+          <p>Employees can reference helpful screencasts and training material on-demand from anywhere in the world.</p>
+        </div>
+        <div class="span5 screenshot first-screenshot">
+
+        </div>
+      </div>
+    </div>  
+
+    <div class="row">
+      <div class="span11 training-resources-and-skill-assessments">
+        <div class="span5 screenshot second-screenshot">
+          
+        </div>
+        <div class="span5">
+          <h4>Screencast Tutorials and Reference Material</h4>
+          <p>Video tutorials and reference files tailored to your business.  Give your employees an easy way to master their software skills using files relevant to their job.</p>
+
+          <h4>Optional Wiki</h4>
+          <p>Get employees engaged with reference material they can update to help others facing similar problems.</p>
+
+        </div>
+      </div>
+    </div>  
+
+    <div class="row">
       <div class="span11">
+        <div class="span5">
+          <h4>Proprietary Excel-Based Skill Assessments</h4>
+          <p>Test a candidate's job readiness before hiring.  We can create a skill assessment appropriate for the position.  After the candidate securely submits the Excel-based skill assessment, we'll email you the results immediately.</p>
+        </div>
+        <div class="span5 screenshot third-screenshot">
+
+        </div>
         
       </div>
     </div>  

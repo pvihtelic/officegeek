@@ -281,8 +281,6 @@ form {
 	box-shadow: 2px 2px 1px rgba(0,0,0,.5);
 	width: 265px;
 	height: 265px;
-	border-radius:10px;
-	-moz-border-radius:10px;
 }
 
 .course-summary.upload-container {
@@ -305,6 +303,10 @@ form {
 	padding-right: 5px;
 	padding-left: 10px;
 	padding-bottom: 10px;
+}
+
+.span2.course-summary.topic-tile.topic-tile-index.company-example-tile {
+	height: 85px;
 }
 
 .course-summary.topic-tile.topic-tile-index {
@@ -750,7 +752,7 @@ h3.dark.show-package-left {
 }
 
 .alert {
-	margin-top: 30px;
+	margin-top: 60px;
 	margin-bottom: 10px;
 }
 
@@ -1076,4 +1078,45 @@ div#how-it-works.section.intro.section_3 {
 
 a#next1.hero-next.btn.btn-primary.btn-large {
 	margin-top: 0;
+}
+
+.span11.training-resources-and-skill-assessments-first {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.span11.training-resources-and-skill-assessments {
+	margin-bottom: 50px;
+}
+
+.span5.screenshot {
+	
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-box-shadow: 2px 2px 1px rgba(0,0,0,.5);
+	-moz-box-shadow: 2px 2px 1px rgba(0,0,0,.5);
+	box-shadow: 2px 2px 1px rgba(0,0,0,.5);
+	height: 200px;
+
+}
+
+.span5.screenshot.first-screenshot {
+	background: url('login.png');
+	height: 200px;
+	width: 310px;
+}
+
+.span5.screenshot.second-screenshot {
+	background: url('tutorials.png');
+
+}
+
+.span5.screenshot.third-screenshot {
+	background: url('skill_assessment.png');
+	height: 200px;
+}
+
+.dark.show.package.after-fixed-nav {
+	margin-top: 75px;
 }

@@ -1,0 +1,62 @@
+<div class="container">
+        <div class="content">
+        <h3 class="dark after-fixed-nav" id="sticky-header-below">Scranton Paper, Inc. - Excel Help</h3>
+
+        <div class="row">
+          <div class="span11">
+            <ul class="ul-index-row">
+              <% @tutorials.last(2).each do |tutorial| %>
+              <li class="course-summary-list">
+                <div class="tutorial-row-container">
+                  <div class="span4 left-home-container index-tutorials-left">
+                  <%= link_to(tutorial_url(tutorial.id), :class => "link-tutorial-summary-title") do %>
+                    <h3><%= tutorial.title %></h3>
+                    <p><%= tutorial.topics.count %> lessons | <%=tutorial.topics.map(&:length).sum %> minutes total</p>
+                    <p><%= tutorial.description %></p>
+                    <% if !tutorial.blank_quizzes.first.nil? %>
+                      <%= link_to 'Skill Assessment <i class="icon-cloud-download"></i>'.html_safe, tutorial.blank_quizzes.first.url, :target => "_blank", :class=>"hero-next btn btn-primary index-skill-download" %> </br>
+                      <% if !current_user.nil? %>
+                        <%= link_to 'Submit Your Answers <i class="icon-cloud-upload"></i>'.html_safe, "/users/#{current_user.id}" %>
+                      <% else %>
+                        <%= link_to 'Sign In to Submit Your Answers', new_user_registration_path %>
+                      <% end %>
+                    <% end %> 
+
+
+                    <% end %>
+                  </div>
+                  <div class="span4 right-home-container index-tutorials-right">
+                    <ul>
+                    <% tutorial.topics.each do |topic| %>
+                      <li class="course-summary-list">
+                          <%= link_to(topic_url(topic.id)) do %> 
+                          <div class="span2 course-summary topic-tile topic-tile-index company-example-tile">
+                                <div class="play-icon-container">
+                                  <i class="icon-play-circle icon-2x"></i>
+                                </div>
+                                <div class="topic-tile-details">
+                                  <% if topic.length > 0 %>
+                                    <small><%= topic.length %> min.</small>
+                                  <% else %>
+                                    <small>&lt;1 min.</small>
+                                  <% end %>
+                                </div>
+                                <h6><%= topic.title %></h6>
+                                <small> <%= topic.tutorial.title %> </small>
+                          </div>
+                          <% end %>      
+                      </li>
+                    <% end %>
+                  </ul>
+                  </ul>
+                  </div>  
+
+
+
+                </div>  
+              </li>
+              <% end %>
+            </ul>  
+</div>  
+</div>  
+</div>  
