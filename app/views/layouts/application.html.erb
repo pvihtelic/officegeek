@@ -22,10 +22,34 @@
 
     <% if @home_banner %>
 
-    <script type="text/javascript">
+
+    <script type="text/javascript">    
     
+      function sticky_relocate() {
+        var window_top = $(window).scrollTop();
+        var div_top = $('#sticky-anchor').offset().top;
+        if (window_top > div_top) {
+          $('#sticky').addClass('stick');
+          $('#sticky-header-below').addClass('stick-fix');
+        } else {
+          $('#sticky').removeClass('stick');
+          $('#sticky-header-below').removeClass('stick-fix');
+        }
+      }
+
+      $(function() {
+        $(window).scroll(sticky_relocate);
+        sticky_relocate();
+      });
+
+    </script>
+
+
+
+    <script type="text/javascript">
     $(document).ready(function(){
       
+
       // initiate page scroller plugin
       $('#wrapper').pageScroller({
         navigation: '#nav'
@@ -101,13 +125,23 @@
     if (typeof GSFN !== "undefined") { GSFN.loadWidget(4978,{"containerId":"getsat-widget-4978"}); }
     </script>
   <body class="<%= controller_name %> <%= action_name %>">
-    <header class="navbar navbar-fixed-top">
-      <nav class="navbar-inner">
-        <div class="container">
-          <%= render 'layouts/navigation' %>
-        </div>
-      </nav>
-    </header>
+
+
+    <% if !@home_banner %>
+
+      <header class="navbar navbar-fixed-top">
+        <nav class="navbar-inner">
+          <div class="container">
+            <%= render 'layouts/navigation' %>
+          </div>
+        </nav>
+      </header>
+
+    <% else %>
+
+
+    <% end %>
+
     <div id="main" role="main">
       
         <%= render 'layouts/messages' %>
@@ -116,6 +150,8 @@
             <div class="footer-container">
               <div class="container">
                 <ul class="footer-list">
+                  <li class="footer-list"><%= link_to "Free Excel Screencasts", topics_url %></li>
+                  <li class="footer-list"><%= link_to "About Us", about_url %></li>
                   <li class="footer-list"><%= link_to "FAQ", faq_url %></li>
                   <li class="footer-list"><%= link_to "Privacy Policy", "/privacy_policy" %></li>
                 </ul>

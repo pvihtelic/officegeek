@@ -1,28 +1,83 @@
-<h1>Listing topics</h1>
+<div class="container">
+        <div class="content">
+        <h3 class="dark after-fixed-nav" id="sticky-header-below">Our Free Excel Screencasts</h3>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Length</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+        <div class="row">
+          <div class="span11">
+            <ul class="ul-index-row">
+              <% @tutorials.each do |tutorial| %>
+              <li class="course-summary-list">
+                <div class="tutorial-row-container">
+                  <div class="span4 left-home-container index-tutorials-left">
+                  <%= link_to(tutorial_url(tutorial.id), :class => "link-tutorial-summary-title") do %>
+                    <h3><%= tutorial.title %></h3>
+                    <p><%= tutorial.topics.count %> lessons | <%=tutorial.topics.map(&:length).sum %> minutes total</p>
+                    <p><%= tutorial.description %></p>
+                    <% if !tutorial.blank_quizzes.first.nil? %>
+                      <%= link_to 'Skill Assessment <i class="icon-cloud-download"></i>'.html_safe, tutorial.blank_quizzes.first.url, :target => "_blank", :class=>"hero-next btn btn-primary index-skill-download" %> </br>
+                      <% if !current_user.nil? %>
+                        <%= link_to 'Submit Your Answers <i class="icon-cloud-upload"></i>'.html_safe, "/users/#{current_user.id}" %>
+                      <% else %>
+                        <%= link_to 'Sign In to Submit Your Answers', new_user_registration_path %>
+                      <% end %>
+                    <% end %> 
 
-<% @topics.each do |topic| %>
-  <tr>
-    <td><%= topic.tutorial_id %></td>
-    <td><%= topic.title %></td>
-    <td><%= topic.description %></td>
-    <td><%= topic.length %></td>
-    <td><%= link_to 'Show', topic %></td>
-    <td><%= link_to 'Edit', edit_topic_path(topic) %></td>
-    <td><%= link_to 'Destroy', topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
 
-<br />
+                    <% end %>
+                  </div>
+                  <div class="span4 right-home-container index-tutorials-right">
+                    <ul>
+                    <% tutorial.topics.each do |topic| %>
+                      <li class="course-summary-list">
+                          <%= link_to(topic_url(topic.id)) do %> 
+                          <div class="span2 course-summary topic-tile topic-tile-index">
+                                <div class="play-icon-container">
+                                  <i class="icon-play-circle icon-2x"></i>
+                                </div>
+                                <div class="topic-tile-details">
+                                  <% if topic.length > 0 %>
+                                    <small><%= topic.length %> min.</small>
+                                  <% else %>
+                                    <small>&lt;1 min.</small>
+                                  <% end %>
+                                </div>
+                                <h6><%= topic.title %></h6>
+                                <small> <%= topic.tutorial.title %> </small>
+                          </div>
+                          <% end %>      
+                      </li>
+                    <% end %>
+                  </ul>
+                  </ul>
+                  </div>  
 
-<%= link_to 'New Topic', new_topic_path %>
+
+
+                </div>  
+              </li>
+              <% end %>
+            </ul>  
+
+
+    <div class="row">
+        <div class="span11">  
+          <h3>Curriculum Development</h3>
+          <p>We are constantly adding to our library of screencast tutorials.</p>
+          <p>Soon we will be adding additional Beginner episodes, as well as Intermediate and Advanced Excel screencast tutorials to help you continue to grow your skill set.  If there is anything you'd like to see OfficeScholar cover, <%= mail_to "info@officescholar.com", "let us know!" %></p>
+          <p>Episodes currently being produced:</p>
+          <ul class="course-intro">
+            <li class="course-summary-topics">Goal Seek</li>
+            <li class="course-summary-topics">Formulas II</li>
+            <li class="course-summary-topics">What If Analysis</li>
+            <li class="course-summary-topics">Formatting II</li>
+            <li class="course-summary-topics">Intermediate Pivot Tables</li>
+          </ul>
+        </div>
+      </div>
+
+  </div>
+</div>
+
+</div>
+
+

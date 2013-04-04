@@ -17,7 +17,7 @@ Officegeek::Application.routes.draw do
     end
   end
 
-  resources :topics, :except => [:index, :new, :edit, :destroy]
+  resources :topics, :except => [:new, :edit, :destroy]
 
   resources :tutorials, :except => [:index, :new, :edit, :destroy]
 
@@ -26,6 +26,7 @@ Officegeek::Application.routes.draw do
 
   get "/index" => "home#index", :as=>"index"
   get "/faq" => "home#faq", :as=>"faq"
+  get "/about" => "home#about", :as=>"about"
   get "/privacy_policy" => "home#privacy_policy", :as=>"privacy_policy"
   get "/terms_and_conditions" => "home#terms_and_conditions", :as=>"terms_and_conditions"
   get "/chicago_classes" => "home#chicago_classes", :as=>"chicago_classes"

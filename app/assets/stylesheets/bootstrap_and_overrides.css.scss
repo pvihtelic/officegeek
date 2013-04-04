@@ -1,7 +1,7 @@
 @import "bootstrap";
 
 body { 
-	padding-top: 60px; 
+
 	background: url('subtle_freckles.png'); 	
 	color: black;
 }
@@ -33,7 +33,6 @@ a:hover {
 }
 
 body {
-	padding-top: 30px;
 	font-family: 'Droid Sans', sans-serif;
 }
 
@@ -107,9 +106,16 @@ h3.intro.class-intro {
 	padding: 40px;
 }
 
+.section.intro.section_1 {
+	height: 450px;
+	padding: 0;
+	min-height: 540px;
+}
+
+
 div.section.intro {
   background: url('wild_oliva.png');
-  margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
+  margin-top: 0;
 }
 
 .section-title {
@@ -327,8 +333,8 @@ form {
 }
 
 .form-box.course-summary.course-summary-home {
-	width: 100%;
-	margin-left: 30px;
+	width: 275px;
+	margin-left: 0;
 	margin-top: 60px;
 }
 
@@ -420,7 +426,7 @@ ul {
 h3.dark {
 	border-bottom: 2px solid;
 	border-color: inherit;
-	margin-top: 50px;
+	margin-top: 80px;
 	color: black;
 }
 
@@ -478,27 +484,18 @@ h3.white {
 }
 
 .span3.how-it-works {
-	width: 260px;
+	width: 250px;
 	height: 300px;
 	margin-right: 20px;
-	text-align: center;
 }
 
 .how-it-works-icons-container {
-	margin-top: 80px;
+	margin-top: 5px;
 	margin-right: auto;
 	margin-left: auto;
 	text-align: center;
-	height: 100px;
-	border: 5px solid white;
-	border-radius: 50%;
+	height: 85px;
 	width: 45%;
-	color: white;
-}
-
-.how-it-works-icons-container:hover {
-	color: #ff8000;
-	border: 5px solid #ff8000;
 }
 
 .icon-facetime-video.icon-4x {
@@ -519,13 +516,8 @@ h3.white {
 	line-height: 40px;
 }
 
-.icon-cloud-download.icon-4x, .icon-lightbulb.icon-4x {
-	margin-top: 30px;
-	margin-right: 10px;
-	background-image: none;
-	width: 50px;
-	height: 40px;
-	line-height: 40px;
+.icon-cloud-download.icon-4x, .icon-lightbulb.icon-4x  {
+	margin-top: 0;
 }
 
 .icon-lightbulb.icon-4x {
@@ -557,6 +549,7 @@ ul.course-intro {
 	color: white;
 	background: url('hexabump.png'); 
 	height: 80px;
+	margin-top: 30px;
 }
 
 ul.footer-list {
@@ -767,7 +760,7 @@ h3.dark.show-package-left {
 
 select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
 	margin-bottom: 20px;
-	width: 300px;
+	width: 250px;
 }
 
 .form-actions {
@@ -817,6 +810,7 @@ td.center-td {
 .span4.left-home-container {
 	width: 500px;
 	height: 100%;
+	margin-left: 55px;
 }
 
 .span4.left-home-container.index-tutorials-left {
@@ -832,7 +826,7 @@ td.center-td {
 
 .span4.right-home-container {
 	width: 320px;
-	margin-left: 30px;	
+	margin-left: 20px;	
 	height: 100%;
 	color: black;
 }
@@ -949,4 +943,137 @@ p.p-below-ul {
 select {
 	margin-top: 3px;
 	height: 31px;	
+}
+
+header#sticky {
+	width: 100%;
+	margin-bottom: 0;
+}
+
+#sticky.stick {
+  position: fixed;
+  top: 0;
+  z-index: 10000;
+  width: 100%;
+  margin-bottom: 40px;
+  font-weight: bold;
+  padding-left: 20px;
+}
+
+#sticky-header-below.dark.after-fixed-nav.stick-fix {
+	margin-top: 100px;
+}
+
+h1#sticky-header-below.dark.after-fixed-nav {
+	margin-top: 50px;
+}
+
+.container.nav-home-container {
+	text-align: center;	
+}
+
+.pageScrollerNav.standardNav.right.dark {
+	margin-left: auto;
+	margin-right: auto;
+	width: 85%;	
+}
+
+.navbar-inner {
+	padding-right: 0;
+}
+
+.section.section_2 {
+	padding-top: 0;
+	background: url('connect.png'); 	
+}
+
+h3.dark.after-fixed-nav {
+	margin-top: 75px;
+}
+
+h3.dark.after-fixed-nav-about {
+	margin-top: 40px;
+}
+
+ul.nav.home-page-bottom-nav {
+	width: 740px;
+}
+
+.navbar .container {
+	width: 940px;
+}
+
+.homepage-icon-left {
+	width: 400px;
+	height: 50px;
+	display: block;
+	margin-bottom: 33px;
+}
+
+.homepage-icon-left.first-homepage-icon-left {
+	margin-top: 40px;
+}
+
+.inside-homepage-icon-left {
+	display: inline;
+	float: left;
+	width: 100px;
+	hieght: 100px;
+}
+
+.inside-homepage-icon-left-heading {
+	
+	vertical-align: middle;
+	line-height: 18px;
+}
+
+.inside-homepage-icon-text {
+	display: inline;
+	float: right;
+	width: 300px;
+	height: 50px;
+}
+
+.home-page-nav-headers {
+	margin-top: 0;
+}
+
+.span11.corporate-training-container {
+	height: 380px;
+	margin-top: 30px;
+}
+
+
+
+.span7.right-corporate-training-container {
+	height: 100%;
+	padding-top: 10px;
+}
+
+.left-corportate-training-text {
+	margin-bottom: 30px;
+}
+
+.refer-heading {
+	text-align: center;
+	margin-bottom: 30px;
+	margin-left: 0;
+}
+
+.btn.btn-primary.btn-large.refer-heading {
+	margin-left: 240px;
+}
+
+div#how-it-works.section.intro.section_3 {
+	background: url('argyle.png'); 		
+	min-height: 400px;
+	height: 400px;
+}
+
+.section-title.next.refer-next {
+	margin-top: 0;
+}
+
+a#next1.hero-next.btn.btn-primary.btn-large {
+	margin-top: 0;
 }
