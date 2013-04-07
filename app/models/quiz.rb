@@ -225,7 +225,7 @@ has_attached_file :quiz_path,
       end
 
       if !file.cell('B',55).nil?
-        if file.formula('B',55).to_s.include?('IF') && file.formula('B',55).to_s.include?('250') && file.excelx_value('B',55).to_s.include?('SELL')
+        if file.formula('B',55).to_s.include?('IF') && file.formula('B',55).to_s.include?('250') && file.excelx_value('B',55).to_s.include?('BUY')
           self.update_attribute(:question_5, 1)
         else 
           self.update_attribute(:question_5, 0)
