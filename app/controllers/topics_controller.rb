@@ -15,6 +15,7 @@ class TopicsController < ApplicationController
   # GET /topics/1.json
   def show
     @topic = Topic.find(params[:id])
+    @topic_transcript = Transcript.where(:topic_id => @topic.id).first
     @first_topic = Topic.first
     # if @topic.id == Topic.maximum("id")
     #   @next_topic = Topic.find(1)

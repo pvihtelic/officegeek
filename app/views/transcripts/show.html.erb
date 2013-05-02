@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Topic:</b>
+  <%= @transcript.topic_id %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @transcript.content %>
+</p>
+
+
+<%= link_to 'Edit', edit_transcript_path(@transcript) %> |
+<%= link_to 'Back', transcripts_path %>
