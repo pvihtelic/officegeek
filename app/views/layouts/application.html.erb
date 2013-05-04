@@ -11,6 +11,12 @@
     <script src="/jwplayer/jwplayer.html5.js"></script>
     <script src="/jwplayer/jwplayer.flash.swf"></script>
     <script>jwplayer.key="hIbAvrRAgGgkbrXRIBEIQyO3s9tPAvbzYQz7SA=="</script>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-wysihtml5.css"></link>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"></link>
+    <script src="js/wysihtml5-0.3.0.js"></script>
+    <script src="js/jquery-1.7.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-wysihtml5.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
 
@@ -20,84 +26,104 @@
 
     <% if @home_banner %>
 
-
-    <script type="text/javascript">    
-    
-      function sticky_relocate() {
-        var window_top = $(window).scrollTop();
-        var div_top = $('#sticky-anchor').offset().top;
-        if (window_top > div_top) {
-          $('#sticky').addClass('stick');
-          $('#sticky-header-below').addClass('stick-fix');
-        } else {
-          $('#sticky').removeClass('stick');
-          $('#sticky-header-below').removeClass('stick-fix');
+      <script type="text/javascript">    
+      
+        function sticky_relocate() {
+          var window_top = $(window).scrollTop();
+          var div_top = $('#sticky-anchor').offset().top;
+          if (window_top > div_top) {
+            $('#sticky').addClass('stick');
+            $('#sticky-header-below').addClass('stick-fix');
+          } else {
+            $('#sticky').removeClass('stick');
+            $('#sticky-header-below').removeClass('stick-fix');
+          }
         }
-      }
 
-      $(function() {
-        $(window).scroll(sticky_relocate);
-        sticky_relocate();
+        $(function() {
+          $(window).scroll(sticky_relocate);
+          sticky_relocate();
+        });
+
+      </script>
+
+
+
+      <script type="text/javascript">
+      $(document).ready(function(){
+        
+
+        // initiate page scroller plugin
+        $('#wrapper').pageScroller({
+          navigation: '#nav'
+        });
+
+        $('#next1').click(function(e) 
+        {
+          $('#next2').click()
+            e.preventDefault();
+        });
+
+        $('#next1bottom').click(function(e) 
+        {
+          $('#next2').click()
+            e.preventDefault();
+        });
+
+        $('#next1bottom2').click(function(e) 
+        {
+          $('#next2').click()
+            e.preventDefault();
+        });
+
+        $('#next3').click(function(e) 
+        {
+          $('#next4').click()
+            e.preventDefault();
+        });
+
+        $('#next5').click(function(e) 
+        {
+          $('#next6').click()
+            e.preventDefault();
+        });
+
+        if($('#file-field').val() ==  "") 
+           $('#submitButtonId').attr('disabled', true);
+
+        $('#text-field').keyup(function(){
+              if($('#file-field').val() !=  "") 
+                   $('#submitButtonId').attr('disabled', false);    
+          else
+             $('#submitButtonId').attr('disabled', true);   
+        });
+
       });
-
-    </script>
-
-
-
-    <script type="text/javascript">
-    $(document).ready(function(){
-      
-
-      // initiate page scroller plugin
-      $('#wrapper').pageScroller({
-        navigation: '#nav'
-      });
-
-      $('#next1').click(function(e) 
-      {
-        $('#next2').click()
-          e.preventDefault();
-      });
-
-      $('#next1bottom').click(function(e) 
-      {
-        $('#next2').click()
-          e.preventDefault();
-      });
-
-      $('#next1bottom2').click(function(e) 
-      {
-        $('#next2').click()
-          e.preventDefault();
-      });
-
-      $('#next3').click(function(e) 
-      {
-        $('#next4').click()
-          e.preventDefault();
-      });
-
-      $('#next5').click(function(e) 
-      {
-        $('#next6').click()
-          e.preventDefault();
-      });
-
-      if($('#file-field').val() ==  "") 
-         $('#submitButtonId').attr('disabled', true);
-
-      $('#text-field').keyup(function(){
-            if($('#file-field').val() !=  "") 
-                 $('#submitButtonId').attr('disabled', false);    
-        else
-           $('#submitButtonId').attr('disabled', true);   
-      });
-
-    });
-      
-    </script>
+        
+      </script>
 
     <% end %>
+
+    
+    <script type="text/javascript">
+      $('.wysihtml5').each(function(i, elem) {
+        $(elem).wysihtml5();
+      });
+    </script>
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('.wysihtml5').wysihtml5({
+          "font-styles": true, //Font styling, e.g. h1, h2, etc. Default true
+          "emphasis": true, //Italics, bold, etc. Default true
+          "lists": true, //(Un)ordered lists, e.g. Bullets, Numbers. Default true
+          "html": true, //Button which allows you to edit the generated HTML. Default false
+          "link": true, //Button to insert a link. Default true
+          "image": true, //Button to insert an image. Default true,
+          "color": true //Button to change color of font  
+        });
+      });
+    </script>
 
     <script type="text/javascript">
 

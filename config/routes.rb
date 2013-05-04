@@ -1,6 +1,6 @@
 Officegeek::Application.routes.draw do
   
-  resources :transcripts, :except => [:index, :new, :edit, :destroy]
+  resources :transcripts, :except => [:index, :new, :destroy]
 
   # require 'gollum/frontend/app'
 

@@ -85,7 +85,12 @@
             <div class="tab-pane" id="transcript">
               <h3>Text Transcript</h3>
               <% if !@topic_transcript.nil? %>
-                <p><%= @topic_transcript.content %></p>
+                
+                <%= form_for(@topic_transcript) do |f| %> 
+                  <%= f.text_area :content, :value => @topic_transcript.content, class: 'wysihtml5' %>
+                  <%= f.submit 'Submit Edit', class: 'btn btn-primary' %>
+                <% end %>
+
               <% else %>
                 <p>No transcript added yet. Stay tuned please, it will be coming soon!</p>
               <% end %>

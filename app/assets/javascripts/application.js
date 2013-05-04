@@ -16,6 +16,8 @@
 //= require bootstrap
 //= require bootstrap-tooltip.js
 //= require bootstrap-popover.js
+//= require bootstrap-wysihtml5
+//= require bootstrap-wysihtml5/locales
 //= require dataTables/jquery.dataTables
 //= require dataTables/jquery.dataTables.bootstrap
 //= require_tree .
