@@ -104,7 +104,6 @@
 
     <% end %>
 
-    
     <script type="text/javascript">
       $('.wysihtml5').each(function(i, elem) {
         $(elem).wysihtml5();
@@ -126,7 +125,22 @@
     </script>
 
     <script type="text/javascript">
+ 
+    $(document).ready(function(){
+     
+        $(".slidingDiv").hide();
+        $(".show_hide").show();
 
+        $('.show_hide').click(function(){
+        $(".slidingDiv").slideToggle();
+        });
+     
+    });
+     
+    </script>
+
+      
+    <script type="text/javascript">
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-37578376-1']);
       _gaq.push(['_trackPageview']);

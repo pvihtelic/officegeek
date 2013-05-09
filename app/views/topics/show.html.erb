@@ -83,14 +83,17 @@
             </div>
 
             <div class="tab-pane" id="transcript">
-              <h3>Text Transcript</h3>
+              <h3>Text Transcript  <button class='btn show_hide' type='button' id='hideshow' value='hide/show'>Edit</button></h3>
               <% if !@topic_transcript.nil? %>
-                
-                <%= form_for(@topic_transcript) do |f| %> 
-                  <%= f.text_area :content, :value => @topic_transcript.content, class: 'wysihtml5' %>
-                  <%= f.submit 'Submit Edit', class: 'btn btn-primary' %>
-                <% end %>
-
+                <div class="slidingDiv">
+                  <div id='content'>
+                    <%= form_for(@topic_transcript) do |f| %> 
+                      <%= f.text_area :content, :value => @topic_transcript.content, class: 'wysihtml5' %>
+                      <%= f.submit 'Submit Edit', class: 'btn btn-primary submit-edit' %>
+                    <% end %>
+                  </div>
+                </div>
+                <%= @topic_transcript.content.html_safe %>
               <% else %>
                 <p>No transcript added yet. Stay tuned please, it will be coming soon!</p>
               <% end %>
