@@ -93,7 +93,9 @@
                     <% end %>
                   </div>
                 </div>
-                <%= @topic_transcript.content.html_safe %>
+                <div class="div-content-editor">
+                  <%= raw @topic_transcript.content %>
+                </div>
               <% else %>
                 <p>No transcript added yet. Stay tuned please, it will be coming soon!</p>
               <% end %>
